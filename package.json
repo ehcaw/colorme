@@ -1,0 +1,28 @@
+{
+  "name": "colorme",
+  "version": "1.0.0",
+  "description": "customize the color of your browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehcaw/colorme.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "author": "ryan nguyen, froilan zarate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ehcaw/colorme/issues"
+  },
+  "homepage": "https://github.com/ehcaw/colorme#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind": "^4.0.0"
+  }
+}
