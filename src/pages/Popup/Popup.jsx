@@ -1,26 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/img/logo.svg';
 import Greetings from '../../containers/Greetings/Greetings';
+import '../global.css';
 import './Popup.css';
+import 'reinvented-color-wheel/css/reinvented-color-wheel.min.css';
+import ReinventedColorWheel from 'reinvented-color-wheel/react';
 
 const Popup = () => {
+  const [color, setColor] = useState('#00000');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
-    </div>
+    <>
+      <ReinventedColorWheel
+        hex={color}
+        wheelDiameter={200}
+        wheelThickness={20}
+        handleDiameter={16}
+        wheelReflectsSaturation
+        onChange={({ color }) => setColor(color)}
+      />
+    </>
   );
 };
 
