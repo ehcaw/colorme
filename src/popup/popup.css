@@ -59,3 +59,22 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.display-container {
+  justify-content: space-between;
+  font-family: -apple-system-body;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 250px;
+  align-items: center;
+}
+
+.app-name {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
+}
+
+.wheel-div {
+  display: flex;
+  align-items: center;
+}

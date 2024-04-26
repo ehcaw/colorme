@@ -1,24 +1,27 @@
 import { browser } from 'webextension-polyfill-ts';
 
-async function getCurrentThemes() {
-  return await browser.theme.getCurrent();
-}
-
 export let storage = localStorage;
 
-export const themes = {
+type ThemeColor = string;
+interface ThemeType {
+  colors: {
+    frame: ThemeColor | undefined;
+  };
+}
+
+export const themes: { [key: string]: ThemeType } = {
   day: {
     colors: {
       frame: storageAvailable('localStorage')
-        ? localStorage.getItem('day')
-        : '#ffffff',
+        ? localStorage.getItem('day') ?? undefined
+        : '#ffffff', // Assuming white for day
     },
   },
   night: {
     colors: {
       frame: storageAvailable('localStorage')
-        ? localStorage.getItem('night')
-        : '000000',
+        ? localStorage.getItem('night') ?? ''
+        : '000000', // Assuming black for night
     },
   },
 };
@@ -43,6 +46,7 @@ export async function changeMode(theme: { [key: string]: any }, mode: string) {
 }
 
 let currentTheme: { [key: string]: any };
+
 export async function setTheme(
   theme: { [key: string]: any },
   value: string,
@@ -59,6 +63,7 @@ export async function setTheme(
   browser.theme.update(theme[mode]);
   localStorage.setItem(mode, value);
   console.log('local storage updated');
+  document.body.style.backgroundColor = value;
 }
 
 function storageAvailable(type: string) {

@@ -1458,7 +1458,26 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB","sourcesContent":[".switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n"],"sourceRoot":""}]);
+
+.display-container {
+  justify-content: space-between;
+  font-family: -apple-system-body;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 250px;
+  align-items: center;
+}
+
+.app-name {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
+}
+
+.wheel-div {
+  display: flex;
+  align-items: center;
+}
+`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB","sourcesContent":[".switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.display-container {\n  justify-content: space-between;\n  font-family: -apple-system-body;\n  justify-content: center;\n  min-width: 300px;\n  min-height: 250px;\n  align-items: center;\n}\n\n.app-name {\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  text-align: center;\n}\n\n.wheel-div {\n  display: flex;\n  align-items: center;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36047,6 +36066,42 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -36058,12 +36113,13 @@ __webpack_require__(/*! ./popup.css */ "./src/popup/popup.css");
 var background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
 var storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
 var Popup = function () {
-    var _a = (0, react_1.useState)(background_script_1.themes['day'].colors['frame']), hex = _a[0], setHex = _a[1];
-    var _b = (0, react_1.useState)('day'), mode = _b[0], setMode = _b[1];
+    var _a = (0, react_1.useState)(''), mode = _a[0], setMode = _a[1];
+    var _b = (0, react_1.useState)(''), hex = _b[0], setHex = _b[1];
     var onClick = function () {
         setMode(function (prevMode) {
             var newMode = prevMode === 'day' ? 'night' : 'day';
             (0, background_script_1.changeMode)(background_script_1.themes, newMode);
+            setHex(background_script_1.themes[newMode].colors.frame || '#FFFFFF');
             storage_1.default
                 .set({ mode: newMode })
                 .then(function () {
@@ -36074,27 +36130,51 @@ var Popup = function () {
             });
             return newMode; // Return the new mode value
         });
-        (0, background_script_1.changeMode)(background_script_1.themes, mode);
         console.log('button clicked');
     };
     (0, react_1.useEffect)(function () {
         (0, background_script_1.setTheme)(background_script_1.themes, hex, mode);
         console.log('theme changed');
     }, [hex]);
+    (0, react_1.useEffect)(function () {
+        var fetchMode = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var result, fetchedMode, err_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, storage_1.default.get('mode')];
+                    case 1:
+                        result = _a.sent();
+                        fetchedMode = result.mode || 'day';
+                        setHex(background_script_1.themes[fetchedMode].colors.frame || '#FFFFFF');
+                        setMode(fetchedMode);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_1 = _a.sent();
+                        console.log('Error fetching mode:', err_1);
+                        setMode('day'); // Default mode on error
+                        setHex('#FFFFFF'); // Default color
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); };
+        fetchMode();
+    }, []);
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("p", null, "Hello bro"),
-        react_1.default.createElement(react_2.default, { hex: hex, wheelDiameter: 200, wheelThickness: 20, handleDiameter: 16, wheelReflectsSaturation: true, onChange: function (_a) {
-                var hex = _a.hex;
-                setHex(hex);
-            } }),
-        react_1.default.createElement("input", { type: "text", value: hex, onChange: function (e) {
-                setHex(e.target.value);
-                //updateTheme(theme, e.target.value);
-            } }),
-        react_1.default.createElement("p", null, "".concat(mode)),
-        react_1.default.createElement("label", { className: "switch" },
-            react_1.default.createElement("input", { id: "checkbox", type: "checkbox", onClick: onClick }),
-            react_1.default.createElement("span", { className: "slider round" }))));
+        react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
+        react_1.default.createElement("div", { className: "display-container" },
+            hex && (react_1.default.createElement("div", null,
+                react_1.default.createElement(react_2.default, { hex: hex, wheelDiameter: 300, wheelThickness: 20, handleDiameter: 16, wheelReflectsSaturation: true, onChange: function (_a) {
+                        var hex = _a.hex;
+                        setHex(hex);
+                    } }))),
+            react_1.default.createElement("div", { className: "align-items:center" },
+                mode && react_1.default.createElement("p", null, mode == 'day' ? 'light' : 'dark'),
+                react_1.default.createElement("label", { className: "switch" },
+                    react_1.default.createElement("input", { id: "checkbox", type: "checkbox", onClick: onClick }),
+                    react_1.default.createElement("span", { className: "slider round" }))))));
 };
 exports["default"] = Popup;
 
@@ -36145,33 +36225,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.setTheme = exports.changeMode = exports.updateColor = exports.themes = exports.storage = void 0;
 var webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
-function getCurrentThemes() {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, webextension_polyfill_ts_1.browser.theme.getCurrent()];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
-        });
-    });
-}
 exports.storage = localStorage;
 exports.themes = {
     day: {
         colors: {
             frame: storageAvailable('localStorage')
-                ? localStorage.getItem('day')
-                : '#ffffff',
+                ? (_a = localStorage.getItem('day')) !== null && _a !== void 0 ? _a : undefined
+                : '#ffffff', // Assuming white for day
         },
     },
     night: {
         colors: {
             frame: storageAvailable('localStorage')
-                ? localStorage.getItem('night')
-                : '000000',
+                ? (_b = localStorage.getItem('night')) !== null && _b !== void 0 ? _b : ''
+                : '000000', // Assuming black for night
         },
     },
 };
@@ -36210,6 +36281,7 @@ function setTheme(theme, value, mode) {
             webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
             localStorage.setItem(mode, value);
             console.log('local storage updated');
+            document.body.style.backgroundColor = value;
             return [2 /*return*/];
         });
     });
@@ -36250,6 +36322,42 @@ function storageAvailable(type) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -36259,6 +36367,7 @@ var client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./no
 var webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
 var Popup_1 = __importDefault(__webpack_require__(/*! ./Popup */ "./src/popup/Popup.tsx"));
 var storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
+var background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
 var Index = function () { return react_1.default.createElement(Popup_1.default, null); };
 var currentMode = '';
 var updateCheckboxState = function () {
@@ -36275,7 +36384,46 @@ var updateCheckboxState = function () {
     });
     storage_1.default.get(currentMode).then(function (result) { });
 };
-webextension_polyfill_ts_1.browser.runtime.onStartup.addListener(function () {
+var onOpen = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var getCurrentMode, currentMode;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                getCurrentMode = function () { return __awaiter(void 0, void 0, void 0, function () {
+                    var result, err_1;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                _a.trys.push([0, 2, , 3]);
+                                return [4 /*yield*/, storage_1.default.get('mode')];
+                            case 1:
+                                result = _a.sent();
+                                if (result.mode === 'day' || result.mode === 'night') {
+                                    return [2 /*return*/, result.mode];
+                                }
+                                return [2 /*return*/, ''];
+                            case 2:
+                                err_1 = _a.sent();
+                                return [2 /*return*/, ''];
+                            case 3: return [2 /*return*/];
+                        }
+                    });
+                }); };
+                return [4 /*yield*/, getCurrentMode()];
+            case 1:
+                currentMode = _a.sent();
+                if (currentMode === 'day' || currentMode === 'night') {
+                    webextension_polyfill_ts_1.browser.theme.update(background_script_1.themes[currentMode]);
+                }
+                else {
+                    // Handle the case where currentMode is '' or any other non-valid key
+                    console.error('Invalid mode:', currentMode);
+                }
+                return [2 /*return*/];
+        }
+    });
+}); };
+document.addEventListener('DOMContentLoaded', function () {
     updateCheckboxState();
 });
 var root = client_1.default.createRoot(document.getElementById('display-container'));

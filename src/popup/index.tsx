@@ -23,7 +23,31 @@ const updateCheckboxState = () => {
     });
   storage.get(currentMode).then((result) => {});
 };
-browser.runtime.onStartup.addListener(() => {
+
+const onOpen = async () => {
+  const getCurrentMode = async (): Promise<'day' | 'night' | ''> => {
+    try {
+      const result = await storage.get('mode');
+      if (result.mode === 'day' || result.mode === 'night') {
+        return result.mode;
+      }
+      return '';
+    } catch (err) {
+      return '';
+    }
+  };
+
+  const currentMode = await getCurrentMode();
+
+  if (currentMode === 'day' || currentMode === 'night') {
+    browser.theme.update(themes[currentMode]);
+  } else {
+    // Handle the case where currentMode is '' or any other non-valid key
+    console.error('Invalid mode:', currentMode);
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
   updateCheckboxState();
 });
 
