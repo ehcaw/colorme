@@ -1,9 +1,9 @@
 {
-  "name": "__MSG_appName__",
-  "author": "WebDEV",
+  "name": "ColorMe",
+  "author": "Ryan Nguyen, Froilan Zarate",
   "version": "3.0",
   "manifest_version": 3,
-  "description": "__MSG_appDescription__",
+  "description": "Customize firefox's theme with any color you want, and save different themes for different websites ",
   "icons": {
     "16": "assets/icons/icon-16.png",
     "24": "assets/icons/icon-24.png",
@@ -30,7 +30,8 @@
   },
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "theme"
   ],
   "host_permissions": [
     "http://*/*",
