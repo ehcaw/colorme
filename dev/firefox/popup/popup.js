@@ -36156,6 +36156,11 @@ var Popup = function () {
     }, [hex]);
     // For changing --flip-color css to flip colors depending on the color picked
     (0, react_1.useEffect)(function () {
+        // If all black, flip color to white
+        if (hex == "#000000") {
+            document.documentElement.style.setProperty('--flip-color', 'white');
+            return;
+        }
         // Grab hex and convert to cmyk
         var cmyk = hex2cmyk(hex);
         if (typeof (cmyk) !== 'undefined') {
