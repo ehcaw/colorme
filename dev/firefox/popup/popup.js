@@ -1397,7 +1397,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.switch {
+___CSS_LOADER_EXPORT___.push([module.id, `/* Variables declared; edited in Popup.tsx*/
+:root {
+  /* color flips depending on color background*/
+  --flip-color: black;
+}
+
+.switch {
   position: relative;
   display: inline-block;
   width: 40px;
@@ -1436,15 +1442,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.switch {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196f3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(14px);
   -ms-transform: translateX(14px);
   transform: translateX(14px);
@@ -1471,13 +1477,25 @@ input:checked + .slider:before {
 .app-name {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   text-align: center;
+  color: var(--flip-color);
 }
 
 .wheel-div {
   display: flex;
   align-items: center;
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB","sourcesContent":[".switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.display-container {\n  justify-content: space-between;\n  font-family: -apple-system-body;\n  justify-content: center;\n  min-width: 300px;\n  min-height: 250px;\n  align-items: center;\n}\n\n.app-name {\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  text-align: center;\n}\n\n.wheel-div {\n  display: flex;\n  align-items: center;\n}\n"],"sourceRoot":""}]);
+
+.display-light-dark {
+  align-items: center;
+  color: var(--flip-color);
+}
+
+
+/* display hex value */
+.display-hex {
+  align-items: center;
+  color: var(--flip-color);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;;AAGA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\r\n:root {\r\n  /* color flips depending on color background*/\r\n  --flip-color: black;\r\n}\r\n\r\n.switch {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 40px;\r\n  height: 24px;\r\n}\r\n\r\n/* Hide default HTML checkbox */\r\n.switch input {\r\n  opacity: 0;\r\n  width: 0;\r\n  height: 0;\r\n}\r\n\r\n/* The slider */\r\n.slider {\r\n  position: absolute;\r\n  cursor: pointer;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: #ccc;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.slider:before {\r\n  position: absolute;\r\n  content: '';\r\n  height: 18px;\r\n  width: 18px;\r\n  left: 4px;\r\n  bottom: 4px;\r\n  background-color: white;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\ninput:checked+.slider {\r\n  background-color: #2196f3;\r\n}\r\n\r\ninput:focus+.slider {\r\n  box-shadow: 0 0 1px #2196f3;\r\n}\r\n\r\ninput:checked+.slider:before {\r\n  -webkit-transform: translateX(14px);\r\n  -ms-transform: translateX(14px);\r\n  transform: translateX(14px);\r\n}\r\n\r\n/* Rounded sliders */\r\n.slider.round {\r\n  border-radius: 18px;\r\n}\r\n\r\n.slider.round:before {\r\n  border-radius: 50%;\r\n}\r\n\r\n.display-container {\r\n  justify-content: space-between;\r\n  font-family: -apple-system-body;\r\n  justify-content: center;\r\n  min-width: 300px;\r\n  min-height: 250px;\r\n  align-items: center;\r\n}\r\n\r\n.app-name {\r\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\r\n  text-align: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.wheel-div {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.display-light-dark {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n\r\n/* display hex value */\r\n.display-hex {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36136,6 +36154,20 @@ var Popup = function () {
         (0, background_script_1.setTheme)(background_script_1.themes, hex, mode);
         console.log('theme changed');
     }, [hex]);
+    // For changing --flip-color css to flip colors depending on the color picked
+    (0, react_1.useEffect)(function () {
+        // Grab hex and convert to cmyk
+        var cmyk = hex2cmyk(hex);
+        if (typeof (cmyk) !== 'undefined') {
+            // k is basically vertical distance for square color pickers
+            if (cmyk['k'] > 51) {
+                document.documentElement.style.setProperty('--flip-color', 'white');
+            }
+            else {
+                document.documentElement.style.setProperty('--flip-color', 'black');
+            }
+        }
+    }, [hex]);
     (0, react_1.useEffect)(function () {
         var fetchMode = function () { return __awaiter(void 0, void 0, void 0, function () {
             var result, fetchedMode, err_1;
@@ -36170,13 +36202,44 @@ var Popup = function () {
                         var hex = _a.hex;
                         setHex(hex);
                     } }))),
-            react_1.default.createElement("div", { className: "align-items:center" },
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("p", { className: "display-hex" },
+                    "Hex: ",
+                    hex)),
+            react_1.default.createElement("div", { className: "display-light-dark" },
                 mode && react_1.default.createElement("p", null, mode == 'day' ? 'light' : 'dark'),
                 react_1.default.createElement("label", { className: "switch" },
                     react_1.default.createElement("input", { id: "checkbox", type: "checkbox", onClick: onClick }),
                     react_1.default.createElement("span", { className: "slider round" }))))));
 };
 exports["default"] = Popup;
+function hex2cmyk(hexCode) {
+    var rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexCode);
+    if (rgbValues == null) {
+        return;
+    }
+    var r = parseInt(rgbValues[1], 16);
+    var g = parseInt(rgbValues[2], 16);
+    var b = parseInt(rgbValues[3], 16);
+    var computedC = 0;
+    var computedM = 0;
+    var computedY = 0;
+    var computedK = 0;
+    // BLACK
+    if (r == 0 && g == 0 && b == 0) {
+        computedK = 1;
+        return { c: 0, m: 0, y: 0, k: 1 };
+    }
+    computedC = 1 - (r / 255);
+    computedM = 1 - (g / 255);
+    computedY = 1 - (b / 255);
+    var minCMY = Math.min(computedC, Math.min(computedM, computedY));
+    computedC = Math.round((computedC - minCMY) / (1 - minCMY) * 100);
+    computedM = Math.round((computedM - minCMY) / (1 - minCMY) * 100);
+    computedY = Math.round((computedY - minCMY) / (1 - minCMY) * 100);
+    computedK = Math.round(minCMY * 100);
+    return { c: computedC, m: computedM, y: computedY, k: computedK };
+}
 
 
 /***/ }),
