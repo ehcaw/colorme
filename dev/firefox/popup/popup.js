@@ -36145,7 +36145,6 @@ var storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/
 var Popup = function () {
     var _a = (0, react_1.useState)(''), mode = _a[0], setMode = _a[1];
     var _b = (0, react_1.useState)(''), hex = _b[0], setHex = _b[1];
-    var _c = (0, react_1.useState)(''), savedColors = _c[0], setSavedColors = _c[1];
     var onClick = function () {
         setMode(function (prevMode) {
             var newMode = prevMode === 'day' ? 'night' : 'day';
@@ -36220,31 +36219,13 @@ var Popup = function () {
         }); };
         fetchMode();
     }, []);
-    (0, react_1.useEffect)(function () {
-    });
-    /* Adds color into the savedColor theme storage */
-    function addToSavedColors(savedHex) {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        if (background_script_1.themes.savedColors.colors.frame.length >= 42) {
-            setSavedColors(background_script_1.themes.savedColors.colors.frame.substring(7) + savedHex);
-            (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame.substring(7) + savedHex);
-        }
-        else {
-            setSavedColors(background_script_1.themes.savedColors.colors.frame + savedHex);
-            (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame + savedHex);
-        }
-    }
-    ;
-    var savedColorsArray = [];
+    /* FIX */
     /* Fills the css variables with the appropriate savedColors */
-    if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-        return;
+    var savedColorsArray = [];
+    if (typeof (background_script_1.themes.savedColors.colors.frame) != 'undefined') {
+        // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
+        savedColorsArray = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
     }
-    // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
-    savedColorsArray = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    console.log(savedColorsArray[0]);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
         react_1.default.createElement("div", { className: "display-container" },
@@ -36273,6 +36254,21 @@ var Popup = function () {
                     react_1.default.createElement("span", { className: "slider round" }))))));
 };
 exports["default"] = Popup;
+/* Adds color into the savedColor theme storage */
+function addToSavedColors(savedHex) {
+    if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+        return;
+    }
+    if (background_script_1.themes.savedColors.colors.frame.length >= 42) {
+        // setSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+        (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame.substring(7) + savedHex);
+    }
+    else {
+        // setSavedColors(themes.savedColors.colors.frame + savedHex);
+        (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame + savedHex);
+    }
+}
+;
 function hex2cmyk(hexCode) {
     var rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexCode);
     if (rgbValues == null) {

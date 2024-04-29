@@ -8,7 +8,6 @@ import storage from 'utils/storage';
 const Popup = () => {
   const [mode, setMode] = useState<string>('');
   const [hex, setHex] = useState<string>('');
-  const [savedColors, setSavedColors] = useState<string>('');
 
   const onClick = () => {
     setMode((prevMode) => {
@@ -80,34 +79,14 @@ const Popup = () => {
     fetchMode();
   }, []);
 
-  useEffect(() => {
 
-  });
-
-  /* Adds color into the savedColor theme storage */
-  function addToSavedColors(savedHex: string) {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-
-    if (themes.savedColors.colors.frame.length >= 42) {
-      setSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
-      updateSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
-    } else {
-      setSavedColors(themes.savedColors.colors.frame + savedHex);
-      updateSavedColors(themes.savedColors.colors.frame + savedHex);
-    }
-  };
-
-  let savedColorsArray: string[] = [];
+  /* FIX */
   /* Fills the css variables with the appropriate savedColors */
-  if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-    return;
+  let savedColorsArray: string[] = [];
+  if (typeof (themes.savedColors.colors.frame) != 'undefined') {
+    // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
+    savedColorsArray = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
   }
-  // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
-  savedColorsArray = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-  console.log(savedColorsArray[0]);
-
 
   return (
     <>
@@ -166,6 +145,20 @@ const Popup = () => {
 
 export default Popup;
 
+/* Adds color into the savedColor theme storage */
+function addToSavedColors(savedHex: string) {
+  if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+    return;
+  }
+
+  if (themes.savedColors.colors.frame.length >= 42) {
+    // setSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+    updateSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+  } else {
+    // setSavedColors(themes.savedColors.colors.frame + savedHex);
+    updateSavedColors(themes.savedColors.colors.frame + savedHex);
+  }
+};
 
 function hex2cmyk(hexCode: string) {
 
