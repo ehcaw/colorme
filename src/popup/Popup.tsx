@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ReinventedColorWheel from 'reinvented-color-wheel/react';
 import 'reinvented-color-wheel/css/reinvented-color-wheel.min.css';
 import './popup.css';
-import { themes, setTheme, changeMode } from './background_script';
+import { themes, setTheme, updateColor, changeMode, updateSavedColors } from './background_script';
 import storage from 'utils/storage';
 
 const Popup = () => {
   const [mode, setMode] = useState<string>('');
   const [hex, setHex] = useState<string>('');
+  const [savedColors, setSavedColors] = useState<string>('');
 
   const onClick = () => {
     setMode((prevMode) => {
@@ -27,10 +28,54 @@ const Popup = () => {
     console.log('button clicked');
   };
 
+  const loadSavedColor0 = () => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+    setHex(savedColors[0]);
+  }
+  const loadSavedColor1 = () => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+    setHex(savedColors[1]);
+  }
+  const loadSavedColor2 = () => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+    setHex(savedColors[2]);
+  }
+  const loadSavedColor3 = () => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+    setHex(savedColors[3]);
+  }
+  const loadSavedColor4 = () => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+    setHex(savedColors[4]);
+  }
+  const loadSavedColor5 = () => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+    setHex(savedColors[5]);
+  }
+
   useEffect(() => {
     setTheme(themes, hex, mode);
     console.log('theme changed');
   }, [hex]);
+
 
   // For changing --flip-color css to flip colors depending on the color picked
   useEffect(() => {
@@ -59,6 +104,7 @@ const Popup = () => {
         const fetchedMode = result.mode || 'day'; // Provide a default mode if none is found
         setHex((themes[fetchedMode] as any).colors.frame || '#FFFFFF');
         setMode(fetchedMode);
+
       } catch (err) {
         console.log('Error fetching mode:', err);
         setMode('day'); // Default mode on error
@@ -68,6 +114,42 @@ const Popup = () => {
     fetchMode();
   }, []);
 
+  useEffect(() => {
+
+  });
+
+  function addToSavedColors(savedHex: string) {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+
+    if (themes.savedColors.colors.frame.length >= 42) {
+      setSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+      updateSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+    } else {
+      setSavedColors(themes.savedColors.colors.frame + savedHex);
+      updateSavedColors(themes.savedColors.colors.frame + savedHex);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+      return;
+    }
+    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+
+    document.documentElement.style.setProperty('--saved-color5', savedColors[5]);
+    document.documentElement.style.setProperty('--saved-color4', savedColors[4]);
+    document.documentElement.style.setProperty('--saved-color3', savedColors[3]);
+    document.documentElement.style.setProperty('--saved-color1', savedColors[2]);
+    document.documentElement.style.setProperty('--saved-color2', savedColors[1]);
+    document.documentElement.style.setProperty('--saved-color0', savedColors[0]);
+
+
+    console.log(savedColors);
+  });
+
+
   return (
     <>
       {/* Title header */}
@@ -76,7 +158,11 @@ const Popup = () => {
       {/* Color wheel */}
       <div className="display-container">
         {hex && (
-          <div>
+          <div
+            onMouseUp={() => {
+              addToSavedColors(hex);
+            }}
+          >
             <ReinventedColorWheel
               hex={hex}
               wheelDiameter={300}
@@ -85,11 +171,20 @@ const Popup = () => {
               wheelReflectsSaturation
               onChange={({ hex }) => {
                 setHex(hex);
-              }
-              }
+              }}
+
             />
           </div>
         )}
+        { /* Saved colors */}
+        <div>
+          <button className="savedColors savedColors0" onClick={loadSavedColor0}></button>
+          <button className="savedColors savedColors1" onClick={loadSavedColor1}></button>
+          <button className="savedColors savedColors2" onClick={loadSavedColor2}></button>
+          <button className="savedColors savedColors3" onClick={loadSavedColor3}></button>
+          <button className="savedColors savedColors4" onClick={loadSavedColor4}></button>
+          <button className="savedColors savedColors5" onClick={loadSavedColor5}></button>
+        </div>
 
         {/* Hex display */}
         <div>

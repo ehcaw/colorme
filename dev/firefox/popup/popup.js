@@ -1401,6 +1401,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Variables declared; edited in Popup
 :root {
   /* color flips depending on color background*/
   --flip-color: black;
+  --saved-color0: white;
+  --saved-color1: white;
+  --saved-color2: white;
+  --saved-color3: white;
+  --saved-color4: white;
+  --saved-color5: white;
+  --saved-color6: white;
 }
 
 .switch {
@@ -1495,7 +1502,47 @@ input:checked+.slider:before {
 .display-hex {
   align-items: center;
   color: var(--flip-color);
-}`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;;AAGA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\r\n:root {\r\n  /* color flips depending on color background*/\r\n  --flip-color: black;\r\n}\r\n\r\n.switch {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 40px;\r\n  height: 24px;\r\n}\r\n\r\n/* Hide default HTML checkbox */\r\n.switch input {\r\n  opacity: 0;\r\n  width: 0;\r\n  height: 0;\r\n}\r\n\r\n/* The slider */\r\n.slider {\r\n  position: absolute;\r\n  cursor: pointer;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: #ccc;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.slider:before {\r\n  position: absolute;\r\n  content: '';\r\n  height: 18px;\r\n  width: 18px;\r\n  left: 4px;\r\n  bottom: 4px;\r\n  background-color: white;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\ninput:checked+.slider {\r\n  background-color: #2196f3;\r\n}\r\n\r\ninput:focus+.slider {\r\n  box-shadow: 0 0 1px #2196f3;\r\n}\r\n\r\ninput:checked+.slider:before {\r\n  -webkit-transform: translateX(14px);\r\n  -ms-transform: translateX(14px);\r\n  transform: translateX(14px);\r\n}\r\n\r\n/* Rounded sliders */\r\n.slider.round {\r\n  border-radius: 18px;\r\n}\r\n\r\n.slider.round:before {\r\n  border-radius: 50%;\r\n}\r\n\r\n.display-container {\r\n  justify-content: space-between;\r\n  font-family: -apple-system-body;\r\n  justify-content: center;\r\n  min-width: 300px;\r\n  min-height: 250px;\r\n  align-items: center;\r\n}\r\n\r\n.app-name {\r\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\r\n  text-align: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.wheel-div {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.display-light-dark {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n\r\n/* display hex value */\r\n.display-hex {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}"],"sourceRoot":""}]);
+}
+
+.savedColors {
+  border: 2px solid var(--flip-color);
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.savedColors0 {
+  background-color: var(--saved-color0);
+}
+
+.savedColors1 {
+  background-color: var(--saved-color1);
+}
+
+.savedColors2 {
+  background-color: var(--saved-color2);
+}
+
+.savedColors3 {
+  background-color: var(--saved-color3);
+}
+
+.savedColors4 {
+  background-color: var(--saved-color4);
+}
+
+.savedColors5 {
+  background-color: var(--saved-color5);
+}
+
+.savedColors6 {
+  background-color: var(--saved-color6);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;EACnB,qBAAqB;EACrB,qBAAqB;EACrB,qBAAqB;EACrB,qBAAqB;EACrB,qBAAqB;EACrB,qBAAqB;EACrB,qBAAqB;AACvB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;;AAGA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,qCAAqC;AACvC","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\r\n:root {\r\n  /* color flips depending on color background*/\r\n  --flip-color: black;\r\n  --saved-color0: white;\r\n  --saved-color1: white;\r\n  --saved-color2: white;\r\n  --saved-color3: white;\r\n  --saved-color4: white;\r\n  --saved-color5: white;\r\n  --saved-color6: white;\r\n}\r\n\r\n.switch {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 40px;\r\n  height: 24px;\r\n}\r\n\r\n/* Hide default HTML checkbox */\r\n.switch input {\r\n  opacity: 0;\r\n  width: 0;\r\n  height: 0;\r\n}\r\n\r\n/* The slider */\r\n.slider {\r\n  position: absolute;\r\n  cursor: pointer;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: #ccc;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.slider:before {\r\n  position: absolute;\r\n  content: '';\r\n  height: 18px;\r\n  width: 18px;\r\n  left: 4px;\r\n  bottom: 4px;\r\n  background-color: white;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\ninput:checked+.slider {\r\n  background-color: #2196f3;\r\n}\r\n\r\ninput:focus+.slider {\r\n  box-shadow: 0 0 1px #2196f3;\r\n}\r\n\r\ninput:checked+.slider:before {\r\n  -webkit-transform: translateX(14px);\r\n  -ms-transform: translateX(14px);\r\n  transform: translateX(14px);\r\n}\r\n\r\n/* Rounded sliders */\r\n.slider.round {\r\n  border-radius: 18px;\r\n}\r\n\r\n.slider.round:before {\r\n  border-radius: 50%;\r\n}\r\n\r\n.display-container {\r\n  justify-content: space-between;\r\n  font-family: -apple-system-body;\r\n  justify-content: center;\r\n  min-width: 300px;\r\n  min-height: 250px;\r\n  align-items: center;\r\n}\r\n\r\n.app-name {\r\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\r\n  text-align: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.wheel-div {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.display-light-dark {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n\r\n/* display hex value */\r\n.display-hex {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.savedColors {\r\n  border: 2px solid var(--flip-color);\r\n  color: white;\r\n  padding: 20px 20px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 5px;\r\n  margin: 4px 2px;\r\n  cursor: pointer;\r\n}\r\n\r\n.savedColors0 {\r\n  background-color: var(--saved-color0);\r\n}\r\n\r\n.savedColors1 {\r\n  background-color: var(--saved-color1);\r\n}\r\n\r\n.savedColors2 {\r\n  background-color: var(--saved-color2);\r\n}\r\n\r\n.savedColors3 {\r\n  background-color: var(--saved-color3);\r\n}\r\n\r\n.savedColors4 {\r\n  background-color: var(--saved-color4);\r\n}\r\n\r\n.savedColors5 {\r\n  background-color: var(--saved-color5);\r\n}\r\n\r\n.savedColors6 {\r\n  background-color: var(--saved-color6);\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36133,6 +36180,7 @@ var storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/
 var Popup = function () {
     var _a = (0, react_1.useState)(''), mode = _a[0], setMode = _a[1];
     var _b = (0, react_1.useState)(''), hex = _b[0], setHex = _b[1];
+    var _c = (0, react_1.useState)(''), savedColors = _c[0], setSavedColors = _c[1];
     var onClick = function () {
         setMode(function (prevMode) {
             var newMode = prevMode === 'day' ? 'night' : 'day';
@@ -36149,6 +36197,48 @@ var Popup = function () {
             return newMode; // Return the new mode value
         });
         console.log('button clicked');
+    };
+    var loadSavedColor0 = function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        setHex(savedColors[0]);
+    };
+    var loadSavedColor1 = function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        setHex(savedColors[1]);
+    };
+    var loadSavedColor2 = function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        setHex(savedColors[2]);
+    };
+    var loadSavedColor3 = function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        setHex(savedColors[3]);
+    };
+    var loadSavedColor4 = function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        setHex(savedColors[4]);
+    };
+    var loadSavedColor5 = function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        setHex(savedColors[5]);
     };
     (0, react_1.useEffect)(function () {
         (0, background_script_1.setTheme)(background_script_1.themes, hex, mode);
@@ -36199,14 +36289,52 @@ var Popup = function () {
         }); };
         fetchMode();
     }, []);
+    (0, react_1.useEffect)(function () {
+    });
+    function addToSavedColors(savedHex) {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        if (background_script_1.themes.savedColors.colors.frame.length >= 42) {
+            setSavedColors(background_script_1.themes.savedColors.colors.frame.substring(7) + savedHex);
+            (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame.substring(7) + savedHex);
+        }
+        else {
+            setSavedColors(background_script_1.themes.savedColors.colors.frame + savedHex);
+            (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame + savedHex);
+        }
+    }
+    ;
+    (0, react_1.useEffect)(function () {
+        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
+            return;
+        }
+        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+        document.documentElement.style.setProperty('--saved-color5', savedColors[5]);
+        document.documentElement.style.setProperty('--saved-color4', savedColors[4]);
+        document.documentElement.style.setProperty('--saved-color3', savedColors[3]);
+        document.documentElement.style.setProperty('--saved-color1', savedColors[2]);
+        document.documentElement.style.setProperty('--saved-color2', savedColors[1]);
+        document.documentElement.style.setProperty('--saved-color0', savedColors[0]);
+        console.log(savedColors);
+    });
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
         react_1.default.createElement("div", { className: "display-container" },
-            hex && (react_1.default.createElement("div", null,
+            hex && (react_1.default.createElement("div", { onMouseUp: function () {
+                    addToSavedColors(hex);
+                } },
                 react_1.default.createElement(react_2.default, { hex: hex, wheelDiameter: 300, wheelThickness: 20, handleDiameter: 16, wheelReflectsSaturation: true, onChange: function (_a) {
                         var hex = _a.hex;
                         setHex(hex);
                     } }))),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { className: "savedColors savedColors0", onClick: loadSavedColor0 }),
+                react_1.default.createElement("button", { className: "savedColors savedColors1", onClick: loadSavedColor1 }),
+                react_1.default.createElement("button", { className: "savedColors savedColors2", onClick: loadSavedColor2 }),
+                react_1.default.createElement("button", { className: "savedColors savedColors3", onClick: loadSavedColor3 }),
+                react_1.default.createElement("button", { className: "savedColors savedColors4", onClick: loadSavedColor4 }),
+                react_1.default.createElement("button", { className: "savedColors savedColors5", onClick: loadSavedColor5 })),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", { className: "display-hex" },
                     "Hex: ",
@@ -36293,9 +36421,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _a, _b;
+var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.setTheme = exports.changeMode = exports.updateColor = exports.themes = exports.storage = void 0;
+exports.setTheme = exports.changeMode = exports.updateSavedColors = exports.updateColor = exports.themes = exports.storage = void 0;
 var webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
 exports.storage = localStorage;
 exports.themes = {
@@ -36313,6 +36441,13 @@ exports.themes = {
                 : '000000', // Assuming black for night
         },
     },
+    savedColors: {
+        colors: {
+            frame: storageAvailable('localStorage')
+                ? (_c = localStorage.getItem('savedColors')) !== null && _c !== void 0 ? _c : ''
+                : '#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff', // 
+        },
+    },
 };
 function updateColor(theme, value, mode) {
     var checkBox = document.getElementById('checkbox');
@@ -36326,6 +36461,11 @@ function updateColor(theme, value, mode) {
     }
 }
 exports.updateColor = updateColor;
+function updateSavedColors(savedColors) {
+    exports.themes.savedColors.colors.frame = savedColors;
+    localStorage.setItem('savedColors', savedColors);
+}
+exports.updateSavedColors = updateSavedColors;
 function changeMode(theme, mode) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {

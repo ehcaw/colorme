@@ -2,6 +2,13 @@
 :root {
   /* color flips depending on color background*/
   --flip-color: black;
+  --saved-color0: white;
+  --saved-color1: white;
+  --saved-color2: white;
+  --saved-color3: white;
+  --saved-color4: white;
+  --saved-color5: white;
+  --saved-color6: white;
 }
 
 .switch {
@@ -96,4 +103,44 @@ input:checked+.slider:before {
 .display-hex {
   align-items: center;
   color: var(--flip-color);
+}
+
+.savedColors {
+  border: 2px solid var(--flip-color);
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.savedColors0 {
+  background-color: var(--saved-color0);
+}
+
+.savedColors1 {
+  background-color: var(--saved-color1);
+}
+
+.savedColors2 {
+  background-color: var(--saved-color2);
+}
+
+.savedColors3 {
+  background-color: var(--saved-color3);
+}
+
+.savedColors4 {
+  background-color: var(--saved-color4);
+}
+
+.savedColors5 {
+  background-color: var(--saved-color5);
+}
+
+.savedColors6 {
+  background-color: var(--saved-color6);
 }

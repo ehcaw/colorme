@@ -24,6 +24,13 @@ export const themes: { [key: string]: ThemeType } = {
         : '000000', // Assuming black for night
     },
   },
+  savedColors: {
+    colors: {
+      frame: storageAvailable('localStorage')
+        ? localStorage.getItem('savedColors') ?? ''
+        : '#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff', // 
+    },
+  },
 };
 
 export function updateColor(
@@ -39,6 +46,11 @@ export function updateColor(
     theme['day'].colors['frame'] = value;
     console.log('light mode changed');
   }
+}
+
+export function updateSavedColors(savedColors: string) {
+  themes['savedColors'].colors['frame'] = savedColors;
+  localStorage.setItem('savedColors', savedColors);
 }
 
 export async function changeMode(theme: { [key: string]: any }, mode: string) {
