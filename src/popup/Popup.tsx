@@ -99,21 +99,14 @@ const Popup = () => {
     }
   };
 
+  let savedColorsArray: string[] = [];
   /* Fills the css variables with the appropriate savedColors */
-  useEffect(() => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-
-    document.documentElement.style.setProperty('--saved-color5', savedColors[5]);
-    document.documentElement.style.setProperty('--saved-color4', savedColors[4]);
-    document.documentElement.style.setProperty('--saved-color3', savedColors[3]);
-    document.documentElement.style.setProperty('--saved-color1', savedColors[2]);
-    document.documentElement.style.setProperty('--saved-color2', savedColors[1]);
-    document.documentElement.style.setProperty('--saved-color0', savedColors[0]);
-  });
+  if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+    return;
+  }
+  // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
+  savedColorsArray = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
+  console.log(savedColorsArray[0]);
 
 
   return (
@@ -144,12 +137,12 @@ const Popup = () => {
         )}
         { /* Saved colors */}
         <div>
-          <button className="savedColors savedColors0" onClick={loadSavedColor(0)}></button>
-          <button className="savedColors savedColors1" onClick={loadSavedColor(1)}></button>
-          <button className="savedColors savedColors2" onClick={loadSavedColor(2)}></button>
-          <button className="savedColors savedColors3" onClick={loadSavedColor(3)}></button>
-          <button className="savedColors savedColors4" onClick={loadSavedColor(4)}></button>
-          <button className="savedColors savedColors5" onClick={loadSavedColor(5)}></button>
+          <button className="savedColors" style={{ backgroundColor: savedColorsArray[0] }} onClick={loadSavedColor(0)}></button>
+          <button className="savedColors" style={{ backgroundColor: savedColorsArray[1] }} onClick={loadSavedColor(1)}></button>
+          <button className="savedColors" style={{ backgroundColor: savedColorsArray[2] }} onClick={loadSavedColor(2)}></button>
+          <button className="savedColors" style={{ backgroundColor: savedColorsArray[3] }} onClick={loadSavedColor(3)}></button>
+          <button className="savedColors" style={{ backgroundColor: savedColorsArray[4] }} onClick={loadSavedColor(4)}></button>
+          <button className="savedColors" style={{ backgroundColor: savedColorsArray[5] }} onClick={loadSavedColor(5)}></button>
         </div>
 
         {/* Hex display */}
