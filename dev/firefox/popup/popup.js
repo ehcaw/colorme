@@ -36198,48 +36198,14 @@ var Popup = function () {
         });
         console.log('button clicked');
     };
-    var loadSavedColor0 = function () {
+    /* FOR OnClick BUTTON FUNCTIONS */
+    var loadSavedColor = function (index) { return function () {
         if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
             return;
         }
         var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[0]);
-    };
-    var loadSavedColor1 = function () {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[1]);
-    };
-    var loadSavedColor2 = function () {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[2]);
-    };
-    var loadSavedColor3 = function () {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[3]);
-    };
-    var loadSavedColor4 = function () {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[4]);
-    };
-    var loadSavedColor5 = function () {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[5]);
-    };
+        setHex(savedColors[index]);
+    }; };
     (0, react_1.useEffect)(function () {
         (0, background_script_1.setTheme)(background_script_1.themes, hex, mode);
         console.log('theme changed');
@@ -36291,6 +36257,7 @@ var Popup = function () {
     }, []);
     (0, react_1.useEffect)(function () {
     });
+    /* Adds color into the savedColor theme storage */
     function addToSavedColors(savedHex) {
         if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
             return;
@@ -36305,10 +36272,12 @@ var Popup = function () {
         }
     }
     ;
+    /* Fills the css variables with the appropriate savedColors */
     (0, react_1.useEffect)(function () {
         if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
             return;
         }
+        // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
         var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
         document.documentElement.style.setProperty('--saved-color5', savedColors[5]);
         document.documentElement.style.setProperty('--saved-color4', savedColors[4]);
@@ -36316,7 +36285,6 @@ var Popup = function () {
         document.documentElement.style.setProperty('--saved-color1', savedColors[2]);
         document.documentElement.style.setProperty('--saved-color2', savedColors[1]);
         document.documentElement.style.setProperty('--saved-color0', savedColors[0]);
-        console.log(savedColors);
     });
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
@@ -36329,12 +36297,12 @@ var Popup = function () {
                         setHex(hex);
                     } }))),
             react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { className: "savedColors savedColors0", onClick: loadSavedColor0 }),
-                react_1.default.createElement("button", { className: "savedColors savedColors1", onClick: loadSavedColor1 }),
-                react_1.default.createElement("button", { className: "savedColors savedColors2", onClick: loadSavedColor2 }),
-                react_1.default.createElement("button", { className: "savedColors savedColors3", onClick: loadSavedColor3 }),
-                react_1.default.createElement("button", { className: "savedColors savedColors4", onClick: loadSavedColor4 }),
-                react_1.default.createElement("button", { className: "savedColors savedColors5", onClick: loadSavedColor5 })),
+                react_1.default.createElement("button", { className: "savedColors savedColors0", onClick: loadSavedColor(0) }),
+                react_1.default.createElement("button", { className: "savedColors savedColors1", onClick: loadSavedColor(1) }),
+                react_1.default.createElement("button", { className: "savedColors savedColors2", onClick: loadSavedColor(2) }),
+                react_1.default.createElement("button", { className: "savedColors savedColors3", onClick: loadSavedColor(3) }),
+                react_1.default.createElement("button", { className: "savedColors savedColors4", onClick: loadSavedColor(4) }),
+                react_1.default.createElement("button", { className: "savedColors savedColors5", onClick: loadSavedColor(5) })),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", { className: "display-hex" },
                     "Hex: ",

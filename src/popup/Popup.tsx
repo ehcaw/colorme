@@ -28,48 +28,14 @@ const Popup = () => {
     console.log('button clicked');
   };
 
-  const loadSavedColor0 = () => {
+  /* FOR OnClick BUTTON FUNCTIONS */
+  const loadSavedColor = (index: number) => () => {
     if (typeof (themes.savedColors.colors.frame) == 'undefined') {
       return;
     }
     let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[0]);
-  }
-  const loadSavedColor1 = () => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[1]);
-  }
-  const loadSavedColor2 = () => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[2]);
-  }
-  const loadSavedColor3 = () => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[3]);
-  }
-  const loadSavedColor4 = () => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[4]);
-  }
-  const loadSavedColor5 = () => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[5]);
-  }
+    setHex(savedColors[index]);
+  };
 
   useEffect(() => {
     setTheme(themes, hex, mode);
@@ -118,6 +84,7 @@ const Popup = () => {
 
   });
 
+  /* Adds color into the savedColor theme storage */
   function addToSavedColors(savedHex: string) {
     if (typeof (themes.savedColors.colors.frame) == 'undefined') {
       return;
@@ -132,10 +99,12 @@ const Popup = () => {
     }
   };
 
+  /* Fills the css variables with the appropriate savedColors */
   useEffect(() => {
     if (typeof (themes.savedColors.colors.frame) == 'undefined') {
       return;
     }
+    // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
     let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
 
     document.documentElement.style.setProperty('--saved-color5', savedColors[5]);
@@ -144,9 +113,6 @@ const Popup = () => {
     document.documentElement.style.setProperty('--saved-color1', savedColors[2]);
     document.documentElement.style.setProperty('--saved-color2', savedColors[1]);
     document.documentElement.style.setProperty('--saved-color0', savedColors[0]);
-
-
-    console.log(savedColors);
   });
 
 
@@ -178,12 +144,12 @@ const Popup = () => {
         )}
         { /* Saved colors */}
         <div>
-          <button className="savedColors savedColors0" onClick={loadSavedColor0}></button>
-          <button className="savedColors savedColors1" onClick={loadSavedColor1}></button>
-          <button className="savedColors savedColors2" onClick={loadSavedColor2}></button>
-          <button className="savedColors savedColors3" onClick={loadSavedColor3}></button>
-          <button className="savedColors savedColors4" onClick={loadSavedColor4}></button>
-          <button className="savedColors savedColors5" onClick={loadSavedColor5}></button>
+          <button className="savedColors savedColors0" onClick={loadSavedColor(0)}></button>
+          <button className="savedColors savedColors1" onClick={loadSavedColor(1)}></button>
+          <button className="savedColors savedColors2" onClick={loadSavedColor(2)}></button>
+          <button className="savedColors savedColors3" onClick={loadSavedColor(3)}></button>
+          <button className="savedColors savedColors4" onClick={loadSavedColor(4)}></button>
+          <button className="savedColors savedColors5" onClick={loadSavedColor(5)}></button>
         </div>
 
         {/* Hex display */}
