@@ -1442,15 +1442,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Variables declared; edited in Popup
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: #2196f3;
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(14px);
   -ms-transform: translateX(14px);
   transform: translateX(14px);
@@ -1490,7 +1490,6 @@ input:checked+.slider:before {
   color: var(--flip-color);
 }
 
-
 /* display hex value */
 .display-hex {
   align-items: center;
@@ -1507,7 +1506,8 @@ input:checked+.slider:before {
   font-size: 5px;
   margin: 4px 2px;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;;AAGA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\r\n:root {\r\n  /* color flips depending on color background*/\r\n  --flip-color: black;\r\n}\r\n\r\n.switch {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 40px;\r\n  height: 24px;\r\n}\r\n\r\n/* Hide default HTML checkbox */\r\n.switch input {\r\n  opacity: 0;\r\n  width: 0;\r\n  height: 0;\r\n}\r\n\r\n/* The slider */\r\n.slider {\r\n  position: absolute;\r\n  cursor: pointer;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: #ccc;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.slider:before {\r\n  position: absolute;\r\n  content: '';\r\n  height: 18px;\r\n  width: 18px;\r\n  left: 4px;\r\n  bottom: 4px;\r\n  background-color: white;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\ninput:checked+.slider {\r\n  background-color: #2196f3;\r\n}\r\n\r\ninput:focus+.slider {\r\n  box-shadow: 0 0 1px #2196f3;\r\n}\r\n\r\ninput:checked+.slider:before {\r\n  -webkit-transform: translateX(14px);\r\n  -ms-transform: translateX(14px);\r\n  transform: translateX(14px);\r\n}\r\n\r\n/* Rounded sliders */\r\n.slider.round {\r\n  border-radius: 18px;\r\n}\r\n\r\n.slider.round:before {\r\n  border-radius: 50%;\r\n}\r\n\r\n.display-container {\r\n  justify-content: space-between;\r\n  font-family: -apple-system-body;\r\n  justify-content: center;\r\n  min-width: 300px;\r\n  min-height: 250px;\r\n  align-items: center;\r\n}\r\n\r\n.app-name {\r\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\r\n  text-align: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.wheel-div {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.display-light-dark {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n\r\n/* display hex value */\r\n.display-hex {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.savedColors {\r\n  border: 2px solid var(--flip-color);\r\n  color: white;\r\n  padding: 20px 20px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 5px;\r\n  margin: 4px 2px;\r\n  cursor: pointer;\r\n}"],"sourceRoot":""}]);
+}
+`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\n:root {\n  /* color flips depending on color background*/\n  --flip-color: black;\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.display-container {\n  justify-content: space-between;\n  font-family: -apple-system-body;\n  justify-content: center;\n  min-width: 300px;\n  min-height: 250px;\n  align-items: center;\n}\n\n.app-name {\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  text-align: center;\n  color: var(--flip-color);\n}\n\n.wheel-div {\n  display: flex;\n  align-items: center;\n}\n\n.display-light-dark {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n/* display hex value */\n.display-hex {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n.savedColors {\n  border: 2px solid var(--flip-color);\n  color: white;\n  padding: 20px 20px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 5px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36065,6 +36065,84 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/popup/ColorTable.tsx":
+/*!**********************************!*\
+  !*** ./src/popup/ColorTable.tsx ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ColorTable = void 0;
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
+const background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
+// saved colors table component
+const ColorTable = (props) => {
+    const [savedColors, setSavedColors] = (0, react_1.useState)(props.colors);
+    const [refreshKey, setRefreshKey] = (0, react_1.useState)(0);
+    (0, react_1.useEffect)(() => {
+        setSavedColors(props.colors);
+    }, [props.colors]);
+    const refreshColors = () => {
+        setRefreshKey((prevKey) => prevKey + 1);
+    };
+    return (react_1.default.createElement("div", { style: { display: 'flex', overflowX: 'auto' } }, savedColors.map((color, index) => (react_1.default.createElement(ColorButton, { backgroundColor: color, index: index, refreshColors: refreshColors })))));
+};
+exports.ColorTable = ColorTable;
+const ColorButton = (props) => {
+    const [mode, setMode] = (0, react_1.useState)('');
+    (0, react_1.useEffect)(() => {
+        const fetchMode = async () => {
+            try {
+                const result = await storage_1.default.get('mode');
+                const fetchedMode = result.mode || 'day';
+                setMode(fetchedMode);
+            }
+            catch (err) {
+                console.log('error fetching mode', err);
+                setMode('day');
+            }
+        };
+        fetchMode();
+    }, []);
+    function loadSavedColor(theme, color, mode) {
+        (0, background_script_1.setTheme)(background_script_1.themes, color, mode);
+        props.refreshColors();
+    }
+    return (react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: props.backgroundColor }, onClick: () => loadSavedColor(background_script_1.themes, props.backgroundColor, mode) }));
+};
+
+
+/***/ }),
+
 /***/ "./src/popup/Popup.tsx":
 /*!*****************************!*\
   !*** ./src/popup/Popup.tsx ***!
@@ -36096,94 +36174,66 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_2 = __importDefault(__webpack_require__(/*! reinvented-color-wheel/react */ "./node_modules/reinvented-color-wheel/react/index.js"));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const react_2 = __importDefault(__webpack_require__(/*! reinvented-color-wheel/react */ "./node_modules/reinvented-color-wheel/react/index.js"));
 __webpack_require__(/*! reinvented-color-wheel/css/reinvented-color-wheel.min.css */ "./node_modules/reinvented-color-wheel/css/reinvented-color-wheel.min.css");
+const ColorTable_1 = __webpack_require__(/*! ./ColorTable */ "./src/popup/ColorTable.tsx");
 __webpack_require__(/*! ./popup.css */ "./src/popup/popup.css");
-var background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
-var storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
-var Popup = function () {
-    var _a = (0, react_1.useState)(''), mode = _a[0], setMode = _a[1];
-    var _b = (0, react_1.useState)(''), hex = _b[0], setHex = _b[1];
-    var onClick = function () {
-        setMode(function (prevMode) {
-            var newMode = prevMode === 'day' ? 'night' : 'day';
+const background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
+const storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
+// main popup component
+const Popup = () => {
+    // state variable for the current mode (day || night)
+    const [mode, setMode] = (0, react_1.useState)('');
+    //state variable for the current color selected on the wheel
+    const [hex, setHex] = (0, react_1.useState)('');
+    // state variable for the saved colors from browser storage, default is empty array []
+    const [savedColors, setSavedColors] = (0, react_1.useState)([]);
+    // function to change the mode (day/night) and update the state
+    const onClick = () => {
+        setMode((prevMode) => {
+            const newMode = prevMode === 'day' ? 'night' : 'day';
             (0, background_script_1.changeMode)(background_script_1.themes, newMode);
             setHex(background_script_1.themes[newMode].colors.frame || '#FFFFFF');
+            document.body.style.backgroundColor = background_script_1.themes[newMode].colors.frame;
             storage_1.default
                 .set({ mode: newMode })
-                .then(function () {
+                .then(() => {
                 console.log('mode updated in storage', newMode);
             })
-                .catch(function (err) {
+                .catch((err) => {
                 console.log('error setting mode in storage');
             });
             return newMode; // Return the new mode value
         });
         console.log('button clicked');
     };
-    /* FOR OnClick BUTTON FUNCTIONS */
-    var loadSavedColor = function (index) { return function () {
-        if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-            return;
-        }
-        var savedColors = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-        setHex(savedColors[index]);
-    }; };
-    (0, react_1.useEffect)(function () {
+    // function to save color to local storage
+    const saveColor = async () => {
+        const result = await storage_1.default.get('savedColors');
+        let savedColors = JSON.parse(result.savedColors);
+        savedColors.push(hex);
+        storage_1.default.set({ savedColors: JSON.stringify(savedColors) });
+    };
+    // use effect hook to change the color, triggered when hex is changed
+    (0, react_1.useEffect)(() => {
         (0, background_script_1.setTheme)(background_script_1.themes, hex, mode);
         console.log('theme changed');
     }, [hex]);
     // For changing --flip-color css to flip colors depending on the color picked
-    (0, react_1.useEffect)(function () {
+    (0, react_1.useEffect)(() => {
         // If all black, flip color to white
-        if (hex == "#000000") {
+        if (hex == '#000000') {
             document.documentElement.style.setProperty('--flip-color', 'white');
             return;
         }
         // Grab hex and convert to cmyk
-        var cmyk = hex2cmyk(hex);
-        if (typeof (cmyk) !== 'undefined') {
+        let cmyk = hex2cmyk(hex);
+        if (typeof cmyk !== 'undefined') {
             // k is basically vertical distance for square color pickers
             if (cmyk['k'] > 51) {
                 document.documentElement.style.setProperty('--flip-color', 'white');
@@ -36193,106 +36243,104 @@ var Popup = function () {
             }
         }
     }, [hex]);
-    (0, react_1.useEffect)(function () {
-        var fetchMode = function () { return __awaiter(void 0, void 0, void 0, function () {
-            var result, fetchedMode, err_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, storage_1.default.get('mode')];
-                    case 1:
-                        result = _a.sent();
-                        fetchedMode = result.mode || 'day';
-                        setHex(background_script_1.themes[fetchedMode].colors.frame || '#FFFFFF');
-                        setMode(fetchedMode);
-                        return [3 /*break*/, 3];
-                    case 2:
-                        err_1 = _a.sent();
-                        console.log('Error fetching mode:', err_1);
-                        setMode('day'); // Default mode on error
-                        setHex('#FFFFFF'); // Default color
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        }); };
+    // use effect hook to fetch the saved mode from local storage
+    (0, react_1.useEffect)(() => {
+        //document.body.style.backgroundColor = '#E4E6EB';
+        const fetchMode = async () => {
+            try {
+                const result = await storage_1.default.get('mode');
+                const fetchedMode = result.mode || 'day'; // Provide a default mode if none is found
+                setHex(background_script_1.themes[fetchedMode].colors.frame || '#FFFFFF');
+                setMode(fetchedMode);
+                document.body.style.backgroundColor = background_script_1.themes[fetchedMode].colors.frame;
+            }
+            catch (err) {
+                console.log('Error fetching mode:', err);
+                setMode('day'); // Default mode on error
+                setHex('#FFFFFF'); // Default color
+            }
+        };
         fetchMode();
     }, []);
-    /* FIX */
-    /* Fills the css variables with the appropriate savedColors */
-    var savedColorsArray = [];
-    if (typeof (background_script_1.themes.savedColors.colors.frame) != 'undefined') {
-        // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
-        savedColorsArray = background_script_1.themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    }
+    // use effect hook to fetch the saved colors from local storage
+    (0, react_1.useEffect)(() => {
+        const getSavedColors = async () => {
+            let result = await storage_1.default.get('savedColors');
+            console.log('saved colors from storage is', result.savedColors);
+            if (result == null) {
+                setSavedColors([]);
+            }
+            else {
+                const colorRegex = /#[0-9a-fA-F]{6}/g;
+                setSavedColors(result.savedColors.match(colorRegex));
+            }
+        };
+        getSavedColors();
+    }, []);
+    (0, react_1.useEffect)(() => {
+        storage_1.default.set({ savedColors: JSON.stringify(savedColors) });
+    }, [savedColors]);
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
         react_1.default.createElement("div", { className: "display-container" },
-            hex && (react_1.default.createElement("div", { onMouseUp: function () {
-                    addToSavedColors(hex);
-                } },
-                react_1.default.createElement(react_2.default, { hex: hex, wheelDiameter: 300, wheelThickness: 20, handleDiameter: 16, wheelReflectsSaturation: true, onChange: function (_a) {
-                        var hex = _a.hex;
-                        setHex(hex);
-                    } }))),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: savedColorsArray[0] }, onClick: loadSavedColor(0) }),
-                react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: savedColorsArray[1] }, onClick: loadSavedColor(1) }),
-                react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: savedColorsArray[2] }, onClick: loadSavedColor(2) }),
-                react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: savedColorsArray[3] }, onClick: loadSavedColor(3) }),
-                react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: savedColorsArray[4] }, onClick: loadSavedColor(4) }),
-                react_1.default.createElement("button", { className: "savedColors", style: { backgroundColor: savedColorsArray[5] }, onClick: loadSavedColor(5) })),
+            hex && (react_1.default.createElement(react_2.default, { hex: hex, wheelDiameter: 300, wheelThickness: 20, handleDiameter: 16, wheelReflectsSaturation: true, onChange: ({ hex }) => {
+                    setHex(hex);
+                } })),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", { className: "display-hex" },
                     "Hex: ",
                     hex)),
-            react_1.default.createElement("div", { className: "display-light-dark" },
-                mode && react_1.default.createElement("p", null, mode == 'day' ? 'light' : 'dark'),
-                react_1.default.createElement("label", { className: "switch" },
-                    react_1.default.createElement("input", { id: "checkbox", type: "checkbox", onClick: onClick }),
-                    react_1.default.createElement("span", { className: "slider round" }))))));
+            react_1.default.createElement(ColorTable_1.ColorTable, { colors: savedColors }),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("div", { className: "display-light-dark" },
+                    mode && react_1.default.createElement("p", null, mode == 'day' ? 'light' : 'dark'),
+                    react_1.default.createElement("div", { style: { display: 'flex' } },
+                        react_1.default.createElement("label", { className: "switch" },
+                            react_1.default.createElement("input", { id: "checkbox", type: "checkbox", onClick: onClick }),
+                            react_1.default.createElement("span", { className: "slider round" })),
+                        react_1.default.createElement("button", { className: "border-radius:4px align-items: right", onClick: saveColor },
+                            react_1.default.createElement("span", null, "+"))))))));
 };
 exports["default"] = Popup;
-/* Adds color into the savedColor theme storage */
-function addToSavedColors(savedHex) {
-    if (typeof (background_script_1.themes.savedColors.colors.frame) == 'undefined') {
-        return;
-    }
-    if (background_script_1.themes.savedColors.colors.frame.length >= 42) {
-        // setSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
-        (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame.substring(7) + savedHex);
-    }
-    else {
-        // setSavedColors(themes.savedColors.colors.frame + savedHex);
-        (0, background_script_1.updateSavedColors)(background_script_1.themes.savedColors.colors.frame + savedHex);
-    }
+/*
+function addToSavedColors(savedHex: string) {
+  if (typeof themes.savedColors.colors.frame == 'undefined') {
+    return;
+  }
+
+  if (themes.savedColors.colors.frame.length >= 42) {
+    // setSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+    updateSavedColors(themes.savedColors.colors.frame.substring(7) + savedHex);
+  } else {
+    // setSavedColors(themes.savedColors.colors.frame + savedHex);
+    updateSavedColors(themes.savedColors.colors.frame + savedHex);
+  }
 }
-;
+*/
 function hex2cmyk(hexCode) {
-    var rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexCode);
+    let rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexCode);
     if (rgbValues == null) {
         return;
     }
-    var r = parseInt(rgbValues[1], 16);
-    var g = parseInt(rgbValues[2], 16);
-    var b = parseInt(rgbValues[3], 16);
-    var computedC = 0;
-    var computedM = 0;
-    var computedY = 0;
-    var computedK = 0;
+    let r = parseInt(rgbValues[1], 16);
+    let g = parseInt(rgbValues[2], 16);
+    let b = parseInt(rgbValues[3], 16);
+    let computedC = 0;
+    let computedM = 0;
+    let computedY = 0;
+    let computedK = 0;
     // BLACK
     if (r == 0 && g == 0 && b == 0) {
         computedK = 1;
         return { c: 0, m: 0, y: 0, k: 1 };
     }
-    computedC = 1 - (r / 255);
-    computedM = 1 - (g / 255);
-    computedY = 1 - (b / 255);
-    var minCMY = Math.min(computedC, Math.min(computedM, computedY));
-    computedC = Math.round((computedC - minCMY) / (1 - minCMY) * 100);
-    computedM = Math.round((computedM - minCMY) / (1 - minCMY) * 100);
-    computedY = Math.round((computedY - minCMY) / (1 - minCMY) * 100);
+    computedC = 1 - r / 255;
+    computedM = 1 - g / 255;
+    computedY = 1 - b / 255;
+    let minCMY = Math.min(computedC, Math.min(computedM, computedY));
+    computedC = Math.round(((computedC - minCMY) / (1 - minCMY)) * 100);
+    computedM = Math.round(((computedM - minCMY) / (1 - minCMY)) * 100);
+    computedY = Math.round(((computedY - minCMY) / (1 - minCMY)) * 100);
     computedK = Math.round(minCMY * 100);
     return { c: computedC, m: computedM, y: computedY, k: computedK };
 }
@@ -36304,50 +36352,14 @@ function hex2cmyk(hexCode) {
 /*!****************************************!*\
   !*** ./src/popup/background_script.ts ***!
   \****************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var _a, _b, _c;
+var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.setTheme = exports.changeMode = exports.updateSavedColors = exports.updateColor = exports.themes = exports.storage = void 0;
-var webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
+exports.setTheme = exports.changeMode = exports.updateColor = exports.themes = exports.storage = void 0;
+const webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
 exports.storage = localStorage;
 exports.themes = {
     day: {
@@ -36364,16 +36376,9 @@ exports.themes = {
                 : '000000', // Assuming black for night
         },
     },
-    savedColors: {
-        colors: {
-            frame: storageAvailable('localStorage')
-                ? (_c = localStorage.getItem('savedColors')) !== null && _c !== void 0 ? _c : ''
-                : '#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff', // 
-        },
-    },
 };
 function updateColor(theme, value, mode) {
-    var checkBox = document.getElementById('checkbox');
+    const checkBox = document.getElementById('checkbox');
     if (checkBox.checked) {
         theme['night'].colors['frame'] = value;
         console.log('changed night theme');
@@ -36384,46 +36389,32 @@ function updateColor(theme, value, mode) {
     }
 }
 exports.updateColor = updateColor;
-function updateSavedColors(savedColors) {
-    exports.themes.savedColors.colors.frame = savedColors;
-    localStorage.setItem('savedColors', savedColors);
-}
-exports.updateSavedColors = updateSavedColors;
-function changeMode(theme, mode) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
-            return [2 /*return*/];
-        });
-    });
+async function changeMode(theme, mode) {
+    webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
 }
 exports.changeMode = changeMode;
-var currentTheme;
-function setTheme(theme, value, mode) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            if (theme[mode].colors['frame'] === value) {
-                console.log('theme is the same');
-                return [2 /*return*/];
-            }
-            currentTheme = theme;
-            updateColor(theme, value, mode);
-            //const currentThemes = await browser.theme.getCurrent();
-            webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
-            localStorage.setItem(mode, value);
-            console.log('local storage updated');
-            document.body.style.backgroundColor = value;
-            return [2 /*return*/];
-        });
-    });
+let currentTheme;
+async function setTheme(theme, value, mode) {
+    if (theme[mode].colors['frame'] === value) {
+        console.log('theme is the same');
+        return;
+    }
+    currentTheme = theme;
+    updateColor(theme, value, mode);
+    //const currentThemes = await browser.theme.getCurrent();
+    webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
+    localStorage.setItem(mode, value);
+    console.log('local storage updated');
+    document.body.style.backgroundColor = value;
 }
 exports.setTheme = setTheme;
+/* function to check if local storage is available */
 function storageAvailable(type) {
     try {
-        var storage_1 = window[type];
-        var x = '__storage_test__';
-        storage_1.setItem(x, x);
-        storage_1.removeItem(x);
+        let storage = window[type];
+        const x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
         return true;
     }
     catch (e) {
@@ -36453,111 +36444,58 @@ function storageAvailable(type) {
 
 "use strict";
 
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js"));
-var webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
-var Popup_1 = __importDefault(__webpack_require__(/*! ./Popup */ "./src/popup/Popup.tsx"));
-var storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
-var background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
-var Index = function () { return react_1.default.createElement(Popup_1.default, null); };
-var currentMode = '';
-var updateCheckboxState = function () {
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js"));
+const webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
+const Popup_1 = __importDefault(__webpack_require__(/*! ./Popup */ "./src/popup/Popup.tsx"));
+const storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
+const background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
+const Index = () => react_1.default.createElement(Popup_1.default, null);
+let currentMode = '';
+const updateCheckboxState = () => {
     storage_1.default
         .get('mode')
-        .then(function (result) {
-        var currentMode = result.mode === 'night';
-        var checkbox = document.getElementById('checkbox');
+        .then((result) => {
+        const currentMode = result.mode === 'night';
+        const checkbox = document.getElementById('checkbox');
         checkbox.checked = currentMode;
         console.log('checkbox state updated');
     })
-        .catch(function (err) {
+        .catch((err) => {
         console.log('error getting mode from storage', err);
     });
-    storage_1.default.get(currentMode).then(function (result) { });
+    storage_1.default.get(currentMode).then((result) => { });
 };
-var onOpen = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var getCurrentMode, currentMode;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                getCurrentMode = function () { return __awaiter(void 0, void 0, void 0, function () {
-                    var result, err_1;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                _a.trys.push([0, 2, , 3]);
-                                return [4 /*yield*/, storage_1.default.get('mode')];
-                            case 1:
-                                result = _a.sent();
-                                if (result.mode === 'day' || result.mode === 'night') {
-                                    return [2 /*return*/, result.mode];
-                                }
-                                return [2 /*return*/, ''];
-                            case 2:
-                                err_1 = _a.sent();
-                                return [2 /*return*/, ''];
-                            case 3: return [2 /*return*/];
-                        }
-                    });
-                }); };
-                return [4 /*yield*/, getCurrentMode()];
-            case 1:
-                currentMode = _a.sent();
-                if (currentMode === 'day' || currentMode === 'night') {
-                    webextension_polyfill_ts_1.browser.theme.update(background_script_1.themes[currentMode]);
-                }
-                else {
-                    // Handle the case where currentMode is '' or any other non-valid key
-                    console.error('Invalid mode:', currentMode);
-                }
-                return [2 /*return*/];
+const onOpen = async () => {
+    const getCurrentMode = async () => {
+        try {
+            const result = await storage_1.default.get('mode');
+            if (result.mode === 'day' || result.mode === 'night') {
+                return result.mode;
+            }
+            return '';
         }
-    });
-}); };
-document.addEventListener('DOMContentLoaded', function () {
+        catch (err) {
+            return '';
+        }
+    };
+    const currentMode = await getCurrentMode();
+    if (currentMode === 'day' || currentMode === 'night') {
+        webextension_polyfill_ts_1.browser.theme.update(background_script_1.themes[currentMode]);
+    }
+    else {
+        // Handle the case where currentMode is '' or any other non-valid key
+        console.error('Invalid mode:', currentMode);
+    }
+};
+document.addEventListener('DOMContentLoaded', () => {
     updateCheckboxState();
 });
-var root = client_1.default.createRoot(document.getElementById('display-container'));
+const root = client_1.default.createRoot(document.getElementById('display-container'));
 root.render(react_1.default.createElement(Index, null));
 
 
@@ -36572,7 +36510,7 @@ root.render(react_1.default.createElement(Index, null));
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var webextension_polyfill_1 = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
+const webextension_polyfill_1 = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
 exports["default"] = webextension_polyfill_1.storage.sync ? webextension_polyfill_1.storage.sync : webextension_polyfill_1.storage.local;
 
 

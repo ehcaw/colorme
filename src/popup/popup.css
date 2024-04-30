@@ -43,15 +43,15 @@
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: #2196f3;
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(14px);
   -ms-transform: translateX(14px);
   transform: translateX(14px);
@@ -90,7 +90,6 @@ input:checked+.slider:before {
   align-items: center;
   color: var(--flip-color);
 }
-
 
 /* display hex value */
 .display-hex {

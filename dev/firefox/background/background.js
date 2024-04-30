@@ -1391,229 +1391,6 @@
 /* ----------------------------------------------- *//******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/background/index.ts":
-/*!*********************************!*\
-  !*** ./src/background/index.ts ***!
-  \*********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.background = void 0;
-var webextension_polyfill_1 = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
-/**
- * Define background script functions
- * @type {class}
- */
-var Background = /** @class */ (function () {
-    function Background() {
-        var _this = this;
-        /**
-         * Document Ready
-         *
-         * @returns {void}
-         */
-        this.init = function () {
-            console.log('[===== Loaded Background Scripts =====]');
-            //When extension installed
-            webextension_polyfill_1.runtime.onInstalled.addListener(_this.onInstalled);
-            //Add message listener in Browser.
-            webextension_polyfill_1.runtime.onMessage.addListener(_this.onMessage);
-            //Add Update listener for tab
-            webextension_polyfill_1.tabs.onUpdated.addListener(_this.onUpdatedTab);
-            //Add New tab create listener
-            webextension_polyfill_1.tabs.onCreated.addListener(_this.onCreatedTab);
-        };
-        //TODO: Listeners
-        /**
-         * Extension Installed
-         */
-        this.onInstalled = function () {
-            console.log('[===== Installed Extension!] =====');
-        };
-        /**
-         * Message Handler Function
-         *
-         * @param message
-         * @param sender
-         * @returns
-         */
-        this.onMessage = function (message, sender) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                try {
-                    console.log('[===== Received message =====]', message, sender);
-                    switch (message.type) {
-                    }
-                    return [2 /*return*/, true]; // result to reply
-                }
-                catch (error) {
-                    console.log('[===== Error in MessageListener =====]', error);
-                    return [2 /*return*/, error];
-                }
-                return [2 /*return*/];
-            });
-        }); };
-        /**
-         * Message from Long Live Connection
-         *
-         * @param msg
-         */
-        this.onMessageFromExtension = function (msg) {
-            console.log('[===== Message from Long Live Connection =====]', msg);
-        };
-        /**
-         *
-         * @param tab
-         */
-        this.onCreatedTab = function (tab) {
-            console.log('[===== New Tab Created =====]', tab);
-        };
-        /**
-         * When changes tabs
-         *
-         * @param {*} tabId
-         * @param {*} changeInfo
-         * @param {*} tab
-         */
-        this.onUpdatedTab = function (tabId, changeInfo, tab) {
-            console.log('[===== Tab Created =====]', tabId, changeInfo, tab);
-        };
-        /**
-         * Get url from tabId
-         *
-         */
-        this.getURLFromTab = function (tabId) { return __awaiter(_this, void 0, void 0, function () {
-            var tab, error_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, webextension_polyfill_1.tabs.get(tabId)];
-                    case 1:
-                        tab = _a.sent();
-                        return [2 /*return*/, tab.url || ''];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.log("[===== Could not get Tab Info$(tabId) in getURLFromTab =====]", error_1);
-                        throw '';
-                    case 3: return [2 /*return*/];
-                }
-            });
-        }); };
-        /**
-         * Open new tab by url
-         *
-         */
-        this.openNewTab = function (url) { return __awaiter(_this, void 0, void 0, function () {
-            var tab, error_2;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, webextension_polyfill_1.tabs.create({ url: url })];
-                    case 1:
-                        tab = _a.sent();
-                        return [2 /*return*/, tab];
-                    case 2:
-                        error_2 = _a.sent();
-                        console.log("[===== Error in openNewTab =====]", error_2);
-                        return [2 /*return*/, null];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        }); };
-        /**
-         * Close specific tab
-         *
-         * @param {number} tab
-         */
-        this.closeTab = function (tab) { return __awaiter(_this, void 0, void 0, function () {
-            var error_3;
-            var _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, webextension_polyfill_1.tabs.remove((_a = tab.id) !== null && _a !== void 0 ? _a : 0)];
-                    case 1:
-                        _b.sent();
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_3 = _b.sent();
-                        console.log("[===== Error in closeTab =====]", error_3);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        }); };
-        /**
-         * send message
-         */
-        this.sendMessage = function (tab, msg) { return __awaiter(_this, void 0, void 0, function () {
-            var res, error_4;
-            var _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, webextension_polyfill_1.tabs.sendMessage((_a = tab.id) !== null && _a !== void 0 ? _a : 0, msg)];
-                    case 1:
-                        res = _b.sent();
-                        return [2 /*return*/, res];
-                    case 2:
-                        error_4 = _b.sent();
-                        console.log("[===== Error in sendMessage =====]", error_4);
-                        return [2 /*return*/, null];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        }); };
-        this.init();
-    }
-    return Background;
-}());
-exports.background = new Background();
-
-
-/***/ }),
-
 /***/ "./node_modules/webextension-polyfill/dist/browser-polyfill.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/webextension-polyfill/dist/browser-polyfill.js ***!
@@ -2915,12 +2692,154 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/background/index.ts");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+var exports = __webpack_exports__;
+/*!*********************************!*\
+  !*** ./src/background/index.ts ***!
+  \*********************************/
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.background = void 0;
+const webextension_polyfill_1 = __webpack_require__(/*! webextension-polyfill */ "./node_modules/webextension-polyfill/dist/browser-polyfill.js");
+/**
+ * Define background script functions
+ * @type {class}
+ */
+class Background {
+    constructor() {
+        /**
+         * Document Ready
+         *
+         * @returns {void}
+         */
+        this.init = () => {
+            console.log('[===== Loaded Background Scripts =====]');
+            //When extension installed
+            webextension_polyfill_1.runtime.onInstalled.addListener(this.onInstalled);
+            //Add message listener in Browser.
+            webextension_polyfill_1.runtime.onMessage.addListener(this.onMessage);
+            //Add Update listener for tab
+            webextension_polyfill_1.tabs.onUpdated.addListener(this.onUpdatedTab);
+            //Add New tab create listener
+            webextension_polyfill_1.tabs.onCreated.addListener(this.onCreatedTab);
+        };
+        //TODO: Listeners
+        /**
+         * Extension Installed
+         */
+        this.onInstalled = () => {
+            console.log('[===== Installed Extension!] =====');
+        };
+        /**
+         * Message Handler Function
+         *
+         * @param message
+         * @param sender
+         * @returns
+         */
+        this.onMessage = async (message, sender) => {
+            try {
+                console.log('[===== Received message =====]', message, sender);
+                switch (message.type) {
+                }
+                return true; // result to reply
+            }
+            catch (error) {
+                console.log('[===== Error in MessageListener =====]', error);
+                return error;
+            }
+        };
+        /**
+         * Message from Long Live Connection
+         *
+         * @param msg
+         */
+        this.onMessageFromExtension = (msg) => {
+            console.log('[===== Message from Long Live Connection =====]', msg);
+        };
+        /**
+         *
+         * @param tab
+         */
+        this.onCreatedTab = (tab) => {
+            console.log('[===== New Tab Created =====]', tab);
+        };
+        /**
+         * When changes tabs
+         *
+         * @param {*} tabId
+         * @param {*} changeInfo
+         * @param {*} tab
+         */
+        this.onUpdatedTab = (tabId, changeInfo, tab) => {
+            console.log('[===== Tab Created =====]', tabId, changeInfo, tab);
+        };
+        /**
+         * Get url from tabId
+         *
+         */
+        this.getURLFromTab = async (tabId) => {
+            try {
+                const tab = await webextension_polyfill_1.tabs.get(tabId);
+                return tab.url || '';
+            }
+            catch (error) {
+                console.log(`[===== Could not get Tab Info$(tabId) in getURLFromTab =====]`, error);
+                throw '';
+            }
+        };
+        /**
+         * Open new tab by url
+         *
+         */
+        this.openNewTab = async (url) => {
+            try {
+                const tab = await webextension_polyfill_1.tabs.create({ url });
+                return tab;
+            }
+            catch (error) {
+                console.log(`[===== Error in openNewTab =====]`, error);
+                return null;
+            }
+        };
+        /**
+         * Close specific tab
+         *
+         * @param {number} tab
+         */
+        this.closeTab = async (tab) => {
+            var _a;
+            try {
+                await webextension_polyfill_1.tabs.remove((_a = tab.id) !== null && _a !== void 0 ? _a : 0);
+            }
+            catch (error) {
+                console.log(`[===== Error in closeTab =====]`, error);
+            }
+        };
+        /**
+         * send message
+         */
+        this.sendMessage = async (tab, msg) => {
+            var _a;
+            try {
+                const res = await webextension_polyfill_1.tabs.sendMessage((_a = tab.id) !== null && _a !== void 0 ? _a : 0, msg);
+                return res;
+            }
+            catch (error) {
+                console.log(`[===== Error in sendMessage =====]`, error);
+                return null;
+            }
+        };
+        this.init();
+    }
+}
+exports.background = new Background();
+
+})();
+
 /******/ })()
 ;
 //# sourceMappingURL=background.js.map

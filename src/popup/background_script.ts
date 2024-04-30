@@ -1,3 +1,4 @@
+import { valuesIn } from 'lodash';
 import { browser } from 'webextension-polyfill-ts';
 
 export let storage = localStorage;
@@ -24,13 +25,6 @@ export const themes: { [key: string]: ThemeType } = {
         : '000000', // Assuming black for night
     },
   },
-  savedColors: {
-    colors: {
-      frame: storageAvailable('localStorage')
-        ? localStorage.getItem('savedColors') ?? ''
-        : '#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff', // 
-    },
-  },
 };
 
 export function updateColor(
@@ -47,12 +41,6 @@ export function updateColor(
     console.log('light mode changed');
   }
 }
-
-export function updateSavedColors(savedColors: string) {
-  themes['savedColors'].colors['frame'] = savedColors;
-  localStorage.setItem('savedColors', savedColors);
-}
-
 export async function changeMode(theme: { [key: string]: any }, mode: string) {
   browser.theme.update(theme[mode]);
 }
@@ -77,6 +65,8 @@ export async function setTheme(
   console.log('local storage updated');
   document.body.style.backgroundColor = value;
 }
+
+/* function to check if local storage is available */
 
 function storageAvailable(type: string) {
   try {

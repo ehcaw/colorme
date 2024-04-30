@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import ReinventedColorWheel from 'reinvented-color-wheel/react';
 import 'reinvented-color-wheel/css/reinvented-color-wheel.min.css';
+import { ColorTable } from './ColorTable';
 import './popup.css';
-import { themes, setTheme, updateColor, changeMode, updateSavedColors } from './background_script';
+import { themes, setTheme, updateColor, changeMode } from './background_script';
 import storage from 'utils/storage';
 
+// main popup component
 const Popup = () => {
+  // state variable for the current mode (day || night)
   const [mode, setMode] = useState<string>('');
+  //state variable for the current color selected on the wheel
   const [hex, setHex] = useState<string>('');
+  // state variable for the saved colors from browser storage, default is empty array []
+  const [savedColors, setSavedColors] = useState<string[]>([]);
 
+  // function to change the mode (day/night) and update the state
   const onClick = () => {
     setMode((prevMode) => {
       const newMode = prevMode === 'day' ? 'night' : 'day';
       changeMode(themes, newMode);
       setHex((themes[newMode] as any).colors.frame || '#FFFFFF');
+      document.body.style.backgroundColor = (
+        themes[newMode] as any
+      ).colors.frame;
       storage
         .set({ mode: newMode })
         .then(() => {
@@ -27,32 +37,30 @@ const Popup = () => {
     console.log('button clicked');
   };
 
-  /* FOR OnClick BUTTON FUNCTIONS */
-  const loadSavedColor = (index: number) => () => {
-    if (typeof (themes.savedColors.colors.frame) == 'undefined') {
-      return;
-    }
-    let savedColors = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-    setHex(savedColors[index]);
+  // function to save color to local storage
+  const saveColor = async () => {
+    const result = await storage.get('savedColors');
+    let savedColors = JSON.parse(result.savedColors);
+    savedColors.push(hex);
+    storage.set({ savedColors: JSON.stringify(savedColors) });
   };
 
+  // use effect hook to change the color, triggered when hex is changed
   useEffect(() => {
     setTheme(themes, hex, mode);
     console.log('theme changed');
   }, [hex]);
 
-
   // For changing --flip-color css to flip colors depending on the color picked
   useEffect(() => {
     // If all black, flip color to white
-    if (hex == "#000000") {
+    if (hex == '#000000') {
       document.documentElement.style.setProperty('--flip-color', 'white');
       return;
     }
-
     // Grab hex and convert to cmyk
-    var cmyk = hex2cmyk(hex);
-    if (typeof (cmyk) !== 'undefined') {
+    let cmyk = hex2cmyk(hex);
+    if (typeof cmyk !== 'undefined') {
       // k is basically vertical distance for square color pickers
       if (cmyk['k'] > 51) {
         document.documentElement.style.setProperty('--flip-color', 'white');
@@ -62,14 +70,18 @@ const Popup = () => {
     }
   }, [hex]);
 
+  // use effect hook to fetch the saved mode from local storage
   useEffect(() => {
+    //document.body.style.backgroundColor = '#E4E6EB';
     const fetchMode = async () => {
       try {
         const result = await storage.get('mode');
         const fetchedMode = result.mode || 'day'; // Provide a default mode if none is found
         setHex((themes[fetchedMode] as any).colors.frame || '#FFFFFF');
         setMode(fetchedMode);
-
+        document.body.style.backgroundColor = (
+          themes[fetchedMode] as any
+        ).colors.frame;
       } catch (err) {
         console.log('Error fetching mode:', err);
         setMode('day'); // Default mode on error
@@ -78,15 +90,24 @@ const Popup = () => {
     };
     fetchMode();
   }, []);
+  // use effect hook to fetch the saved colors from local storage
+  useEffect(() => {
+    const getSavedColors = async () => {
+      let result = await storage.get('savedColors');
+      console.log('saved colors from storage is', result.savedColors);
+      if (result == null) {
+        setSavedColors([]);
+      } else {
+        const colorRegex = /#[0-9a-fA-F]{6}/g;
+        setSavedColors(result.savedColors.match(colorRegex));
+      }
+    };
+    getSavedColors();
+  }, []);
 
-
-  /* FIX */
-  /* Fills the css variables with the appropriate savedColors */
-  let savedColorsArray: string[] = [];
-  if (typeof (themes.savedColors.colors.frame) != 'undefined') {
-    // Split savedColors into an array (#XXXXXX, #XXXXXXX, ...)
-    savedColorsArray = themes.savedColors.colors.frame.split(/(?=(?:.......)*$)/);
-  }
+  useEffect(() => {
+    storage.set({ savedColors: JSON.stringify(savedColors) });
+  }, [savedColors]);
 
   return (
     <>
@@ -96,48 +117,41 @@ const Popup = () => {
       {/* Color wheel */}
       <div className="display-container">
         {hex && (
-          <div
-            onMouseUp={() => {
-              addToSavedColors(hex);
+          <ReinventedColorWheel
+            hex={hex}
+            wheelDiameter={300}
+            wheelThickness={20}
+            handleDiameter={16}
+            wheelReflectsSaturation
+            onChange={({ hex }) => {
+              setHex(hex);
             }}
-          >
-            <ReinventedColorWheel
-              hex={hex}
-              wheelDiameter={300}
-              wheelThickness={20}
-              handleDiameter={16}
-              wheelReflectsSaturation
-              onChange={({ hex }) => {
-                setHex(hex);
-              }}
-
-            />
-          </div>
+          />
         )}
-        { /* Saved colors */}
-        <div>
-          <button className="savedColors" style={{ backgroundColor: savedColorsArray[0] }} onClick={loadSavedColor(0)}></button>
-          <button className="savedColors" style={{ backgroundColor: savedColorsArray[1] }} onClick={loadSavedColor(1)}></button>
-          <button className="savedColors" style={{ backgroundColor: savedColorsArray[2] }} onClick={loadSavedColor(2)}></button>
-          <button className="savedColors" style={{ backgroundColor: savedColorsArray[3] }} onClick={loadSavedColor(3)}></button>
-          <button className="savedColors" style={{ backgroundColor: savedColorsArray[4] }} onClick={loadSavedColor(4)}></button>
-          <button className="savedColors" style={{ backgroundColor: savedColorsArray[5] }} onClick={loadSavedColor(5)}></button>
-        </div>
 
         {/* Hex display */}
         <div>
           <p className="display-hex">Hex: {hex}</p>
         </div>
-
+        {<ColorTable colors={savedColors} />}
         {/* Light or dark theme */}
-        <div className="display-light-dark">
-          {mode && <p>{mode == 'day' ? 'light' : 'dark'}</p>}
-          <label className="switch">
-            <input id="checkbox" type="checkbox" onClick={onClick} />
-            <span className="slider round" />
-          </label>
+        <div>
+          <div className="display-light-dark">
+            {mode && <p>{mode == 'day' ? 'light' : 'dark'}</p>}
+            <div style={{ display: 'flex' }}>
+              <label className="switch">
+                <input id="checkbox" type="checkbox" onClick={onClick} />
+                <span className="slider round" />
+              </label>
+              <button
+                className="border-radius:4px align-items: right"
+                onClick={saveColor}
+              >
+                <span>&#43;</span>
+              </button>
+            </div>
+          </div>
         </div>
-
       </div>
     </>
   );
@@ -145,9 +159,9 @@ const Popup = () => {
 
 export default Popup;
 
-/* Adds color into the savedColor theme storage */
+/*
 function addToSavedColors(savedHex: string) {
-  if (typeof (themes.savedColors.colors.frame) == 'undefined') {
+  if (typeof themes.savedColors.colors.frame == 'undefined') {
     return;
   }
 
@@ -158,22 +172,20 @@ function addToSavedColors(savedHex: string) {
     // setSavedColors(themes.savedColors.colors.frame + savedHex);
     updateSavedColors(themes.savedColors.colors.frame + savedHex);
   }
-};
-
+}
+*/
 function hex2cmyk(hexCode: string) {
-
-  var rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexCode);
+  let rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexCode);
   if (rgbValues == null) {
     return;
   }
-  var r = parseInt(rgbValues[1], 16);
-  var g = parseInt(rgbValues[2], 16);
-  var b = parseInt(rgbValues[3], 16);
-
-  var computedC = 0;
-  var computedM = 0;
-  var computedY = 0;
-  var computedK = 0;
+  let r = parseInt(rgbValues[1], 16);
+  let g = parseInt(rgbValues[2], 16);
+  let b = parseInt(rgbValues[3], 16);
+  let computedC = 0;
+  let computedM = 0;
+  let computedY = 0;
+  let computedK = 0;
 
   // BLACK
   if (r == 0 && g == 0 && b == 0) {
@@ -181,15 +193,13 @@ function hex2cmyk(hexCode: string) {
     return { c: 0, m: 0, y: 0, k: 1 };
   }
 
-  computedC = 1 - (r / 255);
-  computedM = 1 - (g / 255);
-  computedY = 1 - (b / 255);
-
-  var minCMY = Math.min(computedC,
-    Math.min(computedM, computedY));
-  computedC = Math.round((computedC - minCMY) / (1 - minCMY) * 100);
-  computedM = Math.round((computedM - minCMY) / (1 - minCMY) * 100);
-  computedY = Math.round((computedY - minCMY) / (1 - minCMY) * 100);
+  computedC = 1 - r / 255;
+  computedM = 1 - g / 255;
+  computedY = 1 - b / 255;
+  let minCMY = Math.min(computedC, Math.min(computedM, computedY));
+  computedC = Math.round(((computedC - minCMY) / (1 - minCMY)) * 100);
+  computedM = Math.round(((computedM - minCMY) / (1 - minCMY)) * 100);
+  computedY = Math.round(((computedY - minCMY) / (1 - minCMY)) * 100);
   computedK = Math.round(minCMY * 100);
 
   return { c: computedC, m: computedM, y: computedY, k: computedK };
