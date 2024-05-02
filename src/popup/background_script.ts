@@ -4,7 +4,7 @@ import { browser } from 'webextension-polyfill-ts';
 export let storage = localStorage;
 
 type ThemeColor = string;
-interface ThemeType {
+export interface ThemeType {
   colors: {
     frame: ThemeColor | undefined;
   };
@@ -61,7 +61,7 @@ export async function setTheme(
 
   //const currentThemes = await browser.theme.getCurrent();
   browser.theme.update(theme[mode]);
-  localStorage.setItem(mode, value);
+  localStorage.setItem('mode', mode);
   console.log('local storage updated');
   document.body.style.backgroundColor = value;
 }

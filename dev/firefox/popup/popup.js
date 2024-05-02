@@ -1467,7 +1467,7 @@ input:checked + .slider:before {
 
 .display-container {
   justify-content: space-between;
-  font-family: -apple-system-body;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   justify-content: center;
   min-width: 300px;
   min-height: 250px;
@@ -1507,7 +1507,7 @@ input:checked + .slider:before {
   margin: 4px 2px;
   cursor: pointer;
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,+BAA+B;EAC/B,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\n:root {\n  /* color flips depending on color background*/\n  --flip-color: black;\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.display-container {\n  justify-content: space-between;\n  font-family: -apple-system-body;\n  justify-content: center;\n  min-width: 300px;\n  min-height: 250px;\n  align-items: center;\n}\n\n.app-name {\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  text-align: center;\n  color: var(--flip-color);\n}\n\n.wheel-div {\n  display: flex;\n  align-items: center;\n}\n\n.display-light-dark {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n/* display hex value */\n.display-hex {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n.savedColors {\n  border: 2px solid var(--flip-color);\n  color: white;\n  padding: 20px 20px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 5px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,0DAA0D;EAC1D,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\n:root {\n  /* color flips depending on color background*/\n  --flip-color: black;\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.display-container {\n  justify-content: space-between;\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  justify-content: center;\n  min-width: 300px;\n  min-height: 250px;\n  align-items: center;\n}\n\n.app-name {\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  text-align: center;\n  color: var(--flip-color);\n}\n\n.wheel-div {\n  display: flex;\n  align-items: center;\n}\n\n.display-light-dark {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n/* display hex value */\n.display-hex {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n.savedColors {\n  border: 2px solid var(--flip-color);\n  color: white;\n  padding: 20px 20px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 5px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36108,13 +36108,14 @@ const background_script_1 = __webpack_require__(/*! ./background_script */ "./sr
 const ColorTable = (props) => {
     const [savedColors, setSavedColors] = (0, react_1.useState)(props.colors);
     const [refreshKey, setRefreshKey] = (0, react_1.useState)(0);
+    let mode = props.mode;
     (0, react_1.useEffect)(() => {
         setSavedColors(props.colors);
     }, [props.colors]);
     const refreshColors = () => {
-        setRefreshKey((prevKey) => prevKey + 1);
+        setRefreshKey((prevRefreshKey) => prevRefreshKey + 1);
     };
-    return (react_1.default.createElement("div", { style: { display: 'flex', overflowX: 'auto' } }, savedColors.map((color, index) => (react_1.default.createElement(ColorButton, { backgroundColor: color, index: index, refreshColors: refreshColors })))));
+    return (react_1.default.createElement("div", { style: { display: 'flex', overflowX: 'auto' } }, savedColors.map((color, index) => props.mode && (react_1.default.createElement(ColorButton, { backgroundColor: color, index: index, refreshColors: refreshColors, mode: mode })))));
 };
 exports.ColorTable = ColorTable;
 const ColorButton = (props) => {
@@ -36280,7 +36281,7 @@ const Popup = () => {
     (0, react_1.useEffect)(() => {
         storage_1.default.set({ savedColors: JSON.stringify(savedColors) });
     }, [savedColors]);
-    return (react_1.default.createElement(react_1.default.Fragment, null,
+    return (react_1.default.createElement("div", { className: "font-family:-apple-system, BlinkMacSystemFont, sans-serif;" },
         react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
         react_1.default.createElement("div", { className: "display-container" },
             hex && (react_1.default.createElement(react_2.default, { hex: hex, wheelDiameter: 300, wheelThickness: 20, handleDiameter: 16, wheelReflectsSaturation: true, onChange: ({ hex }) => {
@@ -36290,7 +36291,7 @@ const Popup = () => {
                 react_1.default.createElement("p", { className: "display-hex" },
                     "Hex: ",
                     hex)),
-            react_1.default.createElement(ColorTable_1.ColorTable, { colors: savedColors }),
+            mode && react_1.default.createElement(ColorTable_1.ColorTable, { colors: savedColors, mode: mode }),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "display-light-dark" },
                     mode && react_1.default.createElement("p", null, mode == 'day' ? 'light' : 'dark'),
@@ -36403,7 +36404,7 @@ async function setTheme(theme, value, mode) {
     updateColor(theme, value, mode);
     //const currentThemes = await browser.theme.getCurrent();
     webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
-    localStorage.setItem(mode, value);
+    localStorage.setItem('mode', mode);
     console.log('local storage updated');
     document.body.style.backgroundColor = value;
 }

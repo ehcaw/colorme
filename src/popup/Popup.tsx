@@ -110,7 +110,7 @@ const Popup = () => {
   }, [savedColors]);
 
   return (
-    <>
+    <div className="font-family:-apple-system, BlinkMacSystemFont, sans-serif;">
       {/* Title header */}
       <h1 className="app-name">Color Me!</h1>
 
@@ -133,7 +133,7 @@ const Popup = () => {
         <div>
           <p className="display-hex">Hex: {hex}</p>
         </div>
-        {<ColorTable colors={savedColors} />}
+        {mode && <ColorTable colors={savedColors} mode={mode} />}
         {/* Light or dark theme */}
         <div>
           <div className="display-light-dark">
@@ -153,7 +153,7 @@ const Popup = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

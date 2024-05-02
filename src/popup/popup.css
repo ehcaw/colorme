@@ -68,7 +68,7 @@ input:checked + .slider:before {
 
 .display-container {
   justify-content: space-between;
-  font-family: -apple-system-body;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   justify-content: center;
   min-width: 300px;
   min-height: 250px;
