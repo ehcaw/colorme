@@ -1401,6 +1401,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Variables declared; edited in Popup
 :root {
   /* color flips depending on color background*/
   --flip-color: black;
+  --display-website-dropdown: none;
 }
 
 .switch {
@@ -1507,7 +1508,31 @@ input:checked + .slider:before {
   margin: 4px 2px;
   cursor: pointer;
 }
-`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,0DAA0D;EAC1D,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\n:root {\n  /* color flips depending on color background*/\n  --flip-color: black;\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 24px;\n}\n\n/* Hide default HTML checkbox */\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n/* The slider */\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: '';\n  height: 18px;\n  width: 18px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider {\n  background-color: #2196f3;\n}\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #2196f3;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(14px);\n  -ms-transform: translateX(14px);\n  transform: translateX(14px);\n}\n\n/* Rounded sliders */\n.slider.round {\n  border-radius: 18px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.display-container {\n  justify-content: space-between;\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  justify-content: center;\n  min-width: 300px;\n  min-height: 250px;\n  align-items: center;\n}\n\n.app-name {\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n  text-align: center;\n  color: var(--flip-color);\n}\n\n.wheel-div {\n  display: flex;\n  align-items: center;\n}\n\n.display-light-dark {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n/* display hex value */\n.display-hex {\n  align-items: center;\n  color: var(--flip-color);\n}\n\n.savedColors {\n  border: 2px solid var(--flip-color);\n  color: white;\n  padding: 20px 20px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 5px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
+
+.savedColorsBlackBorder {
+  border: 2px solid black;
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+/* Website Dropdown */
+.website-dropdown {
+  display: var(--display-website-dropdown);
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+`, "",{"version":3,"sources":["webpack://./src/popup/popup.css"],"names":[],"mappings":"AAAA,2CAA2C;AAC3C;EACE,6CAA6C;EAC7C,mBAAmB;EACnB,gCAAgC;AAClC;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,WAAW;EACX,YAAY;AACd;;AAEA,+BAA+B;AAC/B;EACE,UAAU;EACV,QAAQ;EACR,SAAS;AACX;;AAEA,eAAe;AACf;EACE,kBAAkB;EAClB,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,sBAAsB;EACtB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,WAAW;EACX,uBAAuB;EACvB,wBAAwB;EACxB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,mCAAmC;EACnC,+BAA+B;EAC/B,2BAA2B;AAC7B;;AAEA,oBAAoB;AACpB;EACE,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,8BAA8B;EAC9B,0DAA0D;EAC1D,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,0DAA0D;EAC1D,kBAAkB;EAClB,wBAAwB;AAC1B;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA,sBAAsB;AACtB;EACE,mBAAmB;EACnB,wBAAwB;AAC1B;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,uBAAuB;EACvB,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,qBAAqB;EACrB,qBAAqB;EACrB,cAAc;EACd,eAAe;EACf,eAAe;AACjB;;;AAGA,qBAAqB;AACrB;EACE,wCAAwC;EACxC,kBAAkB;EAClB,yBAAyB;EACzB,gBAAgB;EAChB,cAAc;EACd,4CAA4C;EAC5C,UAAU;AACZ","sourcesContent":["/* Variables declared; edited in Popup.tsx*/\r\n:root {\r\n  /* color flips depending on color background*/\r\n  --flip-color: black;\r\n  --display-website-dropdown: none;\r\n}\r\n\r\n.switch {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 40px;\r\n  height: 24px;\r\n}\r\n\r\n/* Hide default HTML checkbox */\r\n.switch input {\r\n  opacity: 0;\r\n  width: 0;\r\n  height: 0;\r\n}\r\n\r\n/* The slider */\r\n.slider {\r\n  position: absolute;\r\n  cursor: pointer;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: #ccc;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.slider:before {\r\n  position: absolute;\r\n  content: '';\r\n  height: 18px;\r\n  width: 18px;\r\n  left: 4px;\r\n  bottom: 4px;\r\n  background-color: white;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\ninput:checked + .slider {\r\n  background-color: #2196f3;\r\n}\r\n\r\ninput:focus + .slider {\r\n  box-shadow: 0 0 1px #2196f3;\r\n}\r\n\r\ninput:checked + .slider:before {\r\n  -webkit-transform: translateX(14px);\r\n  -ms-transform: translateX(14px);\r\n  transform: translateX(14px);\r\n}\r\n\r\n/* Rounded sliders */\r\n.slider.round {\r\n  border-radius: 18px;\r\n}\r\n\r\n.slider.round:before {\r\n  border-radius: 50%;\r\n}\r\n\r\n.display-container {\r\n  justify-content: space-between;\r\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\r\n  justify-content: center;\r\n  min-width: 300px;\r\n  min-height: 250px;\r\n  align-items: center;\r\n}\r\n\r\n.app-name {\r\n  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\r\n  text-align: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.wheel-div {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.display-light-dark {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n/* display hex value */\r\n.display-hex {\r\n  align-items: center;\r\n  color: var(--flip-color);\r\n}\r\n\r\n.savedColors {\r\n  border: 2px solid var(--flip-color);\r\n  color: white;\r\n  padding: 20px 20px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 5px;\r\n  margin: 4px 2px;\r\n  cursor: pointer;\r\n}\r\n\r\n.savedColorsBlackBorder {\r\n  border: 2px solid black;\r\n  color: white;\r\n  padding: 20px 20px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 5px;\r\n  margin: 4px 2px;\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n/* Website Dropdown */\r\n.website-dropdown {\r\n  display: var(--display-website-dropdown);\r\n  position: absolute;\r\n  background-color: #f1f1f1;\r\n  min-width: 200px;\r\n  overflow: auto;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1920,7 +1945,7 @@ var disableCommentsAsDOMContainers = true; // Disable javascript: URL strings in
 // https://github.com/facebook/react/issues/11347
 
 var enableCustomElementPropertySupport = false; // Disables children for <textarea> elements
-var warnAboutStringRefs = false; // -----------------------------------------------------------------------------
+var warnAboutStringRefs = true; // -----------------------------------------------------------------------------
 // Debugging and DevTools
 // -----------------------------------------------------------------------------
 // Adds user timing marks for e.g. state updates, suspense, and work loop stuff,
@@ -14762,1772 +14787,6 @@ var ReactStrictModeWarnings = {
   };
 }
 
-function resolveDefaultProps(Component, baseProps) {
-  if (Component && Component.defaultProps) {
-    // Resolve default props. Taken from ReactElement
-    var props = assign({}, baseProps);
-    var defaultProps = Component.defaultProps;
-
-    for (var propName in defaultProps) {
-      if (props[propName] === undefined) {
-        props[propName] = defaultProps[propName];
-      }
-    }
-
-    return props;
-  }
-
-  return baseProps;
-}
-
-var valueCursor = createCursor(null);
-var rendererSigil;
-
-{
-  // Use this to detect multiple renderers using the same context
-  rendererSigil = {};
-}
-
-var currentlyRenderingFiber = null;
-var lastContextDependency = null;
-var lastFullyObservedContext = null;
-var isDisallowedContextReadInDEV = false;
-function resetContextDependencies() {
-  // This is called right before React yields execution, to ensure `readContext`
-  // cannot be called outside the render phase.
-  currentlyRenderingFiber = null;
-  lastContextDependency = null;
-  lastFullyObservedContext = null;
-
-  {
-    isDisallowedContextReadInDEV = false;
-  }
-}
-function enterDisallowedContextReadInDEV() {
-  {
-    isDisallowedContextReadInDEV = true;
-  }
-}
-function exitDisallowedContextReadInDEV() {
-  {
-    isDisallowedContextReadInDEV = false;
-  }
-}
-function pushProvider(providerFiber, context, nextValue) {
-  {
-    push(valueCursor, context._currentValue, providerFiber);
-    context._currentValue = nextValue;
-
-    {
-      if (context._currentRenderer !== undefined && context._currentRenderer !== null && context._currentRenderer !== rendererSigil) {
-        error('Detected multiple renderers concurrently rendering the ' + 'same context provider. This is currently unsupported.');
-      }
-
-      context._currentRenderer = rendererSigil;
-    }
-  }
-}
-function popProvider(context, providerFiber) {
-  var currentValue = valueCursor.current;
-  pop(valueCursor, providerFiber);
-
-  {
-    {
-      context._currentValue = currentValue;
-    }
-  }
-}
-function scheduleContextWorkOnParentPath(parent, renderLanes, propagationRoot) {
-  // Update the child lanes of all the ancestors, including the alternates.
-  var node = parent;
-
-  while (node !== null) {
-    var alternate = node.alternate;
-
-    if (!isSubsetOfLanes(node.childLanes, renderLanes)) {
-      node.childLanes = mergeLanes(node.childLanes, renderLanes);
-
-      if (alternate !== null) {
-        alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
-      }
-    } else if (alternate !== null && !isSubsetOfLanes(alternate.childLanes, renderLanes)) {
-      alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
-    }
-
-    if (node === propagationRoot) {
-      break;
-    }
-
-    node = node.return;
-  }
-
-  {
-    if (node !== propagationRoot) {
-      error('Expected to find the propagation root when scheduling context work. ' + 'This error is likely caused by a bug in React. Please file an issue.');
-    }
-  }
-}
-function propagateContextChange(workInProgress, context, renderLanes) {
-  {
-    propagateContextChange_eager(workInProgress, context, renderLanes);
-  }
-}
-
-function propagateContextChange_eager(workInProgress, context, renderLanes) {
-
-  var fiber = workInProgress.child;
-
-  if (fiber !== null) {
-    // Set the return pointer of the child to the work-in-progress fiber.
-    fiber.return = workInProgress;
-  }
-
-  while (fiber !== null) {
-    var nextFiber = void 0; // Visit this fiber.
-
-    var list = fiber.dependencies;
-
-    if (list !== null) {
-      nextFiber = fiber.child;
-      var dependency = list.firstContext;
-
-      while (dependency !== null) {
-        // Check if the context matches.
-        if (dependency.context === context) {
-          // Match! Schedule an update on this fiber.
-          if (fiber.tag === ClassComponent) {
-            // Schedule a force update on the work-in-progress.
-            var lane = pickArbitraryLane(renderLanes);
-            var update = createUpdate(NoTimestamp, lane);
-            update.tag = ForceUpdate; // TODO: Because we don't have a work-in-progress, this will add the
-            // update to the current fiber, too, which means it will persist even if
-            // this render is thrown away. Since it's a race condition, not sure it's
-            // worth fixing.
-            // Inlined `enqueueUpdate` to remove interleaved update check
-
-            var updateQueue = fiber.updateQueue;
-
-            if (updateQueue === null) ; else {
-              var sharedQueue = updateQueue.shared;
-              var pending = sharedQueue.pending;
-
-              if (pending === null) {
-                // This is the first update. Create a circular list.
-                update.next = update;
-              } else {
-                update.next = pending.next;
-                pending.next = update;
-              }
-
-              sharedQueue.pending = update;
-            }
-          }
-
-          fiber.lanes = mergeLanes(fiber.lanes, renderLanes);
-          var alternate = fiber.alternate;
-
-          if (alternate !== null) {
-            alternate.lanes = mergeLanes(alternate.lanes, renderLanes);
-          }
-
-          scheduleContextWorkOnParentPath(fiber.return, renderLanes, workInProgress); // Mark the updated lanes on the list, too.
-
-          list.lanes = mergeLanes(list.lanes, renderLanes); // Since we already found a match, we can stop traversing the
-          // dependency list.
-
-          break;
-        }
-
-        dependency = dependency.next;
-      }
-    } else if (fiber.tag === ContextProvider) {
-      // Don't scan deeper if this is a matching provider
-      nextFiber = fiber.type === workInProgress.type ? null : fiber.child;
-    } else if (fiber.tag === DehydratedFragment) {
-      // If a dehydrated suspense boundary is in this subtree, we don't know
-      // if it will have any context consumers in it. The best we can do is
-      // mark it as having updates.
-      var parentSuspense = fiber.return;
-
-      if (parentSuspense === null) {
-        throw new Error('We just came from a parent so we must have had a parent. This is a bug in React.');
-      }
-
-      parentSuspense.lanes = mergeLanes(parentSuspense.lanes, renderLanes);
-      var _alternate = parentSuspense.alternate;
-
-      if (_alternate !== null) {
-        _alternate.lanes = mergeLanes(_alternate.lanes, renderLanes);
-      } // This is intentionally passing this fiber as the parent
-      // because we want to schedule this fiber as having work
-      // on its children. We'll use the childLanes on
-      // this fiber to indicate that a context has changed.
-
-
-      scheduleContextWorkOnParentPath(parentSuspense, renderLanes, workInProgress);
-      nextFiber = fiber.sibling;
-    } else {
-      // Traverse down.
-      nextFiber = fiber.child;
-    }
-
-    if (nextFiber !== null) {
-      // Set the return pointer of the child to the work-in-progress fiber.
-      nextFiber.return = fiber;
-    } else {
-      // No child. Traverse to next sibling.
-      nextFiber = fiber;
-
-      while (nextFiber !== null) {
-        if (nextFiber === workInProgress) {
-          // We're back to the root of this subtree. Exit.
-          nextFiber = null;
-          break;
-        }
-
-        var sibling = nextFiber.sibling;
-
-        if (sibling !== null) {
-          // Set the return pointer of the sibling to the work-in-progress fiber.
-          sibling.return = nextFiber.return;
-          nextFiber = sibling;
-          break;
-        } // No more siblings. Traverse up.
-
-
-        nextFiber = nextFiber.return;
-      }
-    }
-
-    fiber = nextFiber;
-  }
-}
-function prepareToReadContext(workInProgress, renderLanes) {
-  currentlyRenderingFiber = workInProgress;
-  lastContextDependency = null;
-  lastFullyObservedContext = null;
-  var dependencies = workInProgress.dependencies;
-
-  if (dependencies !== null) {
-    {
-      var firstContext = dependencies.firstContext;
-
-      if (firstContext !== null) {
-        if (includesSomeLane(dependencies.lanes, renderLanes)) {
-          // Context list has a pending update. Mark that this fiber performed work.
-          markWorkInProgressReceivedUpdate();
-        } // Reset the work-in-progress list
-
-
-        dependencies.firstContext = null;
-      }
-    }
-  }
-}
-function readContext(context) {
-  {
-    // This warning would fire if you read context inside a Hook like useMemo.
-    // Unlike the class check below, it's not enforced in production for perf.
-    if (isDisallowedContextReadInDEV) {
-      error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
-    }
-  }
-
-  var value =  context._currentValue ;
-
-  if (lastFullyObservedContext === context) ; else {
-    var contextItem = {
-      context: context,
-      memoizedValue: value,
-      next: null
-    };
-
-    if (lastContextDependency === null) {
-      if (currentlyRenderingFiber === null) {
-        throw new Error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
-      } // This is the first dependency for this component. Create a new list.
-
-
-      lastContextDependency = contextItem;
-      currentlyRenderingFiber.dependencies = {
-        lanes: NoLanes,
-        firstContext: contextItem
-      };
-    } else {
-      // Append a new context item.
-      lastContextDependency = lastContextDependency.next = contextItem;
-    }
-  }
-
-  return value;
-}
-
-// render. When this render exits, either because it finishes or because it is
-// interrupted, the interleaved updates will be transferred onto the main part
-// of the queue.
-
-var concurrentQueues = null;
-function pushConcurrentUpdateQueue(queue) {
-  if (concurrentQueues === null) {
-    concurrentQueues = [queue];
-  } else {
-    concurrentQueues.push(queue);
-  }
-}
-function finishQueueingConcurrentUpdates() {
-  // Transfer the interleaved updates onto the main queue. Each queue has a
-  // `pending` field and an `interleaved` field. When they are not null, they
-  // point to the last node in a circular linked list. We need to append the
-  // interleaved list to the end of the pending list by joining them into a
-  // single, circular list.
-  if (concurrentQueues !== null) {
-    for (var i = 0; i < concurrentQueues.length; i++) {
-      var queue = concurrentQueues[i];
-      var lastInterleavedUpdate = queue.interleaved;
-
-      if (lastInterleavedUpdate !== null) {
-        queue.interleaved = null;
-        var firstInterleavedUpdate = lastInterleavedUpdate.next;
-        var lastPendingUpdate = queue.pending;
-
-        if (lastPendingUpdate !== null) {
-          var firstPendingUpdate = lastPendingUpdate.next;
-          lastPendingUpdate.next = firstInterleavedUpdate;
-          lastInterleavedUpdate.next = firstPendingUpdate;
-        }
-
-        queue.pending = lastInterleavedUpdate;
-      }
-    }
-
-    concurrentQueues = null;
-  }
-}
-function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
-  var interleaved = queue.interleaved;
-
-  if (interleaved === null) {
-    // This is the first update. Create a circular list.
-    update.next = update; // At the end of the current render, this queue's interleaved updates will
-    // be transferred to the pending queue.
-
-    pushConcurrentUpdateQueue(queue);
-  } else {
-    update.next = interleaved.next;
-    interleaved.next = update;
-  }
-
-  queue.interleaved = update;
-  return markUpdateLaneFromFiberToRoot(fiber, lane);
-}
-function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
-  var interleaved = queue.interleaved;
-
-  if (interleaved === null) {
-    // This is the first update. Create a circular list.
-    update.next = update; // At the end of the current render, this queue's interleaved updates will
-    // be transferred to the pending queue.
-
-    pushConcurrentUpdateQueue(queue);
-  } else {
-    update.next = interleaved.next;
-    interleaved.next = update;
-  }
-
-  queue.interleaved = update;
-}
-function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
-  var interleaved = queue.interleaved;
-
-  if (interleaved === null) {
-    // This is the first update. Create a circular list.
-    update.next = update; // At the end of the current render, this queue's interleaved updates will
-    // be transferred to the pending queue.
-
-    pushConcurrentUpdateQueue(queue);
-  } else {
-    update.next = interleaved.next;
-    interleaved.next = update;
-  }
-
-  queue.interleaved = update;
-  return markUpdateLaneFromFiberToRoot(fiber, lane);
-}
-function enqueueConcurrentRenderForLane(fiber, lane) {
-  return markUpdateLaneFromFiberToRoot(fiber, lane);
-} // Calling this function outside this module should only be done for backwards
-// compatibility and should always be accompanied by a warning.
-
-var unsafe_markUpdateLaneFromFiberToRoot = markUpdateLaneFromFiberToRoot;
-
-function markUpdateLaneFromFiberToRoot(sourceFiber, lane) {
-  // Update the source fiber's lanes
-  sourceFiber.lanes = mergeLanes(sourceFiber.lanes, lane);
-  var alternate = sourceFiber.alternate;
-
-  if (alternate !== null) {
-    alternate.lanes = mergeLanes(alternate.lanes, lane);
-  }
-
-  {
-    if (alternate === null && (sourceFiber.flags & (Placement | Hydrating)) !== NoFlags) {
-      warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
-    }
-  } // Walk the parent path to the root and update the child lanes.
-
-
-  var node = sourceFiber;
-  var parent = sourceFiber.return;
-
-  while (parent !== null) {
-    parent.childLanes = mergeLanes(parent.childLanes, lane);
-    alternate = parent.alternate;
-
-    if (alternate !== null) {
-      alternate.childLanes = mergeLanes(alternate.childLanes, lane);
-    } else {
-      {
-        if ((parent.flags & (Placement | Hydrating)) !== NoFlags) {
-          warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
-        }
-      }
-    }
-
-    node = parent;
-    parent = parent.return;
-  }
-
-  if (node.tag === HostRoot) {
-    var root = node.stateNode;
-    return root;
-  } else {
-    return null;
-  }
-}
-
-var UpdateState = 0;
-var ReplaceState = 1;
-var ForceUpdate = 2;
-var CaptureUpdate = 3; // Global state that is reset at the beginning of calling `processUpdateQueue`.
-// It should only be read right after calling `processUpdateQueue`, via
-// `checkHasForceUpdateAfterProcessing`.
-
-var hasForceUpdate = false;
-var didWarnUpdateInsideUpdate;
-var currentlyProcessingQueue;
-
-{
-  didWarnUpdateInsideUpdate = false;
-  currentlyProcessingQueue = null;
-}
-
-function initializeUpdateQueue(fiber) {
-  var queue = {
-    baseState: fiber.memoizedState,
-    firstBaseUpdate: null,
-    lastBaseUpdate: null,
-    shared: {
-      pending: null,
-      interleaved: null,
-      lanes: NoLanes
-    },
-    effects: null
-  };
-  fiber.updateQueue = queue;
-}
-function cloneUpdateQueue(current, workInProgress) {
-  // Clone the update queue from current. Unless it's already a clone.
-  var queue = workInProgress.updateQueue;
-  var currentQueue = current.updateQueue;
-
-  if (queue === currentQueue) {
-    var clone = {
-      baseState: currentQueue.baseState,
-      firstBaseUpdate: currentQueue.firstBaseUpdate,
-      lastBaseUpdate: currentQueue.lastBaseUpdate,
-      shared: currentQueue.shared,
-      effects: currentQueue.effects
-    };
-    workInProgress.updateQueue = clone;
-  }
-}
-function createUpdate(eventTime, lane) {
-  var update = {
-    eventTime: eventTime,
-    lane: lane,
-    tag: UpdateState,
-    payload: null,
-    callback: null,
-    next: null
-  };
-  return update;
-}
-function enqueueUpdate(fiber, update, lane) {
-  var updateQueue = fiber.updateQueue;
-
-  if (updateQueue === null) {
-    // Only occurs if the fiber has been unmounted.
-    return null;
-  }
-
-  var sharedQueue = updateQueue.shared;
-
-  {
-    if (currentlyProcessingQueue === sharedQueue && !didWarnUpdateInsideUpdate) {
-      error('An update (setState, replaceState, or forceUpdate) was scheduled ' + 'from inside an update function. Update functions should be pure, ' + 'with zero side-effects. Consider using componentDidUpdate or a ' + 'callback.');
-
-      didWarnUpdateInsideUpdate = true;
-    }
-  }
-
-  if (isUnsafeClassRenderPhaseUpdate()) {
-    // This is an unsafe render phase update. Add directly to the update
-    // queue so we can process it immediately during the current render.
-    var pending = sharedQueue.pending;
-
-    if (pending === null) {
-      // This is the first update. Create a circular list.
-      update.next = update;
-    } else {
-      update.next = pending.next;
-      pending.next = update;
-    }
-
-    sharedQueue.pending = update; // Update the childLanes even though we're most likely already rendering
-    // this fiber. This is for backwards compatibility in the case where you
-    // update a different component during render phase than the one that is
-    // currently renderings (a pattern that is accompanied by a warning).
-
-    return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
-  } else {
-    return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
-  }
-}
-function entangleTransitions(root, fiber, lane) {
-  var updateQueue = fiber.updateQueue;
-
-  if (updateQueue === null) {
-    // Only occurs if the fiber has been unmounted.
-    return;
-  }
-
-  var sharedQueue = updateQueue.shared;
-
-  if (isTransitionLane(lane)) {
-    var queueLanes = sharedQueue.lanes; // If any entangled lanes are no longer pending on the root, then they must
-    // have finished. We can remove them from the shared queue, which represents
-    // a superset of the actually pending lanes. In some cases we may entangle
-    // more than we need to, but that's OK. In fact it's worse if we *don't*
-    // entangle when we should.
-
-    queueLanes = intersectLanes(queueLanes, root.pendingLanes); // Entangle the new transition lane with the other transition lanes.
-
-    var newQueueLanes = mergeLanes(queueLanes, lane);
-    sharedQueue.lanes = newQueueLanes; // Even if queue.lanes already include lane, we don't know for certain if
-    // the lane finished since the last time we entangled it. So we need to
-    // entangle it again, just to be sure.
-
-    markRootEntangled(root, newQueueLanes);
-  }
-}
-function enqueueCapturedUpdate(workInProgress, capturedUpdate) {
-  // Captured updates are updates that are thrown by a child during the render
-  // phase. They should be discarded if the render is aborted. Therefore,
-  // we should only put them on the work-in-progress queue, not the current one.
-  var queue = workInProgress.updateQueue; // Check if the work-in-progress queue is a clone.
-
-  var current = workInProgress.alternate;
-
-  if (current !== null) {
-    var currentQueue = current.updateQueue;
-
-    if (queue === currentQueue) {
-      // The work-in-progress queue is the same as current. This happens when
-      // we bail out on a parent fiber that then captures an error thrown by
-      // a child. Since we want to append the update only to the work-in
-      // -progress queue, we need to clone the updates. We usually clone during
-      // processUpdateQueue, but that didn't happen in this case because we
-      // skipped over the parent when we bailed out.
-      var newFirst = null;
-      var newLast = null;
-      var firstBaseUpdate = queue.firstBaseUpdate;
-
-      if (firstBaseUpdate !== null) {
-        // Loop through the updates and clone them.
-        var update = firstBaseUpdate;
-
-        do {
-          var clone = {
-            eventTime: update.eventTime,
-            lane: update.lane,
-            tag: update.tag,
-            payload: update.payload,
-            callback: update.callback,
-            next: null
-          };
-
-          if (newLast === null) {
-            newFirst = newLast = clone;
-          } else {
-            newLast.next = clone;
-            newLast = clone;
-          }
-
-          update = update.next;
-        } while (update !== null); // Append the captured update the end of the cloned list.
-
-
-        if (newLast === null) {
-          newFirst = newLast = capturedUpdate;
-        } else {
-          newLast.next = capturedUpdate;
-          newLast = capturedUpdate;
-        }
-      } else {
-        // There are no base updates.
-        newFirst = newLast = capturedUpdate;
-      }
-
-      queue = {
-        baseState: currentQueue.baseState,
-        firstBaseUpdate: newFirst,
-        lastBaseUpdate: newLast,
-        shared: currentQueue.shared,
-        effects: currentQueue.effects
-      };
-      workInProgress.updateQueue = queue;
-      return;
-    }
-  } // Append the update to the end of the list.
-
-
-  var lastBaseUpdate = queue.lastBaseUpdate;
-
-  if (lastBaseUpdate === null) {
-    queue.firstBaseUpdate = capturedUpdate;
-  } else {
-    lastBaseUpdate.next = capturedUpdate;
-  }
-
-  queue.lastBaseUpdate = capturedUpdate;
-}
-
-function getStateFromUpdate(workInProgress, queue, update, prevState, nextProps, instance) {
-  switch (update.tag) {
-    case ReplaceState:
-      {
-        var payload = update.payload;
-
-        if (typeof payload === 'function') {
-          // Updater function
-          {
-            enterDisallowedContextReadInDEV();
-          }
-
-          var nextState = payload.call(instance, prevState, nextProps);
-
-          {
-            if ( workInProgress.mode & StrictLegacyMode) {
-              setIsStrictModeForDevtools(true);
-
-              try {
-                payload.call(instance, prevState, nextProps);
-              } finally {
-                setIsStrictModeForDevtools(false);
-              }
-            }
-
-            exitDisallowedContextReadInDEV();
-          }
-
-          return nextState;
-        } // State object
-
-
-        return payload;
-      }
-
-    case CaptureUpdate:
-      {
-        workInProgress.flags = workInProgress.flags & ~ShouldCapture | DidCapture;
-      }
-    // Intentional fallthrough
-
-    case UpdateState:
-      {
-        var _payload = update.payload;
-        var partialState;
-
-        if (typeof _payload === 'function') {
-          // Updater function
-          {
-            enterDisallowedContextReadInDEV();
-          }
-
-          partialState = _payload.call(instance, prevState, nextProps);
-
-          {
-            if ( workInProgress.mode & StrictLegacyMode) {
-              setIsStrictModeForDevtools(true);
-
-              try {
-                _payload.call(instance, prevState, nextProps);
-              } finally {
-                setIsStrictModeForDevtools(false);
-              }
-            }
-
-            exitDisallowedContextReadInDEV();
-          }
-        } else {
-          // Partial state object
-          partialState = _payload;
-        }
-
-        if (partialState === null || partialState === undefined) {
-          // Null and undefined are treated as no-ops.
-          return prevState;
-        } // Merge the partial state and the previous state.
-
-
-        return assign({}, prevState, partialState);
-      }
-
-    case ForceUpdate:
-      {
-        hasForceUpdate = true;
-        return prevState;
-      }
-  }
-
-  return prevState;
-}
-
-function processUpdateQueue(workInProgress, props, instance, renderLanes) {
-  // This is always non-null on a ClassComponent or HostRoot
-  var queue = workInProgress.updateQueue;
-  hasForceUpdate = false;
-
-  {
-    currentlyProcessingQueue = queue.shared;
-  }
-
-  var firstBaseUpdate = queue.firstBaseUpdate;
-  var lastBaseUpdate = queue.lastBaseUpdate; // Check if there are pending updates. If so, transfer them to the base queue.
-
-  var pendingQueue = queue.shared.pending;
-
-  if (pendingQueue !== null) {
-    queue.shared.pending = null; // The pending queue is circular. Disconnect the pointer between first
-    // and last so that it's non-circular.
-
-    var lastPendingUpdate = pendingQueue;
-    var firstPendingUpdate = lastPendingUpdate.next;
-    lastPendingUpdate.next = null; // Append pending updates to base queue
-
-    if (lastBaseUpdate === null) {
-      firstBaseUpdate = firstPendingUpdate;
-    } else {
-      lastBaseUpdate.next = firstPendingUpdate;
-    }
-
-    lastBaseUpdate = lastPendingUpdate; // If there's a current queue, and it's different from the base queue, then
-    // we need to transfer the updates to that queue, too. Because the base
-    // queue is a singly-linked list with no cycles, we can append to both
-    // lists and take advantage of structural sharing.
-    // TODO: Pass `current` as argument
-
-    var current = workInProgress.alternate;
-
-    if (current !== null) {
-      // This is always non-null on a ClassComponent or HostRoot
-      var currentQueue = current.updateQueue;
-      var currentLastBaseUpdate = currentQueue.lastBaseUpdate;
-
-      if (currentLastBaseUpdate !== lastBaseUpdate) {
-        if (currentLastBaseUpdate === null) {
-          currentQueue.firstBaseUpdate = firstPendingUpdate;
-        } else {
-          currentLastBaseUpdate.next = firstPendingUpdate;
-        }
-
-        currentQueue.lastBaseUpdate = lastPendingUpdate;
-      }
-    }
-  } // These values may change as we process the queue.
-
-
-  if (firstBaseUpdate !== null) {
-    // Iterate through the list of updates to compute the result.
-    var newState = queue.baseState; // TODO: Don't need to accumulate this. Instead, we can remove renderLanes
-    // from the original lanes.
-
-    var newLanes = NoLanes;
-    var newBaseState = null;
-    var newFirstBaseUpdate = null;
-    var newLastBaseUpdate = null;
-    var update = firstBaseUpdate;
-
-    do {
-      var updateLane = update.lane;
-      var updateEventTime = update.eventTime;
-
-      if (!isSubsetOfLanes(renderLanes, updateLane)) {
-        // Priority is insufficient. Skip this update. If this is the first
-        // skipped update, the previous update/state is the new base
-        // update/state.
-        var clone = {
-          eventTime: updateEventTime,
-          lane: updateLane,
-          tag: update.tag,
-          payload: update.payload,
-          callback: update.callback,
-          next: null
-        };
-
-        if (newLastBaseUpdate === null) {
-          newFirstBaseUpdate = newLastBaseUpdate = clone;
-          newBaseState = newState;
-        } else {
-          newLastBaseUpdate = newLastBaseUpdate.next = clone;
-        } // Update the remaining priority in the queue.
-
-
-        newLanes = mergeLanes(newLanes, updateLane);
-      } else {
-        // This update does have sufficient priority.
-        if (newLastBaseUpdate !== null) {
-          var _clone = {
-            eventTime: updateEventTime,
-            // This update is going to be committed so we never want uncommit
-            // it. Using NoLane works because 0 is a subset of all bitmasks, so
-            // this will never be skipped by the check above.
-            lane: NoLane,
-            tag: update.tag,
-            payload: update.payload,
-            callback: update.callback,
-            next: null
-          };
-          newLastBaseUpdate = newLastBaseUpdate.next = _clone;
-        } // Process this update.
-
-
-        newState = getStateFromUpdate(workInProgress, queue, update, newState, props, instance);
-        var callback = update.callback;
-
-        if (callback !== null && // If the update was already committed, we should not queue its
-        // callback again.
-        update.lane !== NoLane) {
-          workInProgress.flags |= Callback;
-          var effects = queue.effects;
-
-          if (effects === null) {
-            queue.effects = [update];
-          } else {
-            effects.push(update);
-          }
-        }
-      }
-
-      update = update.next;
-
-      if (update === null) {
-        pendingQueue = queue.shared.pending;
-
-        if (pendingQueue === null) {
-          break;
-        } else {
-          // An update was scheduled from inside a reducer. Add the new
-          // pending updates to the end of the list and keep processing.
-          var _lastPendingUpdate = pendingQueue; // Intentionally unsound. Pending updates form a circular list, but we
-          // unravel them when transferring them to the base queue.
-
-          var _firstPendingUpdate = _lastPendingUpdate.next;
-          _lastPendingUpdate.next = null;
-          update = _firstPendingUpdate;
-          queue.lastBaseUpdate = _lastPendingUpdate;
-          queue.shared.pending = null;
-        }
-      }
-    } while (true);
-
-    if (newLastBaseUpdate === null) {
-      newBaseState = newState;
-    }
-
-    queue.baseState = newBaseState;
-    queue.firstBaseUpdate = newFirstBaseUpdate;
-    queue.lastBaseUpdate = newLastBaseUpdate; // Interleaved updates are stored on a separate queue. We aren't going to
-    // process them during this render, but we do need to track which lanes
-    // are remaining.
-
-    var lastInterleaved = queue.shared.interleaved;
-
-    if (lastInterleaved !== null) {
-      var interleaved = lastInterleaved;
-
-      do {
-        newLanes = mergeLanes(newLanes, interleaved.lane);
-        interleaved = interleaved.next;
-      } while (interleaved !== lastInterleaved);
-    } else if (firstBaseUpdate === null) {
-      // `queue.lanes` is used for entangling transitions. We can set it back to
-      // zero once the queue is empty.
-      queue.shared.lanes = NoLanes;
-    } // Set the remaining expiration time to be whatever is remaining in the queue.
-    // This should be fine because the only two other things that contribute to
-    // expiration time are props and context. We're already in the middle of the
-    // begin phase by the time we start processing the queue, so we've already
-    // dealt with the props. Context in components that specify
-    // shouldComponentUpdate is tricky; but we'll have to account for
-    // that regardless.
-
-
-    markSkippedUpdateLanes(newLanes);
-    workInProgress.lanes = newLanes;
-    workInProgress.memoizedState = newState;
-  }
-
-  {
-    currentlyProcessingQueue = null;
-  }
-}
-
-function callCallback(callback, context) {
-  if (typeof callback !== 'function') {
-    throw new Error('Invalid argument passed as callback. Expected a function. Instead ' + ("received: " + callback));
-  }
-
-  callback.call(context);
-}
-
-function resetHasForceUpdateBeforeProcessing() {
-  hasForceUpdate = false;
-}
-function checkHasForceUpdateAfterProcessing() {
-  return hasForceUpdate;
-}
-function commitUpdateQueue(finishedWork, finishedQueue, instance) {
-  // Commit the effects
-  var effects = finishedQueue.effects;
-  finishedQueue.effects = null;
-
-  if (effects !== null) {
-    for (var i = 0; i < effects.length; i++) {
-      var effect = effects[i];
-      var callback = effect.callback;
-
-      if (callback !== null) {
-        effect.callback = null;
-        callCallback(callback, instance);
-      }
-    }
-  }
-}
-
-var fakeInternalInstance = {}; // React.Component uses a shared frozen object by default.
-// We'll use it to determine whether we need to initialize legacy refs.
-
-var emptyRefsObject = new React.Component().refs;
-var didWarnAboutStateAssignmentForComponent;
-var didWarnAboutUninitializedState;
-var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
-var didWarnAboutLegacyLifecyclesAndDerivedState;
-var didWarnAboutUndefinedDerivedState;
-var warnOnUndefinedDerivedState;
-var warnOnInvalidCallback;
-var didWarnAboutDirectlyAssigningPropsToState;
-var didWarnAboutContextTypeAndContextTypes;
-var didWarnAboutInvalidateContextType;
-
-{
-  didWarnAboutStateAssignmentForComponent = new Set();
-  didWarnAboutUninitializedState = new Set();
-  didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate = new Set();
-  didWarnAboutLegacyLifecyclesAndDerivedState = new Set();
-  didWarnAboutDirectlyAssigningPropsToState = new Set();
-  didWarnAboutUndefinedDerivedState = new Set();
-  didWarnAboutContextTypeAndContextTypes = new Set();
-  didWarnAboutInvalidateContextType = new Set();
-  var didWarnOnInvalidCallback = new Set();
-
-  warnOnInvalidCallback = function (callback, callerName) {
-    if (callback === null || typeof callback === 'function') {
-      return;
-    }
-
-    var key = callerName + '_' + callback;
-
-    if (!didWarnOnInvalidCallback.has(key)) {
-      didWarnOnInvalidCallback.add(key);
-
-      error('%s(...): Expected the last optional `callback` argument to be a ' + 'function. Instead received: %s.', callerName, callback);
-    }
-  };
-
-  warnOnUndefinedDerivedState = function (type, partialState) {
-    if (partialState === undefined) {
-      var componentName = getComponentNameFromType(type) || 'Component';
-
-      if (!didWarnAboutUndefinedDerivedState.has(componentName)) {
-        didWarnAboutUndefinedDerivedState.add(componentName);
-
-        error('%s.getDerivedStateFromProps(): A valid state object (or null) must be returned. ' + 'You have returned undefined.', componentName);
-      }
-    }
-  }; // This is so gross but it's at least non-critical and can be removed if
-  // it causes problems. This is meant to give a nicer error message for
-  // ReactDOM15.unstable_renderSubtreeIntoContainer(reactDOM16Component,
-  // ...)) which otherwise throws a "_processChildContext is not a function"
-  // exception.
-
-
-  Object.defineProperty(fakeInternalInstance, '_processChildContext', {
-    enumerable: false,
-    value: function () {
-      throw new Error('_processChildContext is not available in React 16+. This likely ' + 'means you have multiple copies of React and are attempting to nest ' + 'a React 15 tree inside a React 16 tree using ' + "unstable_renderSubtreeIntoContainer, which isn't supported. Try " + 'to make sure you have only one copy of React (and ideally, switch ' + 'to ReactDOM.createPortal).');
-    }
-  });
-  Object.freeze(fakeInternalInstance);
-}
-
-function applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, nextProps) {
-  var prevState = workInProgress.memoizedState;
-  var partialState = getDerivedStateFromProps(nextProps, prevState);
-
-  {
-    if ( workInProgress.mode & StrictLegacyMode) {
-      setIsStrictModeForDevtools(true);
-
-      try {
-        // Invoke the function an extra time to help detect side-effects.
-        partialState = getDerivedStateFromProps(nextProps, prevState);
-      } finally {
-        setIsStrictModeForDevtools(false);
-      }
-    }
-
-    warnOnUndefinedDerivedState(ctor, partialState);
-  } // Merge the partial state and the previous state.
-
-
-  var memoizedState = partialState === null || partialState === undefined ? prevState : assign({}, prevState, partialState);
-  workInProgress.memoizedState = memoizedState; // Once the update queue is empty, persist the derived state onto the
-  // base state.
-
-  if (workInProgress.lanes === NoLanes) {
-    // Queue is always non-null for classes
-    var updateQueue = workInProgress.updateQueue;
-    updateQueue.baseState = memoizedState;
-  }
-}
-
-var classComponentUpdater = {
-  isMounted: isMounted,
-  enqueueSetState: function (inst, payload, callback) {
-    var fiber = get(inst);
-    var eventTime = requestEventTime();
-    var lane = requestUpdateLane(fiber);
-    var update = createUpdate(eventTime, lane);
-    update.payload = payload;
-
-    if (callback !== undefined && callback !== null) {
-      {
-        warnOnInvalidCallback(callback, 'setState');
-      }
-
-      update.callback = callback;
-    }
-
-    var root = enqueueUpdate(fiber, update, lane);
-
-    if (root !== null) {
-      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
-      entangleTransitions(root, fiber, lane);
-    }
-
-    {
-      markStateUpdateScheduled(fiber, lane);
-    }
-  },
-  enqueueReplaceState: function (inst, payload, callback) {
-    var fiber = get(inst);
-    var eventTime = requestEventTime();
-    var lane = requestUpdateLane(fiber);
-    var update = createUpdate(eventTime, lane);
-    update.tag = ReplaceState;
-    update.payload = payload;
-
-    if (callback !== undefined && callback !== null) {
-      {
-        warnOnInvalidCallback(callback, 'replaceState');
-      }
-
-      update.callback = callback;
-    }
-
-    var root = enqueueUpdate(fiber, update, lane);
-
-    if (root !== null) {
-      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
-      entangleTransitions(root, fiber, lane);
-    }
-
-    {
-      markStateUpdateScheduled(fiber, lane);
-    }
-  },
-  enqueueForceUpdate: function (inst, callback) {
-    var fiber = get(inst);
-    var eventTime = requestEventTime();
-    var lane = requestUpdateLane(fiber);
-    var update = createUpdate(eventTime, lane);
-    update.tag = ForceUpdate;
-
-    if (callback !== undefined && callback !== null) {
-      {
-        warnOnInvalidCallback(callback, 'forceUpdate');
-      }
-
-      update.callback = callback;
-    }
-
-    var root = enqueueUpdate(fiber, update, lane);
-
-    if (root !== null) {
-      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
-      entangleTransitions(root, fiber, lane);
-    }
-
-    {
-      markForceUpdateScheduled(fiber, lane);
-    }
-  }
-};
-
-function checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) {
-  var instance = workInProgress.stateNode;
-
-  if (typeof instance.shouldComponentUpdate === 'function') {
-    var shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
-
-    {
-      if ( workInProgress.mode & StrictLegacyMode) {
-        setIsStrictModeForDevtools(true);
-
-        try {
-          // Invoke the function an extra time to help detect side-effects.
-          shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
-        } finally {
-          setIsStrictModeForDevtools(false);
-        }
-      }
-
-      if (shouldUpdate === undefined) {
-        error('%s.shouldComponentUpdate(): Returned undefined instead of a ' + 'boolean value. Make sure to return true or false.', getComponentNameFromType(ctor) || 'Component');
-      }
-    }
-
-    return shouldUpdate;
-  }
-
-  if (ctor.prototype && ctor.prototype.isPureReactComponent) {
-    return !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState);
-  }
-
-  return true;
-}
-
-function checkClassInstance(workInProgress, ctor, newProps) {
-  var instance = workInProgress.stateNode;
-
-  {
-    var name = getComponentNameFromType(ctor) || 'Component';
-    var renderPresent = instance.render;
-
-    if (!renderPresent) {
-      if (ctor.prototype && typeof ctor.prototype.render === 'function') {
-        error('%s(...): No `render` method found on the returned component ' + 'instance: did you accidentally return an object from the constructor?', name);
-      } else {
-        error('%s(...): No `render` method found on the returned component ' + 'instance: you may have forgotten to define `render`.', name);
-      }
-    }
-
-    if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
-      error('getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', name);
-    }
-
-    if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
-      error('getDefaultProps was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Use a static property to define defaultProps instead.', name);
-    }
-
-    if (instance.propTypes) {
-      error('propTypes was defined as an instance property on %s. Use a static ' + 'property to define propTypes instead.', name);
-    }
-
-    if (instance.contextType) {
-      error('contextType was defined as an instance property on %s. Use a static ' + 'property to define contextType instead.', name);
-    }
-
-    {
-      if (instance.contextTypes) {
-        error('contextTypes was defined as an instance property on %s. Use a static ' + 'property to define contextTypes instead.', name);
-      }
-
-      if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
-        didWarnAboutContextTypeAndContextTypes.add(ctor);
-
-        error('%s declares both contextTypes and contextType static properties. ' + 'The legacy contextTypes property will be ignored.', name);
-      }
-    }
-
-    if (typeof instance.componentShouldUpdate === 'function') {
-      error('%s has a method called ' + 'componentShouldUpdate(). Did you mean shouldComponentUpdate()? ' + 'The name is phrased as a question because the function is ' + 'expected to return a value.', name);
-    }
-
-    if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== 'undefined') {
-      error('%s has a method called shouldComponentUpdate(). ' + 'shouldComponentUpdate should not be used when extending React.PureComponent. ' + 'Please extend React.Component if shouldComponentUpdate is used.', getComponentNameFromType(ctor) || 'A pure component');
-    }
-
-    if (typeof instance.componentDidUnmount === 'function') {
-      error('%s has a method called ' + 'componentDidUnmount(). But there is no such lifecycle method. ' + 'Did you mean componentWillUnmount()?', name);
-    }
-
-    if (typeof instance.componentDidReceiveProps === 'function') {
-      error('%s has a method called ' + 'componentDidReceiveProps(). But there is no such lifecycle method. ' + 'If you meant to update the state in response to changing props, ' + 'use componentWillReceiveProps(). If you meant to fetch data or ' + 'run side-effects or mutations after React has updated the UI, use componentDidUpdate().', name);
-    }
-
-    if (typeof instance.componentWillRecieveProps === 'function') {
-      error('%s has a method called ' + 'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?', name);
-    }
-
-    if (typeof instance.UNSAFE_componentWillRecieveProps === 'function') {
-      error('%s has a method called ' + 'UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?', name);
-    }
-
-    var hasMutatedProps = instance.props !== newProps;
-
-    if (instance.props !== undefined && hasMutatedProps) {
-      error('%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your component's constructor was passed.", name, name);
-    }
-
-    if (instance.defaultProps) {
-      error('Setting defaultProps as an instance property on %s is not supported and will be ignored.' + ' Instead, define defaultProps as a static property on %s.', name, name);
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function' && typeof instance.componentDidUpdate !== 'function' && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
-      didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
-
-      error('%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). ' + 'This component defines getSnapshotBeforeUpdate() only.', getComponentNameFromType(ctor));
-    }
-
-    if (typeof instance.getDerivedStateFromProps === 'function') {
-      error('%s: getDerivedStateFromProps() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
-    }
-
-    if (typeof instance.getDerivedStateFromError === 'function') {
-      error('%s: getDerivedStateFromError() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
-    }
-
-    if (typeof ctor.getSnapshotBeforeUpdate === 'function') {
-      error('%s: getSnapshotBeforeUpdate() is defined as a static method ' + 'and will be ignored. Instead, declare it as an instance method.', name);
-    }
-
-    var _state = instance.state;
-
-    if (_state && (typeof _state !== 'object' || isArray(_state))) {
-      error('%s.state: must be set to an object or null', name);
-    }
-
-    if (typeof instance.getChildContext === 'function' && typeof ctor.childContextTypes !== 'object') {
-      error('%s.getChildContext(): childContextTypes must be defined in order to ' + 'use getChildContext().', name);
-    }
-  }
-}
-
-function adoptClassInstance(workInProgress, instance) {
-  instance.updater = classComponentUpdater;
-  workInProgress.stateNode = instance; // The instance needs access to the fiber so that it can schedule updates
-
-  set(instance, workInProgress);
-
-  {
-    instance._reactInternalInstance = fakeInternalInstance;
-  }
-}
-
-function constructClassInstance(workInProgress, ctor, props) {
-  var isLegacyContextConsumer = false;
-  var unmaskedContext = emptyContextObject;
-  var context = emptyContextObject;
-  var contextType = ctor.contextType;
-
-  {
-    if ('contextType' in ctor) {
-      var isValid = // Allow null for conditional declaration
-      contextType === null || contextType !== undefined && contextType.$$typeof === REACT_CONTEXT_TYPE && contextType._context === undefined; // Not a <Context.Consumer>
-
-      if (!isValid && !didWarnAboutInvalidateContextType.has(ctor)) {
-        didWarnAboutInvalidateContextType.add(ctor);
-        var addendum = '';
-
-        if (contextType === undefined) {
-          addendum = ' However, it is set to undefined. ' + 'This can be caused by a typo or by mixing up named and default imports. ' + 'This can also happen due to a circular dependency, so ' + 'try moving the createContext() call to a separate file.';
-        } else if (typeof contextType !== 'object') {
-          addendum = ' However, it is set to a ' + typeof contextType + '.';
-        } else if (contextType.$$typeof === REACT_PROVIDER_TYPE) {
-          addendum = ' Did you accidentally pass the Context.Provider instead?';
-        } else if (contextType._context !== undefined) {
-          // <Context.Consumer>
-          addendum = ' Did you accidentally pass the Context.Consumer instead?';
-        } else {
-          addendum = ' However, it is set to an object with keys {' + Object.keys(contextType).join(', ') + '}.';
-        }
-
-        error('%s defines an invalid contextType. ' + 'contextType should point to the Context object returned by React.createContext().%s', getComponentNameFromType(ctor) || 'Component', addendum);
-      }
-    }
-  }
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    context = readContext(contextType);
-  } else {
-    unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    var contextTypes = ctor.contextTypes;
-    isLegacyContextConsumer = contextTypes !== null && contextTypes !== undefined;
-    context = isLegacyContextConsumer ? getMaskedContext(workInProgress, unmaskedContext) : emptyContextObject;
-  }
-
-  var instance = new ctor(props, context); // Instantiate twice to help detect side-effects.
-
-  {
-    if ( workInProgress.mode & StrictLegacyMode) {
-      setIsStrictModeForDevtools(true);
-
-      try {
-        instance = new ctor(props, context); // eslint-disable-line no-new
-      } finally {
-        setIsStrictModeForDevtools(false);
-      }
-    }
-  }
-
-  var state = workInProgress.memoizedState = instance.state !== null && instance.state !== undefined ? instance.state : null;
-  adoptClassInstance(workInProgress, instance);
-
-  {
-    if (typeof ctor.getDerivedStateFromProps === 'function' && state === null) {
-      var componentName = getComponentNameFromType(ctor) || 'Component';
-
-      if (!didWarnAboutUninitializedState.has(componentName)) {
-        didWarnAboutUninitializedState.add(componentName);
-
-        error('`%s` uses `getDerivedStateFromProps` but its initial state is ' + '%s. This is not recommended. Instead, define the initial state by ' + 'assigning an object to `this.state` in the constructor of `%s`. ' + 'This ensures that `getDerivedStateFromProps` arguments have a consistent shape.', componentName, instance.state === null ? 'null' : 'undefined', componentName);
-      }
-    } // If new component APIs are defined, "unsafe" lifecycles won't be called.
-    // Warn about these lifecycles if they are present.
-    // Don't warn about react-lifecycles-compat polyfilled methods though.
-
-
-    if (typeof ctor.getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function') {
-      var foundWillMountName = null;
-      var foundWillReceivePropsName = null;
-      var foundWillUpdateName = null;
-
-      if (typeof instance.componentWillMount === 'function' && instance.componentWillMount.__suppressDeprecationWarning !== true) {
-        foundWillMountName = 'componentWillMount';
-      } else if (typeof instance.UNSAFE_componentWillMount === 'function') {
-        foundWillMountName = 'UNSAFE_componentWillMount';
-      }
-
-      if (typeof instance.componentWillReceiveProps === 'function' && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
-        foundWillReceivePropsName = 'componentWillReceiveProps';
-      } else if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
-        foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
-      }
-
-      if (typeof instance.componentWillUpdate === 'function' && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
-        foundWillUpdateName = 'componentWillUpdate';
-      } else if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
-        foundWillUpdateName = 'UNSAFE_componentWillUpdate';
-      }
-
-      if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-        var _componentName = getComponentNameFromType(ctor) || 'Component';
-
-        var newApiName = typeof ctor.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
-
-        if (!didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName)) {
-          didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName);
-
-          error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + '%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\n' + 'The above lifecycles should be removed. Learn more about this warning here:\n' + 'https://reactjs.org/link/unsafe-component-lifecycles', _componentName, newApiName, foundWillMountName !== null ? "\n  " + foundWillMountName : '', foundWillReceivePropsName !== null ? "\n  " + foundWillReceivePropsName : '', foundWillUpdateName !== null ? "\n  " + foundWillUpdateName : '');
-        }
-      }
-    }
-  } // Cache unmasked context so we can avoid recreating masked context unless necessary.
-  // ReactFiberContext usually updates this cache but can't for newly-created instances.
-
-
-  if (isLegacyContextConsumer) {
-    cacheContext(workInProgress, unmaskedContext, context);
-  }
-
-  return instance;
-}
-
-function callComponentWillMount(workInProgress, instance) {
-  var oldState = instance.state;
-
-  if (typeof instance.componentWillMount === 'function') {
-    instance.componentWillMount();
-  }
-
-  if (typeof instance.UNSAFE_componentWillMount === 'function') {
-    instance.UNSAFE_componentWillMount();
-  }
-
-  if (oldState !== instance.state) {
-    {
-      error('%s.componentWillMount(): Assigning directly to this.state is ' + "deprecated (except inside a component's " + 'constructor). Use setState instead.', getComponentNameFromFiber(workInProgress) || 'Component');
-    }
-
-    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
-  }
-}
-
-function callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext) {
-  var oldState = instance.state;
-
-  if (typeof instance.componentWillReceiveProps === 'function') {
-    instance.componentWillReceiveProps(newProps, nextContext);
-  }
-
-  if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
-    instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
-  }
-
-  if (instance.state !== oldState) {
-    {
-      var componentName = getComponentNameFromFiber(workInProgress) || 'Component';
-
-      if (!didWarnAboutStateAssignmentForComponent.has(componentName)) {
-        didWarnAboutStateAssignmentForComponent.add(componentName);
-
-        error('%s.componentWillReceiveProps(): Assigning directly to ' + "this.state is deprecated (except inside a component's " + 'constructor). Use setState instead.', componentName);
-      }
-    }
-
-    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
-  }
-} // Invokes the mount life-cycles on a previously never rendered instance.
-
-
-function mountClassInstance(workInProgress, ctor, newProps, renderLanes) {
-  {
-    checkClassInstance(workInProgress, ctor, newProps);
-  }
-
-  var instance = workInProgress.stateNode;
-  instance.props = newProps;
-  instance.state = workInProgress.memoizedState;
-  instance.refs = emptyRefsObject;
-  initializeUpdateQueue(workInProgress);
-  var contextType = ctor.contextType;
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    instance.context = readContext(contextType);
-  } else {
-    var unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    instance.context = getMaskedContext(workInProgress, unmaskedContext);
-  }
-
-  {
-    if (instance.state === newProps) {
-      var componentName = getComponentNameFromType(ctor) || 'Component';
-
-      if (!didWarnAboutDirectlyAssigningPropsToState.has(componentName)) {
-        didWarnAboutDirectlyAssigningPropsToState.add(componentName);
-
-        error('%s: It is not recommended to assign props directly to state ' + "because updates to props won't be reflected in state. " + 'In most cases, it is better to use props directly.', componentName);
-      }
-    }
-
-    if (workInProgress.mode & StrictLegacyMode) {
-      ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress, instance);
-    }
-
-    {
-      ReactStrictModeWarnings.recordUnsafeLifecycleWarnings(workInProgress, instance);
-    }
-  }
-
-  instance.state = workInProgress.memoizedState;
-  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-
-  if (typeof getDerivedStateFromProps === 'function') {
-    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
-    instance.state = workInProgress.memoizedState;
-  } // In order to support react-lifecycles-compat polyfilled components,
-  // Unsafe lifecycles should not be invoked for components using the new APIs.
-
-
-  if (typeof ctor.getDerivedStateFromProps !== 'function' && typeof instance.getSnapshotBeforeUpdate !== 'function' && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
-    callComponentWillMount(workInProgress, instance); // If we had additional state updates during this life-cycle, let's
-    // process them now.
-
-    processUpdateQueue(workInProgress, newProps, instance, renderLanes);
-    instance.state = workInProgress.memoizedState;
-  }
-
-  if (typeof instance.componentDidMount === 'function') {
-    var fiberFlags = Update;
-
-    {
-      fiberFlags |= LayoutStatic;
-    }
-
-    if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-      fiberFlags |= MountLayoutDev;
-    }
-
-    workInProgress.flags |= fiberFlags;
-  }
-}
-
-function resumeMountClassInstance(workInProgress, ctor, newProps, renderLanes) {
-  var instance = workInProgress.stateNode;
-  var oldProps = workInProgress.memoizedProps;
-  instance.props = oldProps;
-  var oldContext = instance.context;
-  var contextType = ctor.contextType;
-  var nextContext = emptyContextObject;
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    nextContext = readContext(contextType);
-  } else {
-    var nextLegacyUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    nextContext = getMaskedContext(workInProgress, nextLegacyUnmaskedContext);
-  }
-
-  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
-  // ever the previously attempted to render - not the "current". However,
-  // during componentDidUpdate we pass the "current" props.
-  // In order to support react-lifecycles-compat polyfilled components,
-  // Unsafe lifecycles should not be invoked for components using the new APIs.
-
-  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
-    if (oldProps !== newProps || oldContext !== nextContext) {
-      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
-    }
-  }
-
-  resetHasForceUpdateBeforeProcessing();
-  var oldState = workInProgress.memoizedState;
-  var newState = instance.state = oldState;
-  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
-  newState = workInProgress.memoizedState;
-
-  if (oldProps === newProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing()) {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidMount === 'function') {
-      var fiberFlags = Update;
-
-      {
-        fiberFlags |= LayoutStatic;
-      }
-
-      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-        fiberFlags |= MountLayoutDev;
-      }
-
-      workInProgress.flags |= fiberFlags;
-    }
-
-    return false;
-  }
-
-  if (typeof getDerivedStateFromProps === 'function') {
-    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
-    newState = workInProgress.memoizedState;
-  }
-
-  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
-
-  if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
-    // Unsafe lifecycles should not be invoked for components using the new APIs.
-    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
-      if (typeof instance.componentWillMount === 'function') {
-        instance.componentWillMount();
-      }
-
-      if (typeof instance.UNSAFE_componentWillMount === 'function') {
-        instance.UNSAFE_componentWillMount();
-      }
-    }
-
-    if (typeof instance.componentDidMount === 'function') {
-      var _fiberFlags = Update;
-
-      {
-        _fiberFlags |= LayoutStatic;
-      }
-
-      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-        _fiberFlags |= MountLayoutDev;
-      }
-
-      workInProgress.flags |= _fiberFlags;
-    }
-  } else {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidMount === 'function') {
-      var _fiberFlags2 = Update;
-
-      {
-        _fiberFlags2 |= LayoutStatic;
-      }
-
-      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-        _fiberFlags2 |= MountLayoutDev;
-      }
-
-      workInProgress.flags |= _fiberFlags2;
-    } // If shouldComponentUpdate returned false, we should still update the
-    // memoized state to indicate that this work can be reused.
-
-
-    workInProgress.memoizedProps = newProps;
-    workInProgress.memoizedState = newState;
-  } // Update the existing instance's state, props, and context pointers even
-  // if shouldComponentUpdate returns false.
-
-
-  instance.props = newProps;
-  instance.state = newState;
-  instance.context = nextContext;
-  return shouldUpdate;
-} // Invokes the update life-cycles and returns false if it shouldn't rerender.
-
-
-function updateClassInstance(current, workInProgress, ctor, newProps, renderLanes) {
-  var instance = workInProgress.stateNode;
-  cloneUpdateQueue(current, workInProgress);
-  var unresolvedOldProps = workInProgress.memoizedProps;
-  var oldProps = workInProgress.type === workInProgress.elementType ? unresolvedOldProps : resolveDefaultProps(workInProgress.type, unresolvedOldProps);
-  instance.props = oldProps;
-  var unresolvedNewProps = workInProgress.pendingProps;
-  var oldContext = instance.context;
-  var contextType = ctor.contextType;
-  var nextContext = emptyContextObject;
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    nextContext = readContext(contextType);
-  } else {
-    var nextUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    nextContext = getMaskedContext(workInProgress, nextUnmaskedContext);
-  }
-
-  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
-  // ever the previously attempted to render - not the "current". However,
-  // during componentDidUpdate we pass the "current" props.
-  // In order to support react-lifecycles-compat polyfilled components,
-  // Unsafe lifecycles should not be invoked for components using the new APIs.
-
-  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
-    if (unresolvedOldProps !== unresolvedNewProps || oldContext !== nextContext) {
-      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
-    }
-  }
-
-  resetHasForceUpdateBeforeProcessing();
-  var oldState = workInProgress.memoizedState;
-  var newState = instance.state = oldState;
-  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
-  newState = workInProgress.memoizedState;
-
-  if (unresolvedOldProps === unresolvedNewProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing() && !(enableLazyContextPropagation   )) {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Update;
-      }
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Snapshot;
-      }
-    }
-
-    return false;
-  }
-
-  if (typeof getDerivedStateFromProps === 'function') {
-    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
-    newState = workInProgress.memoizedState;
-  }
-
-  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) || // TODO: In some cases, we'll end up checking if context has changed twice,
-  // both before and after `shouldComponentUpdate` has been called. Not ideal,
-  // but I'm loath to refactor this function. This only happens for memoized
-  // components so it's not that common.
-  enableLazyContextPropagation   ;
-
-  if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
-    // Unsafe lifecycles should not be invoked for components using the new APIs.
-    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.componentWillUpdate === 'function')) {
-      if (typeof instance.componentWillUpdate === 'function') {
-        instance.componentWillUpdate(newProps, newState, nextContext);
-      }
-
-      if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
-        instance.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
-      }
-    }
-
-    if (typeof instance.componentDidUpdate === 'function') {
-      workInProgress.flags |= Update;
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
-      workInProgress.flags |= Snapshot;
-    }
-  } else {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Update;
-      }
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Snapshot;
-      }
-    } // If shouldComponentUpdate returned false, we should still update the
-    // memoized props/state to indicate that this work can be reused.
-
-
-    workInProgress.memoizedProps = newProps;
-    workInProgress.memoizedState = newState;
-  } // Update the existing instance's state, props, and context pointers even
-  // if shouldComponentUpdate returns false.
-
-
-  instance.props = newProps;
-  instance.state = newState;
-  instance.context = nextContext;
-  return shouldUpdate;
-}
-
 var didWarnAboutMaps;
 var didWarnAboutGenerators;
 var didWarnAboutStringRefs;
@@ -16575,6 +14834,10 @@ var warnForMissingKey = function (child, returnFiber) {};
   };
 }
 
+function isReactClass(type) {
+  return type.prototype && type.prototype.isReactComponent;
+}
+
 function coerceRef(returnFiber, current, element) {
   var mixedRef = element.ref;
 
@@ -16585,12 +14848,15 @@ function coerceRef(returnFiber, current, element) {
       if ((returnFiber.mode & StrictLegacyMode || warnAboutStringRefs) && // We warn in ReactElement.js if owner and self are equal for string refs
       // because these cannot be automatically converted to an arrow function
       // using a codemod. Therefore, we don't have to warn about string refs again.
-      !(element._owner && element._self && element._owner.stateNode !== element._self)) {
+      !(element._owner && element._self && element._owner.stateNode !== element._self) && // Will already throw with "Function components cannot have string refs"
+      !(element._owner && element._owner.tag !== ClassComponent) && // Will already warn with "Function components cannot be given refs"
+      !(typeof element.type === 'function' && !isReactClass(element.type)) && // Will already throw with "Element ref was specified as a string (someStringRef) but no owner was set"
+      element._owner) {
         var componentName = getComponentNameFromFiber(returnFiber) || 'Component';
 
         if (!didWarnAboutStringRefs[componentName]) {
           {
-            error('A string ref, "%s", has been found within a strict mode tree. ' + 'String refs are a source of potential bugs and should be avoided. ' + 'We recommend using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', mixedRef);
+            error('Component "%s" contains the string ref "%s". Support for string refs ' + 'will be removed in a future major release. We recommend using ' + 'useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', componentName, mixedRef);
           }
 
           didWarnAboutStringRefs[componentName] = true;
@@ -16631,11 +14897,6 @@ function coerceRef(returnFiber, current, element) {
 
       var ref = function (value) {
         var refs = resolvedInst.refs;
-
-        if (refs === emptyRefsObject) {
-          // This is a lazy pooled frozen object, so we need to initialize.
-          refs = resolvedInst.refs = {};
-        }
 
         if (value === null) {
           delete refs[stringRef];
@@ -17654,6 +15915,951 @@ function resetChildFibers(workInProgress, lanes) {
   while (child !== null) {
     resetWorkInProgress(child, lanes);
     child = child.sibling;
+  }
+}
+
+var valueCursor = createCursor(null);
+var rendererSigil;
+
+{
+  // Use this to detect multiple renderers using the same context
+  rendererSigil = {};
+}
+
+var currentlyRenderingFiber = null;
+var lastContextDependency = null;
+var lastFullyObservedContext = null;
+var isDisallowedContextReadInDEV = false;
+function resetContextDependencies() {
+  // This is called right before React yields execution, to ensure `readContext`
+  // cannot be called outside the render phase.
+  currentlyRenderingFiber = null;
+  lastContextDependency = null;
+  lastFullyObservedContext = null;
+
+  {
+    isDisallowedContextReadInDEV = false;
+  }
+}
+function enterDisallowedContextReadInDEV() {
+  {
+    isDisallowedContextReadInDEV = true;
+  }
+}
+function exitDisallowedContextReadInDEV() {
+  {
+    isDisallowedContextReadInDEV = false;
+  }
+}
+function pushProvider(providerFiber, context, nextValue) {
+  {
+    push(valueCursor, context._currentValue, providerFiber);
+    context._currentValue = nextValue;
+
+    {
+      if (context._currentRenderer !== undefined && context._currentRenderer !== null && context._currentRenderer !== rendererSigil) {
+        error('Detected multiple renderers concurrently rendering the ' + 'same context provider. This is currently unsupported.');
+      }
+
+      context._currentRenderer = rendererSigil;
+    }
+  }
+}
+function popProvider(context, providerFiber) {
+  var currentValue = valueCursor.current;
+  pop(valueCursor, providerFiber);
+
+  {
+    {
+      context._currentValue = currentValue;
+    }
+  }
+}
+function scheduleContextWorkOnParentPath(parent, renderLanes, propagationRoot) {
+  // Update the child lanes of all the ancestors, including the alternates.
+  var node = parent;
+
+  while (node !== null) {
+    var alternate = node.alternate;
+
+    if (!isSubsetOfLanes(node.childLanes, renderLanes)) {
+      node.childLanes = mergeLanes(node.childLanes, renderLanes);
+
+      if (alternate !== null) {
+        alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
+      }
+    } else if (alternate !== null && !isSubsetOfLanes(alternate.childLanes, renderLanes)) {
+      alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
+    }
+
+    if (node === propagationRoot) {
+      break;
+    }
+
+    node = node.return;
+  }
+
+  {
+    if (node !== propagationRoot) {
+      error('Expected to find the propagation root when scheduling context work. ' + 'This error is likely caused by a bug in React. Please file an issue.');
+    }
+  }
+}
+function propagateContextChange(workInProgress, context, renderLanes) {
+  {
+    propagateContextChange_eager(workInProgress, context, renderLanes);
+  }
+}
+
+function propagateContextChange_eager(workInProgress, context, renderLanes) {
+
+  var fiber = workInProgress.child;
+
+  if (fiber !== null) {
+    // Set the return pointer of the child to the work-in-progress fiber.
+    fiber.return = workInProgress;
+  }
+
+  while (fiber !== null) {
+    var nextFiber = void 0; // Visit this fiber.
+
+    var list = fiber.dependencies;
+
+    if (list !== null) {
+      nextFiber = fiber.child;
+      var dependency = list.firstContext;
+
+      while (dependency !== null) {
+        // Check if the context matches.
+        if (dependency.context === context) {
+          // Match! Schedule an update on this fiber.
+          if (fiber.tag === ClassComponent) {
+            // Schedule a force update on the work-in-progress.
+            var lane = pickArbitraryLane(renderLanes);
+            var update = createUpdate(NoTimestamp, lane);
+            update.tag = ForceUpdate; // TODO: Because we don't have a work-in-progress, this will add the
+            // update to the current fiber, too, which means it will persist even if
+            // this render is thrown away. Since it's a race condition, not sure it's
+            // worth fixing.
+            // Inlined `enqueueUpdate` to remove interleaved update check
+
+            var updateQueue = fiber.updateQueue;
+
+            if (updateQueue === null) ; else {
+              var sharedQueue = updateQueue.shared;
+              var pending = sharedQueue.pending;
+
+              if (pending === null) {
+                // This is the first update. Create a circular list.
+                update.next = update;
+              } else {
+                update.next = pending.next;
+                pending.next = update;
+              }
+
+              sharedQueue.pending = update;
+            }
+          }
+
+          fiber.lanes = mergeLanes(fiber.lanes, renderLanes);
+          var alternate = fiber.alternate;
+
+          if (alternate !== null) {
+            alternate.lanes = mergeLanes(alternate.lanes, renderLanes);
+          }
+
+          scheduleContextWorkOnParentPath(fiber.return, renderLanes, workInProgress); // Mark the updated lanes on the list, too.
+
+          list.lanes = mergeLanes(list.lanes, renderLanes); // Since we already found a match, we can stop traversing the
+          // dependency list.
+
+          break;
+        }
+
+        dependency = dependency.next;
+      }
+    } else if (fiber.tag === ContextProvider) {
+      // Don't scan deeper if this is a matching provider
+      nextFiber = fiber.type === workInProgress.type ? null : fiber.child;
+    } else if (fiber.tag === DehydratedFragment) {
+      // If a dehydrated suspense boundary is in this subtree, we don't know
+      // if it will have any context consumers in it. The best we can do is
+      // mark it as having updates.
+      var parentSuspense = fiber.return;
+
+      if (parentSuspense === null) {
+        throw new Error('We just came from a parent so we must have had a parent. This is a bug in React.');
+      }
+
+      parentSuspense.lanes = mergeLanes(parentSuspense.lanes, renderLanes);
+      var _alternate = parentSuspense.alternate;
+
+      if (_alternate !== null) {
+        _alternate.lanes = mergeLanes(_alternate.lanes, renderLanes);
+      } // This is intentionally passing this fiber as the parent
+      // because we want to schedule this fiber as having work
+      // on its children. We'll use the childLanes on
+      // this fiber to indicate that a context has changed.
+
+
+      scheduleContextWorkOnParentPath(parentSuspense, renderLanes, workInProgress);
+      nextFiber = fiber.sibling;
+    } else {
+      // Traverse down.
+      nextFiber = fiber.child;
+    }
+
+    if (nextFiber !== null) {
+      // Set the return pointer of the child to the work-in-progress fiber.
+      nextFiber.return = fiber;
+    } else {
+      // No child. Traverse to next sibling.
+      nextFiber = fiber;
+
+      while (nextFiber !== null) {
+        if (nextFiber === workInProgress) {
+          // We're back to the root of this subtree. Exit.
+          nextFiber = null;
+          break;
+        }
+
+        var sibling = nextFiber.sibling;
+
+        if (sibling !== null) {
+          // Set the return pointer of the sibling to the work-in-progress fiber.
+          sibling.return = nextFiber.return;
+          nextFiber = sibling;
+          break;
+        } // No more siblings. Traverse up.
+
+
+        nextFiber = nextFiber.return;
+      }
+    }
+
+    fiber = nextFiber;
+  }
+}
+function prepareToReadContext(workInProgress, renderLanes) {
+  currentlyRenderingFiber = workInProgress;
+  lastContextDependency = null;
+  lastFullyObservedContext = null;
+  var dependencies = workInProgress.dependencies;
+
+  if (dependencies !== null) {
+    {
+      var firstContext = dependencies.firstContext;
+
+      if (firstContext !== null) {
+        if (includesSomeLane(dependencies.lanes, renderLanes)) {
+          // Context list has a pending update. Mark that this fiber performed work.
+          markWorkInProgressReceivedUpdate();
+        } // Reset the work-in-progress list
+
+
+        dependencies.firstContext = null;
+      }
+    }
+  }
+}
+function readContext(context) {
+  {
+    // This warning would fire if you read context inside a Hook like useMemo.
+    // Unlike the class check below, it's not enforced in production for perf.
+    if (isDisallowedContextReadInDEV) {
+      error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
+    }
+  }
+
+  var value =  context._currentValue ;
+
+  if (lastFullyObservedContext === context) ; else {
+    var contextItem = {
+      context: context,
+      memoizedValue: value,
+      next: null
+    };
+
+    if (lastContextDependency === null) {
+      if (currentlyRenderingFiber === null) {
+        throw new Error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
+      } // This is the first dependency for this component. Create a new list.
+
+
+      lastContextDependency = contextItem;
+      currentlyRenderingFiber.dependencies = {
+        lanes: NoLanes,
+        firstContext: contextItem
+      };
+    } else {
+      // Append a new context item.
+      lastContextDependency = lastContextDependency.next = contextItem;
+    }
+  }
+
+  return value;
+}
+
+// render. When this render exits, either because it finishes or because it is
+// interrupted, the interleaved updates will be transferred onto the main part
+// of the queue.
+
+var concurrentQueues = null;
+function pushConcurrentUpdateQueue(queue) {
+  if (concurrentQueues === null) {
+    concurrentQueues = [queue];
+  } else {
+    concurrentQueues.push(queue);
+  }
+}
+function finishQueueingConcurrentUpdates() {
+  // Transfer the interleaved updates onto the main queue. Each queue has a
+  // `pending` field and an `interleaved` field. When they are not null, they
+  // point to the last node in a circular linked list. We need to append the
+  // interleaved list to the end of the pending list by joining them into a
+  // single, circular list.
+  if (concurrentQueues !== null) {
+    for (var i = 0; i < concurrentQueues.length; i++) {
+      var queue = concurrentQueues[i];
+      var lastInterleavedUpdate = queue.interleaved;
+
+      if (lastInterleavedUpdate !== null) {
+        queue.interleaved = null;
+        var firstInterleavedUpdate = lastInterleavedUpdate.next;
+        var lastPendingUpdate = queue.pending;
+
+        if (lastPendingUpdate !== null) {
+          var firstPendingUpdate = lastPendingUpdate.next;
+          lastPendingUpdate.next = firstInterleavedUpdate;
+          lastInterleavedUpdate.next = firstPendingUpdate;
+        }
+
+        queue.pending = lastInterleavedUpdate;
+      }
+    }
+
+    concurrentQueues = null;
+  }
+}
+function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
+  var interleaved = queue.interleaved;
+
+  if (interleaved === null) {
+    // This is the first update. Create a circular list.
+    update.next = update; // At the end of the current render, this queue's interleaved updates will
+    // be transferred to the pending queue.
+
+    pushConcurrentUpdateQueue(queue);
+  } else {
+    update.next = interleaved.next;
+    interleaved.next = update;
+  }
+
+  queue.interleaved = update;
+  return markUpdateLaneFromFiberToRoot(fiber, lane);
+}
+function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
+  var interleaved = queue.interleaved;
+
+  if (interleaved === null) {
+    // This is the first update. Create a circular list.
+    update.next = update; // At the end of the current render, this queue's interleaved updates will
+    // be transferred to the pending queue.
+
+    pushConcurrentUpdateQueue(queue);
+  } else {
+    update.next = interleaved.next;
+    interleaved.next = update;
+  }
+
+  queue.interleaved = update;
+}
+function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
+  var interleaved = queue.interleaved;
+
+  if (interleaved === null) {
+    // This is the first update. Create a circular list.
+    update.next = update; // At the end of the current render, this queue's interleaved updates will
+    // be transferred to the pending queue.
+
+    pushConcurrentUpdateQueue(queue);
+  } else {
+    update.next = interleaved.next;
+    interleaved.next = update;
+  }
+
+  queue.interleaved = update;
+  return markUpdateLaneFromFiberToRoot(fiber, lane);
+}
+function enqueueConcurrentRenderForLane(fiber, lane) {
+  return markUpdateLaneFromFiberToRoot(fiber, lane);
+} // Calling this function outside this module should only be done for backwards
+// compatibility and should always be accompanied by a warning.
+
+var unsafe_markUpdateLaneFromFiberToRoot = markUpdateLaneFromFiberToRoot;
+
+function markUpdateLaneFromFiberToRoot(sourceFiber, lane) {
+  // Update the source fiber's lanes
+  sourceFiber.lanes = mergeLanes(sourceFiber.lanes, lane);
+  var alternate = sourceFiber.alternate;
+
+  if (alternate !== null) {
+    alternate.lanes = mergeLanes(alternate.lanes, lane);
+  }
+
+  {
+    if (alternate === null && (sourceFiber.flags & (Placement | Hydrating)) !== NoFlags) {
+      warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
+    }
+  } // Walk the parent path to the root and update the child lanes.
+
+
+  var node = sourceFiber;
+  var parent = sourceFiber.return;
+
+  while (parent !== null) {
+    parent.childLanes = mergeLanes(parent.childLanes, lane);
+    alternate = parent.alternate;
+
+    if (alternate !== null) {
+      alternate.childLanes = mergeLanes(alternate.childLanes, lane);
+    } else {
+      {
+        if ((parent.flags & (Placement | Hydrating)) !== NoFlags) {
+          warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
+        }
+      }
+    }
+
+    node = parent;
+    parent = parent.return;
+  }
+
+  if (node.tag === HostRoot) {
+    var root = node.stateNode;
+    return root;
+  } else {
+    return null;
+  }
+}
+
+var UpdateState = 0;
+var ReplaceState = 1;
+var ForceUpdate = 2;
+var CaptureUpdate = 3; // Global state that is reset at the beginning of calling `processUpdateQueue`.
+// It should only be read right after calling `processUpdateQueue`, via
+// `checkHasForceUpdateAfterProcessing`.
+
+var hasForceUpdate = false;
+var didWarnUpdateInsideUpdate;
+var currentlyProcessingQueue;
+
+{
+  didWarnUpdateInsideUpdate = false;
+  currentlyProcessingQueue = null;
+}
+
+function initializeUpdateQueue(fiber) {
+  var queue = {
+    baseState: fiber.memoizedState,
+    firstBaseUpdate: null,
+    lastBaseUpdate: null,
+    shared: {
+      pending: null,
+      interleaved: null,
+      lanes: NoLanes
+    },
+    effects: null
+  };
+  fiber.updateQueue = queue;
+}
+function cloneUpdateQueue(current, workInProgress) {
+  // Clone the update queue from current. Unless it's already a clone.
+  var queue = workInProgress.updateQueue;
+  var currentQueue = current.updateQueue;
+
+  if (queue === currentQueue) {
+    var clone = {
+      baseState: currentQueue.baseState,
+      firstBaseUpdate: currentQueue.firstBaseUpdate,
+      lastBaseUpdate: currentQueue.lastBaseUpdate,
+      shared: currentQueue.shared,
+      effects: currentQueue.effects
+    };
+    workInProgress.updateQueue = clone;
+  }
+}
+function createUpdate(eventTime, lane) {
+  var update = {
+    eventTime: eventTime,
+    lane: lane,
+    tag: UpdateState,
+    payload: null,
+    callback: null,
+    next: null
+  };
+  return update;
+}
+function enqueueUpdate(fiber, update, lane) {
+  var updateQueue = fiber.updateQueue;
+
+  if (updateQueue === null) {
+    // Only occurs if the fiber has been unmounted.
+    return null;
+  }
+
+  var sharedQueue = updateQueue.shared;
+
+  {
+    if (currentlyProcessingQueue === sharedQueue && !didWarnUpdateInsideUpdate) {
+      error('An update (setState, replaceState, or forceUpdate) was scheduled ' + 'from inside an update function. Update functions should be pure, ' + 'with zero side-effects. Consider using componentDidUpdate or a ' + 'callback.');
+
+      didWarnUpdateInsideUpdate = true;
+    }
+  }
+
+  if (isUnsafeClassRenderPhaseUpdate()) {
+    // This is an unsafe render phase update. Add directly to the update
+    // queue so we can process it immediately during the current render.
+    var pending = sharedQueue.pending;
+
+    if (pending === null) {
+      // This is the first update. Create a circular list.
+      update.next = update;
+    } else {
+      update.next = pending.next;
+      pending.next = update;
+    }
+
+    sharedQueue.pending = update; // Update the childLanes even though we're most likely already rendering
+    // this fiber. This is for backwards compatibility in the case where you
+    // update a different component during render phase than the one that is
+    // currently renderings (a pattern that is accompanied by a warning).
+
+    return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
+  } else {
+    return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
+  }
+}
+function entangleTransitions(root, fiber, lane) {
+  var updateQueue = fiber.updateQueue;
+
+  if (updateQueue === null) {
+    // Only occurs if the fiber has been unmounted.
+    return;
+  }
+
+  var sharedQueue = updateQueue.shared;
+
+  if (isTransitionLane(lane)) {
+    var queueLanes = sharedQueue.lanes; // If any entangled lanes are no longer pending on the root, then they must
+    // have finished. We can remove them from the shared queue, which represents
+    // a superset of the actually pending lanes. In some cases we may entangle
+    // more than we need to, but that's OK. In fact it's worse if we *don't*
+    // entangle when we should.
+
+    queueLanes = intersectLanes(queueLanes, root.pendingLanes); // Entangle the new transition lane with the other transition lanes.
+
+    var newQueueLanes = mergeLanes(queueLanes, lane);
+    sharedQueue.lanes = newQueueLanes; // Even if queue.lanes already include lane, we don't know for certain if
+    // the lane finished since the last time we entangled it. So we need to
+    // entangle it again, just to be sure.
+
+    markRootEntangled(root, newQueueLanes);
+  }
+}
+function enqueueCapturedUpdate(workInProgress, capturedUpdate) {
+  // Captured updates are updates that are thrown by a child during the render
+  // phase. They should be discarded if the render is aborted. Therefore,
+  // we should only put them on the work-in-progress queue, not the current one.
+  var queue = workInProgress.updateQueue; // Check if the work-in-progress queue is a clone.
+
+  var current = workInProgress.alternate;
+
+  if (current !== null) {
+    var currentQueue = current.updateQueue;
+
+    if (queue === currentQueue) {
+      // The work-in-progress queue is the same as current. This happens when
+      // we bail out on a parent fiber that then captures an error thrown by
+      // a child. Since we want to append the update only to the work-in
+      // -progress queue, we need to clone the updates. We usually clone during
+      // processUpdateQueue, but that didn't happen in this case because we
+      // skipped over the parent when we bailed out.
+      var newFirst = null;
+      var newLast = null;
+      var firstBaseUpdate = queue.firstBaseUpdate;
+
+      if (firstBaseUpdate !== null) {
+        // Loop through the updates and clone them.
+        var update = firstBaseUpdate;
+
+        do {
+          var clone = {
+            eventTime: update.eventTime,
+            lane: update.lane,
+            tag: update.tag,
+            payload: update.payload,
+            callback: update.callback,
+            next: null
+          };
+
+          if (newLast === null) {
+            newFirst = newLast = clone;
+          } else {
+            newLast.next = clone;
+            newLast = clone;
+          }
+
+          update = update.next;
+        } while (update !== null); // Append the captured update the end of the cloned list.
+
+
+        if (newLast === null) {
+          newFirst = newLast = capturedUpdate;
+        } else {
+          newLast.next = capturedUpdate;
+          newLast = capturedUpdate;
+        }
+      } else {
+        // There are no base updates.
+        newFirst = newLast = capturedUpdate;
+      }
+
+      queue = {
+        baseState: currentQueue.baseState,
+        firstBaseUpdate: newFirst,
+        lastBaseUpdate: newLast,
+        shared: currentQueue.shared,
+        effects: currentQueue.effects
+      };
+      workInProgress.updateQueue = queue;
+      return;
+    }
+  } // Append the update to the end of the list.
+
+
+  var lastBaseUpdate = queue.lastBaseUpdate;
+
+  if (lastBaseUpdate === null) {
+    queue.firstBaseUpdate = capturedUpdate;
+  } else {
+    lastBaseUpdate.next = capturedUpdate;
+  }
+
+  queue.lastBaseUpdate = capturedUpdate;
+}
+
+function getStateFromUpdate(workInProgress, queue, update, prevState, nextProps, instance) {
+  switch (update.tag) {
+    case ReplaceState:
+      {
+        var payload = update.payload;
+
+        if (typeof payload === 'function') {
+          // Updater function
+          {
+            enterDisallowedContextReadInDEV();
+          }
+
+          var nextState = payload.call(instance, prevState, nextProps);
+
+          {
+            if ( workInProgress.mode & StrictLegacyMode) {
+              setIsStrictModeForDevtools(true);
+
+              try {
+                payload.call(instance, prevState, nextProps);
+              } finally {
+                setIsStrictModeForDevtools(false);
+              }
+            }
+
+            exitDisallowedContextReadInDEV();
+          }
+
+          return nextState;
+        } // State object
+
+
+        return payload;
+      }
+
+    case CaptureUpdate:
+      {
+        workInProgress.flags = workInProgress.flags & ~ShouldCapture | DidCapture;
+      }
+    // Intentional fallthrough
+
+    case UpdateState:
+      {
+        var _payload = update.payload;
+        var partialState;
+
+        if (typeof _payload === 'function') {
+          // Updater function
+          {
+            enterDisallowedContextReadInDEV();
+          }
+
+          partialState = _payload.call(instance, prevState, nextProps);
+
+          {
+            if ( workInProgress.mode & StrictLegacyMode) {
+              setIsStrictModeForDevtools(true);
+
+              try {
+                _payload.call(instance, prevState, nextProps);
+              } finally {
+                setIsStrictModeForDevtools(false);
+              }
+            }
+
+            exitDisallowedContextReadInDEV();
+          }
+        } else {
+          // Partial state object
+          partialState = _payload;
+        }
+
+        if (partialState === null || partialState === undefined) {
+          // Null and undefined are treated as no-ops.
+          return prevState;
+        } // Merge the partial state and the previous state.
+
+
+        return assign({}, prevState, partialState);
+      }
+
+    case ForceUpdate:
+      {
+        hasForceUpdate = true;
+        return prevState;
+      }
+  }
+
+  return prevState;
+}
+
+function processUpdateQueue(workInProgress, props, instance, renderLanes) {
+  // This is always non-null on a ClassComponent or HostRoot
+  var queue = workInProgress.updateQueue;
+  hasForceUpdate = false;
+
+  {
+    currentlyProcessingQueue = queue.shared;
+  }
+
+  var firstBaseUpdate = queue.firstBaseUpdate;
+  var lastBaseUpdate = queue.lastBaseUpdate; // Check if there are pending updates. If so, transfer them to the base queue.
+
+  var pendingQueue = queue.shared.pending;
+
+  if (pendingQueue !== null) {
+    queue.shared.pending = null; // The pending queue is circular. Disconnect the pointer between first
+    // and last so that it's non-circular.
+
+    var lastPendingUpdate = pendingQueue;
+    var firstPendingUpdate = lastPendingUpdate.next;
+    lastPendingUpdate.next = null; // Append pending updates to base queue
+
+    if (lastBaseUpdate === null) {
+      firstBaseUpdate = firstPendingUpdate;
+    } else {
+      lastBaseUpdate.next = firstPendingUpdate;
+    }
+
+    lastBaseUpdate = lastPendingUpdate; // If there's a current queue, and it's different from the base queue, then
+    // we need to transfer the updates to that queue, too. Because the base
+    // queue is a singly-linked list with no cycles, we can append to both
+    // lists and take advantage of structural sharing.
+    // TODO: Pass `current` as argument
+
+    var current = workInProgress.alternate;
+
+    if (current !== null) {
+      // This is always non-null on a ClassComponent or HostRoot
+      var currentQueue = current.updateQueue;
+      var currentLastBaseUpdate = currentQueue.lastBaseUpdate;
+
+      if (currentLastBaseUpdate !== lastBaseUpdate) {
+        if (currentLastBaseUpdate === null) {
+          currentQueue.firstBaseUpdate = firstPendingUpdate;
+        } else {
+          currentLastBaseUpdate.next = firstPendingUpdate;
+        }
+
+        currentQueue.lastBaseUpdate = lastPendingUpdate;
+      }
+    }
+  } // These values may change as we process the queue.
+
+
+  if (firstBaseUpdate !== null) {
+    // Iterate through the list of updates to compute the result.
+    var newState = queue.baseState; // TODO: Don't need to accumulate this. Instead, we can remove renderLanes
+    // from the original lanes.
+
+    var newLanes = NoLanes;
+    var newBaseState = null;
+    var newFirstBaseUpdate = null;
+    var newLastBaseUpdate = null;
+    var update = firstBaseUpdate;
+
+    do {
+      var updateLane = update.lane;
+      var updateEventTime = update.eventTime;
+
+      if (!isSubsetOfLanes(renderLanes, updateLane)) {
+        // Priority is insufficient. Skip this update. If this is the first
+        // skipped update, the previous update/state is the new base
+        // update/state.
+        var clone = {
+          eventTime: updateEventTime,
+          lane: updateLane,
+          tag: update.tag,
+          payload: update.payload,
+          callback: update.callback,
+          next: null
+        };
+
+        if (newLastBaseUpdate === null) {
+          newFirstBaseUpdate = newLastBaseUpdate = clone;
+          newBaseState = newState;
+        } else {
+          newLastBaseUpdate = newLastBaseUpdate.next = clone;
+        } // Update the remaining priority in the queue.
+
+
+        newLanes = mergeLanes(newLanes, updateLane);
+      } else {
+        // This update does have sufficient priority.
+        if (newLastBaseUpdate !== null) {
+          var _clone = {
+            eventTime: updateEventTime,
+            // This update is going to be committed so we never want uncommit
+            // it. Using NoLane works because 0 is a subset of all bitmasks, so
+            // this will never be skipped by the check above.
+            lane: NoLane,
+            tag: update.tag,
+            payload: update.payload,
+            callback: update.callback,
+            next: null
+          };
+          newLastBaseUpdate = newLastBaseUpdate.next = _clone;
+        } // Process this update.
+
+
+        newState = getStateFromUpdate(workInProgress, queue, update, newState, props, instance);
+        var callback = update.callback;
+
+        if (callback !== null && // If the update was already committed, we should not queue its
+        // callback again.
+        update.lane !== NoLane) {
+          workInProgress.flags |= Callback;
+          var effects = queue.effects;
+
+          if (effects === null) {
+            queue.effects = [update];
+          } else {
+            effects.push(update);
+          }
+        }
+      }
+
+      update = update.next;
+
+      if (update === null) {
+        pendingQueue = queue.shared.pending;
+
+        if (pendingQueue === null) {
+          break;
+        } else {
+          // An update was scheduled from inside a reducer. Add the new
+          // pending updates to the end of the list and keep processing.
+          var _lastPendingUpdate = pendingQueue; // Intentionally unsound. Pending updates form a circular list, but we
+          // unravel them when transferring them to the base queue.
+
+          var _firstPendingUpdate = _lastPendingUpdate.next;
+          _lastPendingUpdate.next = null;
+          update = _firstPendingUpdate;
+          queue.lastBaseUpdate = _lastPendingUpdate;
+          queue.shared.pending = null;
+        }
+      }
+    } while (true);
+
+    if (newLastBaseUpdate === null) {
+      newBaseState = newState;
+    }
+
+    queue.baseState = newBaseState;
+    queue.firstBaseUpdate = newFirstBaseUpdate;
+    queue.lastBaseUpdate = newLastBaseUpdate; // Interleaved updates are stored on a separate queue. We aren't going to
+    // process them during this render, but we do need to track which lanes
+    // are remaining.
+
+    var lastInterleaved = queue.shared.interleaved;
+
+    if (lastInterleaved !== null) {
+      var interleaved = lastInterleaved;
+
+      do {
+        newLanes = mergeLanes(newLanes, interleaved.lane);
+        interleaved = interleaved.next;
+      } while (interleaved !== lastInterleaved);
+    } else if (firstBaseUpdate === null) {
+      // `queue.lanes` is used for entangling transitions. We can set it back to
+      // zero once the queue is empty.
+      queue.shared.lanes = NoLanes;
+    } // Set the remaining expiration time to be whatever is remaining in the queue.
+    // This should be fine because the only two other things that contribute to
+    // expiration time are props and context. We're already in the middle of the
+    // begin phase by the time we start processing the queue, so we've already
+    // dealt with the props. Context in components that specify
+    // shouldComponentUpdate is tricky; but we'll have to account for
+    // that regardless.
+
+
+    markSkippedUpdateLanes(newLanes);
+    workInProgress.lanes = newLanes;
+    workInProgress.memoizedState = newState;
+  }
+
+  {
+    currentlyProcessingQueue = null;
+  }
+}
+
+function callCallback(callback, context) {
+  if (typeof callback !== 'function') {
+    throw new Error('Invalid argument passed as callback. Expected a function. Instead ' + ("received: " + callback));
+  }
+
+  callback.call(context);
+}
+
+function resetHasForceUpdateBeforeProcessing() {
+  hasForceUpdate = false;
+}
+function checkHasForceUpdateAfterProcessing() {
+  return hasForceUpdate;
+}
+function commitUpdateQueue(finishedWork, finishedQueue, instance) {
+  // Commit the effects
+  var effects = finishedQueue.effects;
+  finishedQueue.effects = null;
+
+  if (effects !== null) {
+    for (var i = 0; i < effects.length; i++) {
+      var effect = effects[i];
+      var callback = effect.callback;
+
+      if (callback !== null) {
+        effect.callback = null;
+        callCallback(callback, instance);
+      }
+    }
   }
 }
 
@@ -20385,6 +19591,842 @@ function transferActualDuration(fiber) {
   }
 }
 
+function resolveDefaultProps(Component, baseProps) {
+  if (Component && Component.defaultProps) {
+    // Resolve default props. Taken from ReactElement
+    var props = assign({}, baseProps);
+    var defaultProps = Component.defaultProps;
+
+    for (var propName in defaultProps) {
+      if (props[propName] === undefined) {
+        props[propName] = defaultProps[propName];
+      }
+    }
+
+    return props;
+  }
+
+  return baseProps;
+}
+
+var fakeInternalInstance = {};
+var didWarnAboutStateAssignmentForComponent;
+var didWarnAboutUninitializedState;
+var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
+var didWarnAboutLegacyLifecyclesAndDerivedState;
+var didWarnAboutUndefinedDerivedState;
+var warnOnUndefinedDerivedState;
+var warnOnInvalidCallback;
+var didWarnAboutDirectlyAssigningPropsToState;
+var didWarnAboutContextTypeAndContextTypes;
+var didWarnAboutInvalidateContextType;
+var didWarnAboutLegacyContext$1;
+
+{
+  didWarnAboutStateAssignmentForComponent = new Set();
+  didWarnAboutUninitializedState = new Set();
+  didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate = new Set();
+  didWarnAboutLegacyLifecyclesAndDerivedState = new Set();
+  didWarnAboutDirectlyAssigningPropsToState = new Set();
+  didWarnAboutUndefinedDerivedState = new Set();
+  didWarnAboutContextTypeAndContextTypes = new Set();
+  didWarnAboutInvalidateContextType = new Set();
+  didWarnAboutLegacyContext$1 = new Set();
+  var didWarnOnInvalidCallback = new Set();
+
+  warnOnInvalidCallback = function (callback, callerName) {
+    if (callback === null || typeof callback === 'function') {
+      return;
+    }
+
+    var key = callerName + '_' + callback;
+
+    if (!didWarnOnInvalidCallback.has(key)) {
+      didWarnOnInvalidCallback.add(key);
+
+      error('%s(...): Expected the last optional `callback` argument to be a ' + 'function. Instead received: %s.', callerName, callback);
+    }
+  };
+
+  warnOnUndefinedDerivedState = function (type, partialState) {
+    if (partialState === undefined) {
+      var componentName = getComponentNameFromType(type) || 'Component';
+
+      if (!didWarnAboutUndefinedDerivedState.has(componentName)) {
+        didWarnAboutUndefinedDerivedState.add(componentName);
+
+        error('%s.getDerivedStateFromProps(): A valid state object (or null) must be returned. ' + 'You have returned undefined.', componentName);
+      }
+    }
+  }; // This is so gross but it's at least non-critical and can be removed if
+  // it causes problems. This is meant to give a nicer error message for
+  // ReactDOM15.unstable_renderSubtreeIntoContainer(reactDOM16Component,
+  // ...)) which otherwise throws a "_processChildContext is not a function"
+  // exception.
+
+
+  Object.defineProperty(fakeInternalInstance, '_processChildContext', {
+    enumerable: false,
+    value: function () {
+      throw new Error('_processChildContext is not available in React 16+. This likely ' + 'means you have multiple copies of React and are attempting to nest ' + 'a React 15 tree inside a React 16 tree using ' + "unstable_renderSubtreeIntoContainer, which isn't supported. Try " + 'to make sure you have only one copy of React (and ideally, switch ' + 'to ReactDOM.createPortal).');
+    }
+  });
+  Object.freeze(fakeInternalInstance);
+}
+
+function applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, nextProps) {
+  var prevState = workInProgress.memoizedState;
+  var partialState = getDerivedStateFromProps(nextProps, prevState);
+
+  {
+    if ( workInProgress.mode & StrictLegacyMode) {
+      setIsStrictModeForDevtools(true);
+
+      try {
+        // Invoke the function an extra time to help detect side-effects.
+        partialState = getDerivedStateFromProps(nextProps, prevState);
+      } finally {
+        setIsStrictModeForDevtools(false);
+      }
+    }
+
+    warnOnUndefinedDerivedState(ctor, partialState);
+  } // Merge the partial state and the previous state.
+
+
+  var memoizedState = partialState === null || partialState === undefined ? prevState : assign({}, prevState, partialState);
+  workInProgress.memoizedState = memoizedState; // Once the update queue is empty, persist the derived state onto the
+  // base state.
+
+  if (workInProgress.lanes === NoLanes) {
+    // Queue is always non-null for classes
+    var updateQueue = workInProgress.updateQueue;
+    updateQueue.baseState = memoizedState;
+  }
+}
+
+var classComponentUpdater = {
+  isMounted: isMounted,
+  enqueueSetState: function (inst, payload, callback) {
+    var fiber = get(inst);
+    var eventTime = requestEventTime();
+    var lane = requestUpdateLane(fiber);
+    var update = createUpdate(eventTime, lane);
+    update.payload = payload;
+
+    if (callback !== undefined && callback !== null) {
+      {
+        warnOnInvalidCallback(callback, 'setState');
+      }
+
+      update.callback = callback;
+    }
+
+    var root = enqueueUpdate(fiber, update, lane);
+
+    if (root !== null) {
+      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
+      entangleTransitions(root, fiber, lane);
+    }
+
+    {
+      markStateUpdateScheduled(fiber, lane);
+    }
+  },
+  enqueueReplaceState: function (inst, payload, callback) {
+    var fiber = get(inst);
+    var eventTime = requestEventTime();
+    var lane = requestUpdateLane(fiber);
+    var update = createUpdate(eventTime, lane);
+    update.tag = ReplaceState;
+    update.payload = payload;
+
+    if (callback !== undefined && callback !== null) {
+      {
+        warnOnInvalidCallback(callback, 'replaceState');
+      }
+
+      update.callback = callback;
+    }
+
+    var root = enqueueUpdate(fiber, update, lane);
+
+    if (root !== null) {
+      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
+      entangleTransitions(root, fiber, lane);
+    }
+
+    {
+      markStateUpdateScheduled(fiber, lane);
+    }
+  },
+  enqueueForceUpdate: function (inst, callback) {
+    var fiber = get(inst);
+    var eventTime = requestEventTime();
+    var lane = requestUpdateLane(fiber);
+    var update = createUpdate(eventTime, lane);
+    update.tag = ForceUpdate;
+
+    if (callback !== undefined && callback !== null) {
+      {
+        warnOnInvalidCallback(callback, 'forceUpdate');
+      }
+
+      update.callback = callback;
+    }
+
+    var root = enqueueUpdate(fiber, update, lane);
+
+    if (root !== null) {
+      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
+      entangleTransitions(root, fiber, lane);
+    }
+
+    {
+      markForceUpdateScheduled(fiber, lane);
+    }
+  }
+};
+
+function checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) {
+  var instance = workInProgress.stateNode;
+
+  if (typeof instance.shouldComponentUpdate === 'function') {
+    var shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
+
+    {
+      if ( workInProgress.mode & StrictLegacyMode) {
+        setIsStrictModeForDevtools(true);
+
+        try {
+          // Invoke the function an extra time to help detect side-effects.
+          shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
+        } finally {
+          setIsStrictModeForDevtools(false);
+        }
+      }
+
+      if (shouldUpdate === undefined) {
+        error('%s.shouldComponentUpdate(): Returned undefined instead of a ' + 'boolean value. Make sure to return true or false.', getComponentNameFromType(ctor) || 'Component');
+      }
+    }
+
+    return shouldUpdate;
+  }
+
+  if (ctor.prototype && ctor.prototype.isPureReactComponent) {
+    return !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState);
+  }
+
+  return true;
+}
+
+function checkClassInstance(workInProgress, ctor, newProps) {
+  var instance = workInProgress.stateNode;
+
+  {
+    var name = getComponentNameFromType(ctor) || 'Component';
+    var renderPresent = instance.render;
+
+    if (!renderPresent) {
+      if (ctor.prototype && typeof ctor.prototype.render === 'function') {
+        error('%s(...): No `render` method found on the returned component ' + 'instance: did you accidentally return an object from the constructor?', name);
+      } else {
+        error('%s(...): No `render` method found on the returned component ' + 'instance: you may have forgotten to define `render`.', name);
+      }
+    }
+
+    if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
+      error('getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', name);
+    }
+
+    if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
+      error('getDefaultProps was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Use a static property to define defaultProps instead.', name);
+    }
+
+    if (instance.propTypes) {
+      error('propTypes was defined as an instance property on %s. Use a static ' + 'property to define propTypes instead.', name);
+    }
+
+    if (instance.contextType) {
+      error('contextType was defined as an instance property on %s. Use a static ' + 'property to define contextType instead.', name);
+    }
+
+    {
+      if (ctor.childContextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
+      // this one.
+      (workInProgress.mode & StrictLegacyMode) === NoMode) {
+        didWarnAboutLegacyContext$1.add(ctor);
+
+        error('%s uses the legacy childContextTypes API which is no longer ' + 'supported and will be removed in the next major release. Use ' + 'React.createContext() instead\n\n.' + 'Learn more about this warning here: https://reactjs.org/link/legacy-context', name);
+      }
+
+      if (ctor.contextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
+      // this one.
+      (workInProgress.mode & StrictLegacyMode) === NoMode) {
+        didWarnAboutLegacyContext$1.add(ctor);
+
+        error('%s uses the legacy contextTypes API which is no longer supported ' + 'and will be removed in the next major release. Use ' + 'React.createContext() with static contextType instead.\n\n' + 'Learn more about this warning here: https://reactjs.org/link/legacy-context', name);
+      }
+
+      if (instance.contextTypes) {
+        error('contextTypes was defined as an instance property on %s. Use a static ' + 'property to define contextTypes instead.', name);
+      }
+
+      if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
+        didWarnAboutContextTypeAndContextTypes.add(ctor);
+
+        error('%s declares both contextTypes and contextType static properties. ' + 'The legacy contextTypes property will be ignored.', name);
+      }
+    }
+
+    if (typeof instance.componentShouldUpdate === 'function') {
+      error('%s has a method called ' + 'componentShouldUpdate(). Did you mean shouldComponentUpdate()? ' + 'The name is phrased as a question because the function is ' + 'expected to return a value.', name);
+    }
+
+    if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== 'undefined') {
+      error('%s has a method called shouldComponentUpdate(). ' + 'shouldComponentUpdate should not be used when extending React.PureComponent. ' + 'Please extend React.Component if shouldComponentUpdate is used.', getComponentNameFromType(ctor) || 'A pure component');
+    }
+
+    if (typeof instance.componentDidUnmount === 'function') {
+      error('%s has a method called ' + 'componentDidUnmount(). But there is no such lifecycle method. ' + 'Did you mean componentWillUnmount()?', name);
+    }
+
+    if (typeof instance.componentDidReceiveProps === 'function') {
+      error('%s has a method called ' + 'componentDidReceiveProps(). But there is no such lifecycle method. ' + 'If you meant to update the state in response to changing props, ' + 'use componentWillReceiveProps(). If you meant to fetch data or ' + 'run side-effects or mutations after React has updated the UI, use componentDidUpdate().', name);
+    }
+
+    if (typeof instance.componentWillRecieveProps === 'function') {
+      error('%s has a method called ' + 'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?', name);
+    }
+
+    if (typeof instance.UNSAFE_componentWillRecieveProps === 'function') {
+      error('%s has a method called ' + 'UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?', name);
+    }
+
+    var hasMutatedProps = instance.props !== newProps;
+
+    if (instance.props !== undefined && hasMutatedProps) {
+      error('%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your component's constructor was passed.", name, name);
+    }
+
+    if (instance.defaultProps) {
+      error('Setting defaultProps as an instance property on %s is not supported and will be ignored.' + ' Instead, define defaultProps as a static property on %s.', name, name);
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function' && typeof instance.componentDidUpdate !== 'function' && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
+      didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
+
+      error('%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). ' + 'This component defines getSnapshotBeforeUpdate() only.', getComponentNameFromType(ctor));
+    }
+
+    if (typeof instance.getDerivedStateFromProps === 'function') {
+      error('%s: getDerivedStateFromProps() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
+    }
+
+    if (typeof instance.getDerivedStateFromError === 'function') {
+      error('%s: getDerivedStateFromError() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
+    }
+
+    if (typeof ctor.getSnapshotBeforeUpdate === 'function') {
+      error('%s: getSnapshotBeforeUpdate() is defined as a static method ' + 'and will be ignored. Instead, declare it as an instance method.', name);
+    }
+
+    var _state = instance.state;
+
+    if (_state && (typeof _state !== 'object' || isArray(_state))) {
+      error('%s.state: must be set to an object or null', name);
+    }
+
+    if (typeof instance.getChildContext === 'function' && typeof ctor.childContextTypes !== 'object') {
+      error('%s.getChildContext(): childContextTypes must be defined in order to ' + 'use getChildContext().', name);
+    }
+  }
+}
+
+function adoptClassInstance(workInProgress, instance) {
+  instance.updater = classComponentUpdater;
+  workInProgress.stateNode = instance; // The instance needs access to the fiber so that it can schedule updates
+
+  set(instance, workInProgress);
+
+  {
+    instance._reactInternalInstance = fakeInternalInstance;
+  }
+}
+
+function constructClassInstance(workInProgress, ctor, props) {
+  var isLegacyContextConsumer = false;
+  var unmaskedContext = emptyContextObject;
+  var context = emptyContextObject;
+  var contextType = ctor.contextType;
+
+  {
+    if ('contextType' in ctor) {
+      var isValid = // Allow null for conditional declaration
+      contextType === null || contextType !== undefined && contextType.$$typeof === REACT_CONTEXT_TYPE && contextType._context === undefined; // Not a <Context.Consumer>
+
+      if (!isValid && !didWarnAboutInvalidateContextType.has(ctor)) {
+        didWarnAboutInvalidateContextType.add(ctor);
+        var addendum = '';
+
+        if (contextType === undefined) {
+          addendum = ' However, it is set to undefined. ' + 'This can be caused by a typo or by mixing up named and default imports. ' + 'This can also happen due to a circular dependency, so ' + 'try moving the createContext() call to a separate file.';
+        } else if (typeof contextType !== 'object') {
+          addendum = ' However, it is set to a ' + typeof contextType + '.';
+        } else if (contextType.$$typeof === REACT_PROVIDER_TYPE) {
+          addendum = ' Did you accidentally pass the Context.Provider instead?';
+        } else if (contextType._context !== undefined) {
+          // <Context.Consumer>
+          addendum = ' Did you accidentally pass the Context.Consumer instead?';
+        } else {
+          addendum = ' However, it is set to an object with keys {' + Object.keys(contextType).join(', ') + '}.';
+        }
+
+        error('%s defines an invalid contextType. ' + 'contextType should point to the Context object returned by React.createContext().%s', getComponentNameFromType(ctor) || 'Component', addendum);
+      }
+    }
+  }
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    context = readContext(contextType);
+  } else {
+    unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    var contextTypes = ctor.contextTypes;
+    isLegacyContextConsumer = contextTypes !== null && contextTypes !== undefined;
+    context = isLegacyContextConsumer ? getMaskedContext(workInProgress, unmaskedContext) : emptyContextObject;
+  }
+
+  var instance = new ctor(props, context); // Instantiate twice to help detect side-effects.
+
+  {
+    if ( workInProgress.mode & StrictLegacyMode) {
+      setIsStrictModeForDevtools(true);
+
+      try {
+        instance = new ctor(props, context); // eslint-disable-line no-new
+      } finally {
+        setIsStrictModeForDevtools(false);
+      }
+    }
+  }
+
+  var state = workInProgress.memoizedState = instance.state !== null && instance.state !== undefined ? instance.state : null;
+  adoptClassInstance(workInProgress, instance);
+
+  {
+    if (typeof ctor.getDerivedStateFromProps === 'function' && state === null) {
+      var componentName = getComponentNameFromType(ctor) || 'Component';
+
+      if (!didWarnAboutUninitializedState.has(componentName)) {
+        didWarnAboutUninitializedState.add(componentName);
+
+        error('`%s` uses `getDerivedStateFromProps` but its initial state is ' + '%s. This is not recommended. Instead, define the initial state by ' + 'assigning an object to `this.state` in the constructor of `%s`. ' + 'This ensures that `getDerivedStateFromProps` arguments have a consistent shape.', componentName, instance.state === null ? 'null' : 'undefined', componentName);
+      }
+    } // If new component APIs are defined, "unsafe" lifecycles won't be called.
+    // Warn about these lifecycles if they are present.
+    // Don't warn about react-lifecycles-compat polyfilled methods though.
+
+
+    if (typeof ctor.getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function') {
+      var foundWillMountName = null;
+      var foundWillReceivePropsName = null;
+      var foundWillUpdateName = null;
+
+      if (typeof instance.componentWillMount === 'function' && instance.componentWillMount.__suppressDeprecationWarning !== true) {
+        foundWillMountName = 'componentWillMount';
+      } else if (typeof instance.UNSAFE_componentWillMount === 'function') {
+        foundWillMountName = 'UNSAFE_componentWillMount';
+      }
+
+      if (typeof instance.componentWillReceiveProps === 'function' && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
+        foundWillReceivePropsName = 'componentWillReceiveProps';
+      } else if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
+        foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
+      }
+
+      if (typeof instance.componentWillUpdate === 'function' && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
+        foundWillUpdateName = 'componentWillUpdate';
+      } else if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
+        foundWillUpdateName = 'UNSAFE_componentWillUpdate';
+      }
+
+      if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+        var _componentName = getComponentNameFromType(ctor) || 'Component';
+
+        var newApiName = typeof ctor.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
+
+        if (!didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName)) {
+          didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName);
+
+          error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + '%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\n' + 'The above lifecycles should be removed. Learn more about this warning here:\n' + 'https://reactjs.org/link/unsafe-component-lifecycles', _componentName, newApiName, foundWillMountName !== null ? "\n  " + foundWillMountName : '', foundWillReceivePropsName !== null ? "\n  " + foundWillReceivePropsName : '', foundWillUpdateName !== null ? "\n  " + foundWillUpdateName : '');
+        }
+      }
+    }
+  } // Cache unmasked context so we can avoid recreating masked context unless necessary.
+  // ReactFiberContext usually updates this cache but can't for newly-created instances.
+
+
+  if (isLegacyContextConsumer) {
+    cacheContext(workInProgress, unmaskedContext, context);
+  }
+
+  return instance;
+}
+
+function callComponentWillMount(workInProgress, instance) {
+  var oldState = instance.state;
+
+  if (typeof instance.componentWillMount === 'function') {
+    instance.componentWillMount();
+  }
+
+  if (typeof instance.UNSAFE_componentWillMount === 'function') {
+    instance.UNSAFE_componentWillMount();
+  }
+
+  if (oldState !== instance.state) {
+    {
+      error('%s.componentWillMount(): Assigning directly to this.state is ' + "deprecated (except inside a component's " + 'constructor). Use setState instead.', getComponentNameFromFiber(workInProgress) || 'Component');
+    }
+
+    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+  }
+}
+
+function callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext) {
+  var oldState = instance.state;
+
+  if (typeof instance.componentWillReceiveProps === 'function') {
+    instance.componentWillReceiveProps(newProps, nextContext);
+  }
+
+  if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
+    instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
+  }
+
+  if (instance.state !== oldState) {
+    {
+      var componentName = getComponentNameFromFiber(workInProgress) || 'Component';
+
+      if (!didWarnAboutStateAssignmentForComponent.has(componentName)) {
+        didWarnAboutStateAssignmentForComponent.add(componentName);
+
+        error('%s.componentWillReceiveProps(): Assigning directly to ' + "this.state is deprecated (except inside a component's " + 'constructor). Use setState instead.', componentName);
+      }
+    }
+
+    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+  }
+} // Invokes the mount life-cycles on a previously never rendered instance.
+
+
+function mountClassInstance(workInProgress, ctor, newProps, renderLanes) {
+  {
+    checkClassInstance(workInProgress, ctor, newProps);
+  }
+
+  var instance = workInProgress.stateNode;
+  instance.props = newProps;
+  instance.state = workInProgress.memoizedState;
+  instance.refs = {};
+  initializeUpdateQueue(workInProgress);
+  var contextType = ctor.contextType;
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    instance.context = readContext(contextType);
+  } else {
+    var unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    instance.context = getMaskedContext(workInProgress, unmaskedContext);
+  }
+
+  {
+    if (instance.state === newProps) {
+      var componentName = getComponentNameFromType(ctor) || 'Component';
+
+      if (!didWarnAboutDirectlyAssigningPropsToState.has(componentName)) {
+        didWarnAboutDirectlyAssigningPropsToState.add(componentName);
+
+        error('%s: It is not recommended to assign props directly to state ' + "because updates to props won't be reflected in state. " + 'In most cases, it is better to use props directly.', componentName);
+      }
+    }
+
+    if (workInProgress.mode & StrictLegacyMode) {
+      ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress, instance);
+    }
+
+    {
+      ReactStrictModeWarnings.recordUnsafeLifecycleWarnings(workInProgress, instance);
+    }
+  }
+
+  instance.state = workInProgress.memoizedState;
+  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
+
+  if (typeof getDerivedStateFromProps === 'function') {
+    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
+    instance.state = workInProgress.memoizedState;
+  } // In order to support react-lifecycles-compat polyfilled components,
+  // Unsafe lifecycles should not be invoked for components using the new APIs.
+
+
+  if (typeof ctor.getDerivedStateFromProps !== 'function' && typeof instance.getSnapshotBeforeUpdate !== 'function' && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
+    callComponentWillMount(workInProgress, instance); // If we had additional state updates during this life-cycle, let's
+    // process them now.
+
+    processUpdateQueue(workInProgress, newProps, instance, renderLanes);
+    instance.state = workInProgress.memoizedState;
+  }
+
+  if (typeof instance.componentDidMount === 'function') {
+    var fiberFlags = Update;
+
+    {
+      fiberFlags |= LayoutStatic;
+    }
+
+    if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+      fiberFlags |= MountLayoutDev;
+    }
+
+    workInProgress.flags |= fiberFlags;
+  }
+}
+
+function resumeMountClassInstance(workInProgress, ctor, newProps, renderLanes) {
+  var instance = workInProgress.stateNode;
+  var oldProps = workInProgress.memoizedProps;
+  instance.props = oldProps;
+  var oldContext = instance.context;
+  var contextType = ctor.contextType;
+  var nextContext = emptyContextObject;
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    nextContext = readContext(contextType);
+  } else {
+    var nextLegacyUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    nextContext = getMaskedContext(workInProgress, nextLegacyUnmaskedContext);
+  }
+
+  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
+  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
+  // ever the previously attempted to render - not the "current". However,
+  // during componentDidUpdate we pass the "current" props.
+  // In order to support react-lifecycles-compat polyfilled components,
+  // Unsafe lifecycles should not be invoked for components using the new APIs.
+
+  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
+    if (oldProps !== newProps || oldContext !== nextContext) {
+      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
+    }
+  }
+
+  resetHasForceUpdateBeforeProcessing();
+  var oldState = workInProgress.memoizedState;
+  var newState = instance.state = oldState;
+  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
+  newState = workInProgress.memoizedState;
+
+  if (oldProps === newProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing()) {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidMount === 'function') {
+      var fiberFlags = Update;
+
+      {
+        fiberFlags |= LayoutStatic;
+      }
+
+      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+        fiberFlags |= MountLayoutDev;
+      }
+
+      workInProgress.flags |= fiberFlags;
+    }
+
+    return false;
+  }
+
+  if (typeof getDerivedStateFromProps === 'function') {
+    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
+    newState = workInProgress.memoizedState;
+  }
+
+  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
+
+  if (shouldUpdate) {
+    // In order to support react-lifecycles-compat polyfilled components,
+    // Unsafe lifecycles should not be invoked for components using the new APIs.
+    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
+      if (typeof instance.componentWillMount === 'function') {
+        instance.componentWillMount();
+      }
+
+      if (typeof instance.UNSAFE_componentWillMount === 'function') {
+        instance.UNSAFE_componentWillMount();
+      }
+    }
+
+    if (typeof instance.componentDidMount === 'function') {
+      var _fiberFlags = Update;
+
+      {
+        _fiberFlags |= LayoutStatic;
+      }
+
+      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+        _fiberFlags |= MountLayoutDev;
+      }
+
+      workInProgress.flags |= _fiberFlags;
+    }
+  } else {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidMount === 'function') {
+      var _fiberFlags2 = Update;
+
+      {
+        _fiberFlags2 |= LayoutStatic;
+      }
+
+      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+        _fiberFlags2 |= MountLayoutDev;
+      }
+
+      workInProgress.flags |= _fiberFlags2;
+    } // If shouldComponentUpdate returned false, we should still update the
+    // memoized state to indicate that this work can be reused.
+
+
+    workInProgress.memoizedProps = newProps;
+    workInProgress.memoizedState = newState;
+  } // Update the existing instance's state, props, and context pointers even
+  // if shouldComponentUpdate returns false.
+
+
+  instance.props = newProps;
+  instance.state = newState;
+  instance.context = nextContext;
+  return shouldUpdate;
+} // Invokes the update life-cycles and returns false if it shouldn't rerender.
+
+
+function updateClassInstance(current, workInProgress, ctor, newProps, renderLanes) {
+  var instance = workInProgress.stateNode;
+  cloneUpdateQueue(current, workInProgress);
+  var unresolvedOldProps = workInProgress.memoizedProps;
+  var oldProps = workInProgress.type === workInProgress.elementType ? unresolvedOldProps : resolveDefaultProps(workInProgress.type, unresolvedOldProps);
+  instance.props = oldProps;
+  var unresolvedNewProps = workInProgress.pendingProps;
+  var oldContext = instance.context;
+  var contextType = ctor.contextType;
+  var nextContext = emptyContextObject;
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    nextContext = readContext(contextType);
+  } else {
+    var nextUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    nextContext = getMaskedContext(workInProgress, nextUnmaskedContext);
+  }
+
+  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
+  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
+  // ever the previously attempted to render - not the "current". However,
+  // during componentDidUpdate we pass the "current" props.
+  // In order to support react-lifecycles-compat polyfilled components,
+  // Unsafe lifecycles should not be invoked for components using the new APIs.
+
+  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
+    if (unresolvedOldProps !== unresolvedNewProps || oldContext !== nextContext) {
+      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
+    }
+  }
+
+  resetHasForceUpdateBeforeProcessing();
+  var oldState = workInProgress.memoizedState;
+  var newState = instance.state = oldState;
+  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
+  newState = workInProgress.memoizedState;
+
+  if (unresolvedOldProps === unresolvedNewProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing() && !(enableLazyContextPropagation   )) {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Update;
+      }
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Snapshot;
+      }
+    }
+
+    return false;
+  }
+
+  if (typeof getDerivedStateFromProps === 'function') {
+    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
+    newState = workInProgress.memoizedState;
+  }
+
+  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) || // TODO: In some cases, we'll end up checking if context has changed twice,
+  // both before and after `shouldComponentUpdate` has been called. Not ideal,
+  // but I'm loath to refactor this function. This only happens for memoized
+  // components so it's not that common.
+  enableLazyContextPropagation   ;
+
+  if (shouldUpdate) {
+    // In order to support react-lifecycles-compat polyfilled components,
+    // Unsafe lifecycles should not be invoked for components using the new APIs.
+    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.componentWillUpdate === 'function')) {
+      if (typeof instance.componentWillUpdate === 'function') {
+        instance.componentWillUpdate(newProps, newState, nextContext);
+      }
+
+      if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
+        instance.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
+      }
+    }
+
+    if (typeof instance.componentDidUpdate === 'function') {
+      workInProgress.flags |= Update;
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
+      workInProgress.flags |= Snapshot;
+    }
+  } else {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Update;
+      }
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Snapshot;
+      }
+    } // If shouldComponentUpdate returned false, we should still update the
+    // memoized props/state to indicate that this work can be reused.
+
+
+    workInProgress.memoizedProps = newProps;
+    workInProgress.memoizedState = newState;
+  } // Update the existing instance's state, props, and context pointers even
+  // if shouldComponentUpdate returns false.
+
+
+  instance.props = newProps;
+  instance.state = newState;
+  instance.context = nextContext;
+  return shouldUpdate;
+}
+
 function createCapturedValueAtFiber(value, source) {
   // If the value is an error, call this function immediately after it is thrown
   // so the stack is accurate.
@@ -20919,6 +20961,7 @@ var didWarnAboutFunctionRefs;
 var didWarnAboutReassigningProps;
 var didWarnAboutRevealOrder;
 var didWarnAboutTailOptions;
+var didWarnAboutDefaultPropsOnFunctionComponent;
 
 {
   didWarnAboutBadClass = {};
@@ -20929,6 +20972,7 @@ var didWarnAboutTailOptions;
   didWarnAboutReassigningProps = false;
   didWarnAboutRevealOrder = {};
   didWarnAboutTailOptions = {};
+  didWarnAboutDefaultPropsOnFunctionComponent = {};
 }
 
 function reconcileChildren(current, workInProgress, nextChildren, renderLanes) {
@@ -21065,6 +21109,16 @@ function updateMemoComponent(current, workInProgress, Component, nextProps, rend
         // We could move it there, but we'd still need this for lazy code path.
         checkPropTypes(innerPropTypes, nextProps, // Resolved props
         'prop', getComponentNameFromType(type));
+      }
+
+      if ( Component.defaultProps !== undefined) {
+        var componentName = getComponentNameFromType(type) || 'Unknown';
+
+        if (!didWarnAboutDefaultPropsOnFunctionComponent[componentName]) {
+          error('%s: Support for defaultProps will be removed from memo components ' + 'in a future major release. Use JavaScript default parameters instead.', componentName);
+
+          didWarnAboutDefaultPropsOnFunctionComponent[componentName] = true;
+        }
       }
     }
 
@@ -21964,6 +22018,16 @@ function validateFunctionComponentInDev(workInProgress, Component) {
         didWarnAboutFunctionRefs[warningKey] = true;
 
         error('Function components cannot be given refs. ' + 'Attempts to access this ref will fail. ' + 'Did you mean to use React.forwardRef()?%s', info);
+      }
+    }
+
+    if ( Component.defaultProps !== undefined) {
+      var componentName = getComponentNameFromType(Component) || 'Unknown';
+
+      if (!didWarnAboutDefaultPropsOnFunctionComponent[componentName]) {
+        error('%s: Support for defaultProps will be removed from function components ' + 'in a future major release. Use JavaScript default parameters instead.', componentName);
+
+        didWarnAboutDefaultPropsOnFunctionComponent[componentName] = true;
       }
     }
 
@@ -30455,7 +30519,7 @@ identifierPrefix, onRecoverableError, transitionCallbacks) {
   return root;
 }
 
-var ReactVersion = '18.2.0';
+var ReactVersion = '18.3.1';
 
 function createPortal(children, containerInfo, // TODO: figure out the API for cross-renderer implementation.
 implementation) {
@@ -31391,8 +31455,15 @@ function legacyRenderSubtreeIntoContainer(parentComponent, children, container, 
   return getPublicRootInstance(root);
 }
 
+var didWarnAboutFindDOMNode = false;
 function findDOMNode(componentOrElement) {
   {
+    if (!didWarnAboutFindDOMNode) {
+      didWarnAboutFindDOMNode = true;
+
+      error('findDOMNode is deprecated and will be removed in the next major ' + 'release. Instead, add a ref directly to the element you want ' + 'to reference. Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-find-node');
+    }
+
     var owner = ReactCurrentOwner$3.current;
 
     if (owner !== null && owner.stateNode !== null) {
@@ -31472,7 +31543,16 @@ function unstable_renderSubtreeIntoContainer(parentComponent, element, container
 
   return legacyRenderSubtreeIntoContainer(parentComponent, element, containerNode, false, callback);
 }
+var didWarnAboutUnmountComponentAtNode = false;
 function unmountComponentAtNode(container) {
+  {
+    if (!didWarnAboutUnmountComponentAtNode) {
+      didWarnAboutUnmountComponentAtNode = true;
+
+      error('unmountComponentAtNode is deprecated and will be removed in the ' + 'next major release. Switch to the createRoot API. Learn ' + 'more: https://reactjs.org/link/switch-to-createroot');
+    }
+  }
+
   if (!isValidContainerLegacy(container)) {
     throw new Error('unmountComponentAtNode(...): Target container is not a DOM element.');
   }
@@ -31753,7 +31833,7 @@ if (
 ) {
   __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
 }
-          var ReactVersion = '18.2.0';
+          var ReactVersion = '18.3.1';
 
 // ATTENTION
 // When adding new symbols to this file,
@@ -34429,6 +34509,7 @@ exports.PureComponent = PureComponent;
 exports.StrictMode = REACT_STRICT_MODE_TYPE;
 exports.Suspense = REACT_SUSPENSE_TYPE;
 exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
+exports.act = act;
 exports.cloneElement = cloneElement$1;
 exports.createContext = createContext;
 exports.createElement = createElement$1;
@@ -36186,6 +36267,7 @@ const ColorTable_1 = __webpack_require__(/*! ./ColorTable */ "./src/popup/ColorT
 __webpack_require__(/*! ./popup.css */ "./src/popup/popup.css");
 const background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
 const storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
+const WebsiteColorTable_1 = __webpack_require__(/*! ./WebsiteColorTable */ "./src/popup/WebsiteColorTable.tsx");
 // main popup component
 const Popup = () => {
     // state variable for the current mode (day || night)
@@ -36194,6 +36276,8 @@ const Popup = () => {
     const [hex, setHex] = (0, react_1.useState)('');
     // state variable for the saved colors from browser storage, default is empty array []
     const [savedColors, setSavedColors] = (0, react_1.useState)([]);
+    // State variable for the saved websites and their corresponding color, defaults to empty array
+    const [savedWebsiteColors, setSavedWebsiteColors] = (0, react_1.useState)([]);
     // function to change the mode (day/night) and update the state
     const onClick = () => {
         setMode((prevMode) => {
@@ -36219,6 +36303,46 @@ const Popup = () => {
         let savedColors = JSON.parse(result.savedColors);
         savedColors.push(hex);
         storage_1.default.set({ savedColors: JSON.stringify(savedColors) });
+        setSavedColors(savedColors);
+    };
+    // function to save website color to local storage
+    const onClickSaveWebsiteColor = async () => {
+        const result = await storage_1.default.get('savedWebsiteColors');
+        let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        // Check url
+        chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+            let url = tabs[0].url;
+            let urlAndHex = url + " " + hex;
+            savedWebsiteColors.push(urlAndHex);
+            storage_1.default.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+        });
+        setSavedWebsiteColors(savedWebsiteColors);
+    };
+    // Hide website color display on clicking anywhere
+    const onClickCloseWebsiteDropdown = () => {
+        document.documentElement.style.setProperty('--display-website-dropdown', 'none');
+    };
+    // Button onClick function for website colors
+    const onClickWebsiteDropdown = async () => {
+        // Show website colors
+        document.documentElement.style.setProperty('--display-website-dropdown', 'grid');
+        // Grab from storage for website colors
+        const result = await storage_1.default.get('savedWebsiteColors');
+        const savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        // Input values into text boxes
+        let i = 0;
+        let websiteColor = document.getElementById('websiteColor0');
+        while (websiteColor != null) {
+            websiteColor.value = savedWebsiteColors[i].split(' ')[0];
+            i++;
+            let newID = "websiteColor" + i;
+            websiteColor = document.getElementById(newID);
+        }
+    };
+    const updateSavedWebsiteColors = async () => {
+        const result = await storage_1.default.get('savedWebsiteColors');
+        const newSavedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        console.log(newSavedWebsiteColors);
     };
     // use effect hook to change the color, triggered when hex is changed
     (0, react_1.useEffect)(() => {
@@ -36281,6 +36405,23 @@ const Popup = () => {
     (0, react_1.useEffect)(() => {
         storage_1.default.set({ savedColors: JSON.stringify(savedColors) });
     }, [savedColors]);
+    // use effect hook to fetch the saved website colors from local storage
+    (0, react_1.useEffect)(() => {
+        const getSavedWebsiteColors = async () => {
+            let result = await storage_1.default.get('savedWebsiteColors');
+            console.log('saved website colors from storage is', result.savedWebsiteColors);
+            if (result == null) {
+                setSavedWebsiteColors([]);
+            }
+            else {
+                setSavedWebsiteColors(JSON.parse(result.savedWebsiteColors));
+            }
+        };
+        getSavedWebsiteColors();
+    }, []);
+    (0, react_1.useEffect)(() => {
+        storage_1.default.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+    }, [savedWebsiteColors]);
     return (react_1.default.createElement("div", { className: "font-family:-apple-system, BlinkMacSystemFont, sans-serif;" },
         react_1.default.createElement("h1", { className: "app-name" }, "Color Me!"),
         react_1.default.createElement("div", { className: "display-container" },
@@ -36292,6 +36433,12 @@ const Popup = () => {
                     "Hex: ",
                     hex)),
             mode && react_1.default.createElement(ColorTable_1.ColorTable, { colors: savedColors, mode: mode }),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { onClick: onClickWebsiteDropdown }, "Website Themes"),
+                react_1.default.createElement("button", { onClick: onClickCloseWebsiteDropdown }, "Close"),
+                react_1.default.createElement("div", { id: "websiteDropdown", className: "website-dropdown" },
+                    react_1.default.createElement("div", { id: "websiteColorTable" }, mode && react_1.default.createElement(WebsiteColorTable_1.WebsiteColorTable, { colors: savedWebsiteColors, mode: mode, update: updateSavedWebsiteColors, getHex: background_script_1.getHex }))),
+                react_1.default.createElement("button", { onClick: onClickSaveWebsiteColor }, "Add Website Theme")),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "display-light-dark" },
                     mode && react_1.default.createElement("p", null, mode == 'day' ? 'light' : 'dark'),
@@ -36349,19 +36496,166 @@ function hex2cmyk(hexCode) {
 
 /***/ }),
 
+/***/ "./src/popup/WebsiteColorTable.tsx":
+/*!*****************************************!*\
+  !*** ./src/popup/WebsiteColorTable.tsx ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WebsiteColorTable = void 0;
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
+const background_script_1 = __webpack_require__(/*! ./background_script */ "./src/popup/background_script.ts");
+// saved colors table component
+var WebsiteColorTable = (props) => {
+    const [savedWebsiteColors, setSavedWebsiteColors] = (0, react_1.useState)(props.colors);
+    const [refreshKey, setRefreshKey] = (0, react_1.useState)(0);
+    let mode = props.mode;
+    (0, react_1.useEffect)(() => {
+        setSavedWebsiteColors(props.colors);
+    }, [props.colors]);
+    const refreshColors = () => {
+        setRefreshKey((prevRefreshKey) => prevRefreshKey + 1);
+    };
+    return (react_1.default.createElement("div", { style: { display: 'grid' } }, savedWebsiteColors.map((websiteAndColor, index) => props.mode && (react_1.default.createElement(ColorButton, { websiteAndColor: websiteAndColor, index: index, refreshColors: refreshColors, mode: mode, update: props.update, getHex: props.getHex })))));
+};
+exports.WebsiteColorTable = WebsiteColorTable;
+const ColorButton = (props) => {
+    const [mode, setMode] = (0, react_1.useState)('');
+    const [website, setWebsite] = (0, react_1.useState)('');
+    const [color, setColor] = (0, react_1.useState)('');
+    const [id, setID] = (0, react_1.useState)('');
+    (0, react_1.useEffect)(() => {
+        const fetchMode = async () => {
+            try {
+                const result = await storage_1.default.get('mode');
+                const fetchedMode = result.mode || 'day';
+                setMode(fetchedMode);
+            }
+            catch (err) {
+                console.log('error fetching mode', err);
+                setMode('day');
+            }
+        };
+        fetchMode();
+    }, []);
+    // update website and color and id
+    (0, react_1.useEffect)(() => {
+        setWebsite(props.websiteAndColor.split(" ")[0]);
+        setColor(props.websiteAndColor.split(" ")[(props.websiteAndColor.split(" ").length) - 1]);
+        let newID = "websiteColor" + props.index;
+        setID(newID);
+    });
+    function loadSavedColor(theme, color, mode) {
+        (0, background_script_1.setTheme)(background_script_1.themes, color, mode);
+        props.refreshColors();
+    }
+    const changeWebsite = async (e) => {
+        if (e == null || e.currentTarget == null || e.currentTarget.value == null) {
+            return;
+        }
+        // Grab from storage
+        let newWebsite = e.currentTarget.value;
+        setWebsite(newWebsite);
+        let result = await storage_1.default.get('savedWebsiteColors');
+        if (result == null)
+            return;
+        let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        let currentColor = savedWebsiteColors[props.index].split(" ")[props.websiteAndColor.split(" ").length - 1];
+        let newSavedWebsiteColor = newWebsite + " " + currentColor;
+        // Update array and push to storage
+        console.log(newSavedWebsiteColor);
+        savedWebsiteColors[props.index] = newSavedWebsiteColor;
+        storage_1.default.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+        // Update Popup
+        props.update();
+    };
+    const changeColor = async () => {
+        // Grab hex value on wheel
+        const newColor = props.getHex();
+        // Grab from storage again
+        const result1 = await storage_1.default.get('savedWebsiteColors');
+        if (result1 == null)
+            return;
+        const savedWebsiteColors = JSON.parse(result1.savedWebsiteColors);
+        let currentWebsite = savedWebsiteColors[props.index].split(" ")[0];
+        let newSavedWebsiteColor = currentWebsite + " " + newColor;
+        // Update array and push to storage
+        savedWebsiteColors[props.index] = newSavedWebsiteColor;
+        storage_1.default.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+        // Update Popup
+        props.update();
+    };
+    const deleteWebsiteColor = async () => {
+        // Grab from storage
+        let result = await storage_1.default.get('savedWebsiteColors');
+        if (result == null)
+            return;
+        let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        // Update array and push to storage
+        savedWebsiteColors.splice(props.index, 1);
+        storage_1.default.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+        // Update Popup
+        props.update();
+    };
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement("input", { id: id, type: "input", style: { display: "inline-block" }, 
+            // value={website}
+            onChange: e => changeWebsite(e) }),
+        react_1.default.createElement("button", { className: "savedColorsBlackBorder", style: { backgroundColor: color }, onClick: () => loadSavedColor(background_script_1.themes, color, mode) }),
+        react_1.default.createElement("button", { onClick: changeColor }, "Edit"),
+        react_1.default.createElement("button", { onClick: deleteWebsiteColor }, "Del")));
+};
+
+
+/***/ }),
+
 /***/ "./src/popup/background_script.ts":
 /*!****************************************!*\
   !*** ./src/popup/background_script.ts ***!
   \****************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.setTheme = exports.changeMode = exports.updateColor = exports.themes = exports.storage = void 0;
+exports.setTheme = exports.getHex = exports.changeMode = exports.updateColor = exports.themes = exports.storage = void 0;
 const webextension_polyfill_ts_1 = __webpack_require__(/*! webextension-polyfill-ts */ "./node_modules/webextension-polyfill-ts/lib/index.js");
 exports.storage = localStorage;
+const storage_1 = __importDefault(__webpack_require__(/*! utils/storage */ "./src/utils/storage.ts"));
 exports.themes = {
     day: {
         colors: {
@@ -36395,18 +36689,56 @@ async function changeMode(theme, mode) {
 }
 exports.changeMode = changeMode;
 let currentTheme;
+function getHex() {
+    const hex = localStorage.getItem('hex');
+    if (hex != null) {
+        return hex;
+    }
+    return "#FFFFFF";
+}
+exports.getHex = getHex;
 async function setTheme(theme, value, mode) {
     if (theme[mode].colors['frame'] === value) {
         console.log('theme is the same');
         return;
     }
     currentTheme = theme;
-    updateColor(theme, value, mode);
+    // updateColor(theme, value, mode);
     //const currentThemes = await browser.theme.getCurrent();
-    webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
+    // browser.theme.update(theme[mode]);
     localStorage.setItem('mode', mode);
     console.log('local storage updated');
-    document.body.style.backgroundColor = value;
+    // document.body.style.backgroundColor = value;
+    // Check url
+    chrome.tabs.query({ active: true, lastFocusedWindow: true }, async (tabs) => {
+        // Get current url
+        let url = tabs[0].url;
+        if (url == null)
+            return;
+        // Grab from website color storage
+        const result = await storage_1.default.get('savedWebsiteColors');
+        if (result == null)
+            return;
+        let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        // Look through the website color storage to see if it exists there
+        for (let i = 0; i < savedWebsiteColors.length; i++) {
+            if (savedWebsiteColors[i].includes(url)) {
+                console.log("found match in website color");
+                let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+                let savedColor = savedWebsiteColors[i].split(" ")[savedWebsiteColors[i].split(" ").length - 1];
+                document.body.style.backgroundColor = value;
+                webextension_polyfill_ts_1.browser.theme.update({ colors: { frame: savedColor } });
+                return;
+            }
+        }
+        // No match, update color
+        console.log("found no match in website color");
+        document.body.style.backgroundColor = value;
+        updateColor(theme, value, mode);
+        webextension_polyfill_ts_1.browser.theme.update(theme[mode]);
+    });
+    // Add hex in the color wheel into local storage (for website color table edit)
+    localStorage.setItem('hex', value);
 }
 exports.setTheme = setTheme;
 /* function to check if local storage is available */

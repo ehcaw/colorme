@@ -2,6 +2,7 @@
 :root {
   /* color flips depending on color background*/
   --flip-color: black;
+  --display-website-dropdown: none;
 }
 
 .switch {
@@ -107,4 +108,28 @@ input:checked + .slider:before {
   font-size: 5px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.savedColorsBlackBorder {
+  border: 2px solid black;
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+/* Website Dropdown */
+.website-dropdown {
+  display: var(--display-website-dropdown);
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }

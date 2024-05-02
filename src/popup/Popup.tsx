@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import ReinventedColorWheel from 'reinvented-color-wheel/react';
 import 'reinvented-color-wheel/css/reinvented-color-wheel.min.css';
 import { ColorTable } from './ColorTable';
 import './popup.css';
-import { themes, setTheme, updateColor, changeMode } from './background_script';
+import { themes, setTheme, updateColor, changeMode, getHex } from './background_script';
 import storage from 'utils/storage';
+import { WebsiteColorTable } from './WebsiteColorTable';
+
 
 // main popup component
 const Popup = () => {
@@ -14,6 +16,8 @@ const Popup = () => {
   const [hex, setHex] = useState<string>('');
   // state variable for the saved colors from browser storage, default is empty array []
   const [savedColors, setSavedColors] = useState<string[]>([]);
+  // State variable for the saved websites and their corresponding color, defaults to empty array
+  const [savedWebsiteColors, setSavedWebsiteColors] = useState<string[]>([]);
 
   // function to change the mode (day/night) and update the state
   const onClick = () => {
@@ -43,7 +47,52 @@ const Popup = () => {
     let savedColors = JSON.parse(result.savedColors);
     savedColors.push(hex);
     storage.set({ savedColors: JSON.stringify(savedColors) });
+    setSavedColors(savedColors);
   };
+
+  // function to save website color to local storage
+  const onClickSaveWebsiteColor = async () => {
+    const result = await storage.get('savedWebsiteColors');
+    let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+    // Check url
+    chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+      let url = tabs[0].url;
+      let urlAndHex = url + " " + hex;
+      savedWebsiteColors.push(urlAndHex);
+      storage.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+    });
+    setSavedWebsiteColors(savedWebsiteColors);
+  }
+
+  // Hide website color display on clicking anywhere
+  const onClickCloseWebsiteDropdown = () => {
+    document.documentElement.style.setProperty('--display-website-dropdown', 'none');
+  }
+  // Button onClick function for website colors
+  const onClickWebsiteDropdown = async () => {
+    // Show website colors
+    document.documentElement.style.setProperty('--display-website-dropdown', 'grid');
+    
+    // Grab from storage for website colors
+    const result = await storage.get('savedWebsiteColors');
+    const savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+
+    // Input values into text boxes
+    let i = 0;
+    let websiteColor = document.getElementById('websiteColor0') as HTMLInputElement;
+    while (websiteColor != null) {
+      websiteColor.value = savedWebsiteColors[i].split(' ')[0];
+
+      i++;
+      let newID = "websiteColor" + i;
+      websiteColor = document.getElementById(newID) as HTMLInputElement;
+    }
+  }
+  const updateSavedWebsiteColors = async () => {
+    const result = await storage.get('savedWebsiteColors');
+    const newSavedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+    console.log(newSavedWebsiteColors);
+  }
 
   // use effect hook to change the color, triggered when hex is changed
   useEffect(() => {
@@ -90,6 +139,7 @@ const Popup = () => {
     };
     fetchMode();
   }, []);
+  
   // use effect hook to fetch the saved colors from local storage
   useEffect(() => {
     const getSavedColors = async () => {
@@ -104,10 +154,26 @@ const Popup = () => {
     };
     getSavedColors();
   }, []);
-
   useEffect(() => {
     storage.set({ savedColors: JSON.stringify(savedColors) });
   }, [savedColors]);
+
+  // use effect hook to fetch the saved website colors from local storage
+  useEffect(() => {
+    const getSavedWebsiteColors = async () => {
+      let result = await storage.get('savedWebsiteColors');
+      console.log('saved website colors from storage is', result.savedWebsiteColors);
+      if (result == null) {
+        setSavedWebsiteColors([]);
+      } else {
+        setSavedWebsiteColors(JSON.parse(result.savedWebsiteColors));
+      }
+    };
+    getSavedWebsiteColors();
+  }, []);
+  useEffect(() => {
+    storage.set({ savedWebsiteColors: JSON.stringify(savedWebsiteColors) });
+  }, [savedWebsiteColors]);
 
   return (
     <div className="font-family:-apple-system, BlinkMacSystemFont, sans-serif;">
@@ -133,7 +199,22 @@ const Popup = () => {
         <div>
           <p className="display-hex">Hex: {hex}</p>
         </div>
+
+        {/* Color Table */}
         {mode && <ColorTable colors={savedColors} mode={mode} />}
+
+        {/* List of websites */}
+        <div>
+          <button onClick={onClickWebsiteDropdown}>Website Themes</button>
+          <button onClick={onClickCloseWebsiteDropdown}>Close</button>
+          <div id="websiteDropdown" className="website-dropdown">
+            <div id="websiteColorTable">
+              {mode && <WebsiteColorTable colors={savedWebsiteColors} mode={mode} update={updateSavedWebsiteColors} getHex={getHex}/>}
+            </div>
+          </div>
+          <button onClick={onClickSaveWebsiteColor}>Add Website Theme</button>
+        </div>
+
         {/* Light or dark theme */}
         <div>
           <div className="display-light-dark">

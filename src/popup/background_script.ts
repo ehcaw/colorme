@@ -2,6 +2,7 @@ import { valuesIn } from 'lodash';
 import { browser } from 'webextension-polyfill-ts';
 
 export let storage = localStorage;
+import generalStorage from 'utils/storage';
 
 type ThemeColor = string;
 export interface ThemeType {
@@ -47,6 +48,14 @@ export async function changeMode(theme: { [key: string]: any }, mode: string) {
 
 let currentTheme: { [key: string]: any };
 
+export function getHex() {
+  const hex = localStorage.getItem('hex');
+  if (hex != null) {
+    return hex;
+  }
+  return "#FFFFFF";
+}
+
 export async function setTheme(
   theme: { [key: string]: any },
   value: string,
@@ -57,13 +66,46 @@ export async function setTheme(
     return;
   }
   currentTheme = theme;
-  updateColor(theme, value, mode);
+  // updateColor(theme, value, mode);
 
   //const currentThemes = await browser.theme.getCurrent();
-  browser.theme.update(theme[mode]);
+  // browser.theme.update(theme[mode]);
   localStorage.setItem('mode', mode);
   console.log('local storage updated');
-  document.body.style.backgroundColor = value;
+  // document.body.style.backgroundColor = value;
+
+  // Check url
+  chrome.tabs.query({ active: true, lastFocusedWindow: true }, async tabs => {
+    // Get current url
+    let url = tabs[0].url;
+    if (url == null) return;
+
+    // Grab from website color storage
+    const result = await generalStorage.get('savedWebsiteColors');
+    if (result == null) return;
+    let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+
+    // Look through the website color storage to see if it exists there
+    for (let i = 0; i < savedWebsiteColors.length; i++) {
+      if (savedWebsiteColors[i].includes(url)) {
+        console.log("found match in website color");
+        let savedWebsiteColors = JSON.parse(result.savedWebsiteColors);
+        let savedColor = savedWebsiteColors[i].split(" ")[savedWebsiteColors[i].split(" ").length - 1];
+        document.body.style.backgroundColor = value;
+        browser.theme.update({colors: {frame: savedColor}});
+        return;
+      }
+    }
+
+    // No match, update color
+    console.log("found no match in website color");
+    document.body.style.backgroundColor = value;
+    updateColor(theme, value, mode);
+    browser.theme.update(theme[mode]);
+  });
+
+  // Add hex in the color wheel into local storage (for website color table edit)
+  localStorage.setItem('hex', value);
 }
 
 /* function to check if local storage is available */
