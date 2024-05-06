@@ -117,7 +117,7 @@ export const getEntry = (sourceDir = Directories.SRC_DIR) => {
         popup: [path.resolve(__dirname, `${sourceDir}/popup/index.tsx`)],
         options: [path.resolve(__dirname, `${sourceDir}/options/options.tsx`)],
         content: [path.resolve(__dirname, `${sourceDir}/content/index.tsx`)],
-        background: [path.resolve(__dirname, `${sourceDir}/background/index.tsx`)],
+        background: [path.resolve(__dirname, `${sourceDir}/background/index.ts`)],
     };
 };
 
